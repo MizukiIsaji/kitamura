@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.10",
+    "@netlify/plugin-nextjs": "5.16.3",
     "@types/d3-delaunay": "^6.0.4",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",

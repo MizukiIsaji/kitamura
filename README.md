@@ -36,6 +36,8 @@ Supabase の接続先には既存DBを利用できる。既存DBへ初期SQLを�
 通常のアプリ実行にDBパスワード・service_role・secret keyは不要である。
 秘密鍵を NEXT_PUBLIC_ で始まる変数へ登録しない。
 
+Next.js用のサーバー処理は、netlify.tomlと開発用依存関係で指定した公式Next.js Runtimeが作成する。
+
 このリポジトリには開発時の内部作業記録・認証情報・実DBのデータを含めない。
 
 ## 地図データの出典
