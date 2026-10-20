@@ -1,7 +1,9 @@
+import {PostForm} from '@/components/post-form';
 import {PageTitle} from '@/components/ui';
-import {ActionForm} from '@/components/action-form';
-import {createPost} from '@/app/actions';
 import {requireViewer} from '@/lib/auth';
-import {categories,japanDate} from '@/lib/domain';
-export const metadata={title:'釣果を記録する'};
-export default async function NewPost(){await requireViewer('/posts/new');return <div className="narrow"><PageTitle kicker="NEW FISHING RECORD" title="今日の釣りを、記録に。" description="釣れた一尾も、釣れなかった日の発見も。"/><section className="panel"><ActionForm action={createPost} label="記録を保存する"><label>写真<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"/><small>JPEG・PNG・WebP / 10MB以内。写真は任意です。位置情報などのEXIFを除去して保存します。</small></label><div className="form-grid"><label className="full">記録のタイトル<input name="title" maxLength={60} required placeholder="例：流れの変化で出会えた一尾"/></label><label>魚種<input name="species" maxLength={40} placeholder="例：ニジマス"/></label><label>サイズ（cm・自己申告）<input name="size_cm" type="number" step="0.1" min="0.1" max="999"/></label><label>ジャンル<select name="category">{Object.entries(categories).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></label><label>釣行日<input name="fished_on" type="date" defaultValue={japanDate()} max={japanDate()} required/></label><label className="full">エリア<input name="area" required maxLength={80} placeholder="例：長野県 安曇野エリア"/><small>都道府県名を含めると日本マップに表示されます。釣り場を守るため、具体的なポイントや住所はお控えください。</small></label><label>釣り方<input name="method" maxLength={80}/></label><label>ロッド<input name="rod" maxLength={100}/></label><label>リール<input name="reel" maxLength={100}/></label><label>ルアー・仕掛け<input name="lure" maxLength={100}/></label><label className="full">釣行メモ<textarea name="memo" required maxLength={3000} rows={6} placeholder="状況、工夫、次に試したいこと…"/></label></div><label className="check-label"><input name="is_public" type="checkbox" defaultChecked/><span>みんなに公開する<small>チェックを外すと、自分のマイレコードからのみ閲覧できます。</small></span></label></ActionForm></section></div>;}
+import {japanDate} from '@/lib/domain';
+export const metadata={title:'釣果を記録'};
+export default async function NewPost(){
+ await requireViewer('/posts/new');
+ return <div className="narrow"><PageTitle kicker="NEW FISHING RECORD" title="今日の釣りを、記録に。" description="釣れた一尾も、釣れなかった日の発見も。"/><section className="panel"><PostForm today={japanDate()}/></section></div>;
+}

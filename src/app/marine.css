@@ -339,3 +339,16 @@ button.map-result-card:focus-visible{outline:2px solid #087eaa;outline-offset:-2
  .hero-button>svg:last-child{display:none}
  .hero-secondary{gap:5px}
 }
+
+/* KNOTs. and up to five catch photos. */
+.brand{font-size:30px;letter-spacing:.5px}
+.post-photo-picker{margin-bottom:22px}
+.post-photo-previews{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:10px;margin:12px 0 20px}
+.post-photo-previews figure,.post-photo-gallery figure{margin:0}
+.post-photo-previews img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.post-photo-previews figcaption{font-size:11px;color:var(--muted);margin-top:5px}
+.post-photo-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.post-photo-gallery figure:first-child{grid-column:1/-1}
+.post-photo-gallery img{width:100%;max-height:560px;object-fit:contain;border-radius:10px;background:#e9f1f4}
+.post-photo-gallery figcaption{font-size:11px;text-align:right;color:var(--muted);margin-top:4px}
+@media(max-width:760px){.post-photo-previews{grid-template-columns:repeat(3,minmax(0,1fr))}.post-photo-gallery{gap:9px}.post-photo-gallery img{max-height:420px}}

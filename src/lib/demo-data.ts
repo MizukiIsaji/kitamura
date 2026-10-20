@@ -35,7 +35,7 @@ export function createDemoData(today=japanDate()):DemoData{
  const authors=[1,2,3,4,4,0,2,3,0,4,1,2,0,3];
  const posts:PostCardData[]=samples.map(([title,species,size_cm,category,area,memo],i)=>{
   const profile=profiles[authors[i]];
-  return {id:id(101+i),user_id:profile.id,title,species,size_cm,category,area,memo,method:category==='sea'?'サビキ・ちょい投げ':'ルアー',rod:'テスト用ロッド',reel:'テスト用リール',lure:'テスト用ルアー',fished_on:offsetDate(today,-i),image_path:null,imageUrl:null,is_public:i<12,created_at:offsetDate(today,-i)+'T03:00:00.000Z',updated_at:timestamp,profile,likeCount:i%4===0?0:3+i*2,commentCount:0,liked:i===1,bookmarked:i===2||i===6};
+  return {id:id(101+i),user_id:profile.id,title,species,size_cm,category,area,memo,method:category==='sea'?'サビキ・ちょい投げ':'ルアー',rod:'テスト用ロッド',reel:'テスト用リール',lure:category==='sea'?'サビキ釣り':category==='eging'?'エギング・イカ釣り':category==='aji'?'ライトゲーム':'ショアルアー',fished_on:offsetDate(today,-i),image_path:null,imageUrl:null,is_public:i<12,created_at:offsetDate(today,-i)+'T03:00:00.000Z',updated_at:timestamp,profile,likeCount:i%4===0?0:3+i*2,commentCount:0,liked:i===1,bookmarked:i===2||i===6};
  });
  const coaches:Coach[]=[1,2,3,4].map((person,i)=>({user_id:profiles[person].id,status:i===3?'pending':'approved',category:(['sea','trout','bass','eging'] as const)[i],area:profiles[person].prefecture+'・架空のテストエリア',introduction:profiles[person].bio+' こちらは架空の指導者によるテスト表示です。',years_experience:[12,9,15,4][i],created_at:timestamp,updated_at:timestamp}));
  const planSamples:[number,string,number,number][]=[[1,'はじめての堤防釣り',120,6000],[1,'道具選びのオンライン相談',30,0],[2,'渓流キャストの基礎',180,9000],[3,'岸釣りのポイント探し',120,7000],[3,'非公開プランのテスト',60,3000]];

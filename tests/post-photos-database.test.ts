@@ -1,0 +1,43 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {PGlite} from '@electric-sql/pglite';
+test('釣果写真 FR-02: DBでも最大5枚と本人のパスだけを許可し、5枚とも公開範囲を守る',async()=>{
+ const db=new PGlite();const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222',post='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+ try{
+  await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create schema storage;
+  create table auth.users(id uuid primary key,raw_user_meta_data jsonb default '{}');
+  create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
+  grant usage on schema auth to anon,authenticated;grant execute on function auth.uid() to anon,authenticated;
+  create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);
+  create table storage.objects(id uuid default gen_random_uuid(),bucket_id text references storage.buckets(id),name text);
+  create function storage.foldername(text) returns text[] language sql immutable as $$select string_to_array(regexp_replace($1,'/[^/]+$',''),'/')$$;
+  alter table storage.objects enable row level security;grant usage on schema storage to anon,authenticated;grant select,insert,delete on storage.objects to anon,authenticated;`);
+  await db.exec(readFileSync('supabase/migrations/202610170001_initial.sql','utf8'));
+  await db.exec(`insert into auth.users(id) values('${A}'),('${B}');insert into public.posts(id,user_id,title,category,fished_on,area,memo,is_public,image_path) values('${post}','${A}','旧写真','sea',(now() at time zone 'Asia/Tokyo')::date,'神奈川県','メモ',false,'${A}/${post}/old.webp');`);
+  await db.exec(readFileSync('supabase/migrations/202610200001_post_photos.sql','utf8'));
+  await db.exec(readFileSync('supabase/migrations/202610200001_post_photos.sql','utf8'));
+  assert.deepEqual((await db.query<{image_paths:string[]}>(`select image_paths from public.posts where id='${post}'`)).rows[0].image_paths,[`${A}/${post}/old.webp`]);
+  const asUser=async(id:string|null)=>db.exec(`reset role;set role ${id?'authenticated':'anon'};select set_config('request.jwt.claim.sub','${id||''}',false);`);
+  const paths=Array.from({length:5},(_,i)=>`${A}/${post}/${i}.webp`);
+  await asUser(A);
+  await db.query('update public.posts set image_paths=$1 where id=$2',[paths,post]);
+  for(const invalid of [[...paths,`${A}/${post}/six.webp`],[`${B}/${post}/other.webp`],[`${A}/${post}/../bad.webp`],[paths[0],paths[0]],[null]])await assert.rejects(()=>db.query('update public.posts set image_paths=$1 where id=$2',[invalid,post]));
+  assert.equal((await db.query<{image_paths:string[]}>(`select image_paths from public.posts`)).rows[0].image_paths.length,5);
+  for(const name of paths)await db.query(`insert into storage.objects(bucket_id,name) values('catch-photos',$1)`,[name]);
+  assert.equal((await db.query('select name from storage.objects')).rows.length,5);
+  const temporary=`${A}/${post}/unfinished.webp`;
+  await db.query(`insert into storage.objects(bucket_id,name) values('catch-photos',$1)`,[temporary]);
+  assert.equal((await db.query('select name from storage.objects')).rows.length,6,'本人はひも付け前の写真も片付けられる');
+  await asUser(B);assert.equal((await db.query('select name from storage.objects')).rows.length,0);
+  assert.equal((await db.query(`update public.posts set image_paths='{}' where id='${post}' returning id`)).rows.length,0);
+  await asUser(null);assert.equal((await db.query('select name from storage.objects')).rows.length,0);
+  await asUser(A);await db.query(`update public.posts set is_public=true where id=$1`,[post]);
+  await asUser(null);assert.equal((await db.query('select name from storage.objects')).rows.length,5);
+  await asUser(A);await db.query(`update public.posts set image_path=$1 where id=$2`,[`${A}/${post}/legacy.webp`,post]);
+  assert.deepEqual((await db.query<{image_paths:string[]}>(`select image_paths from public.posts`)).rows[0].image_paths,[`${A}/${post}/legacy.webp`]);
+  await db.query(`update public.posts set image_paths=$1 where id=$2`,[paths,post]);
+  assert.equal((await db.query('delete from storage.objects where name=any($1) returning name',[[...paths,temporary]])).rows.length,6);
+  await db.query('delete from public.posts where id=$1',[post]);
+ }finally{await db.close();}
+});

@@ -1,6 +1,6 @@
-# TSURI RECORD
+# KNOTs.
 
-釣行記録・イラスト地図・コーチへの相談を備える Next.js / Supabase アプリ。
+写真最大5枚の釣行記録・14候補のルアー・仕掛け・イラスト地図・コーチへの相談を備える Next.js / Supabase アプリ。
 
 ## ローカル起動
 
@@ -44,3 +44,7 @@ Next.js用のサーバー処理は、netlify.tomlと開発用依存関係で指�
 
 - 都道府県の輪郭: [Natural Earth 5.1.2](https://www.naturalearthdata.com/about/terms-of-use/)（パブリックドメイン）。日本の都道府県を抽出し、輪郭を簡略化している。
 - 市区町村名・代表位置: [Geolonia Japanese Addresses v2 / Digital Agency ABR](https://japanese-addresses-v2.geoloniamaps.com/api/ja.json)、Geolonia / Digital Agency、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。市区町村名と代表位置を抽出し、政令指定都市の区を市へ集約、座標を小数点以下6桁へ丸めている。
+
+## 写真を最大5枚にするDBの追加設定
+
+既存DBにはアプリ更新前に supabase/migrations/202610200001_post_photos.sql を適用する。既存の1枚の写真を引き継ぎ、5枚の上限・所有者の保存先・写真の閲覧制限を設定する。初期SQLは再実行しない。

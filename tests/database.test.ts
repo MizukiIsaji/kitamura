@@ -19,10 +19,11 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  grant select,insert,delete on storage.objects to anon,authenticated;`);
  const diagnostics=readFileSync('supabase/check-setup.sql','utf8');
  const before=await db.query<Record<string,string>>(diagnostics);
- assert.equal(before.rows.length,6);assert(before.rows.every(row=>row['結果']==='要確認'));
+ assert.equal(before.rows.length,7);assert(before.rows.every(row=>row['結果']==='要確認'));
  await db.exec(readFileSync('supabase/migrations/202610170001_initial.sql','utf8'));
+ await db.exec(readFileSync('supabase/migrations/202610200001_post_photos.sql','utf8'));
  const after=await db.query<Record<string,string>>(diagnostics);
- assert.equal(after.rows.length,6);assert(after.rows.every(row=>row['結果']==='OK'));
+ assert.equal(after.rows.length,7);assert(after.rows.every(row=>row['結果']==='OK'));
  await db.exec(`insert into auth.users(id,raw_user_meta_data) values('${A}','{"display_name":"釣り人A"}'),('${B}','{"display_name":"コーチB"}'),('${C}','{}');`);
  const user=async(id:string|null)=>{await db.exec(`reset role; set role ${id?'authenticated':'anon'}; select set_config('request.jwt.claim.sub','${id||''}',false);`);};
  const admin=async()=>{await db.exec(`reset role; select set_config('request.jwt.claim.sub','',false);`);};

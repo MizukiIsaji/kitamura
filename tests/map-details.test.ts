@@ -22,10 +22,10 @@ test('詳細ポップアップ FR-03.3: 承認済みコーチの紹介と公開�
  assert.equal(makeMapEntries([],[{...coach,status:'pending'}]).length,0);
 });
 
-test('詳細ポップアップ FR-03.3: 公開釣果はメモ・釣行日・魚種・サイズ・釣り方・道具を確認できる',()=>{
+test('詳細ポップアップ FR-03.3: 公開釣果はメモ・釣行日・魚種・サイズ・選択した仕掛けと道具を確認できる',()=>{
  const post={id:'post',title:'釣果',area:'岐阜県岐阜市',is_public:true,category:'trout' as const,species:'ニジマス',fished_on:'2026-10-19',size_cm:23.5,method:'ルアー',rod:'ロッド',reel:'リール',lure:'ルアー名',memo:'釣行の詳細\nメモ'};
  const [entry]=makeMapEntries([post],[]);
  assert.equal(entry.details?.description,post.memo);
- assert.deepEqual(entry.details?.fields,[{label:'釣行日',value:'2026.10.19'},{label:'魚種',value:'ニジマス'},{label:'サイズ',value:'23.5cm'},{label:'釣り方',value:'ルアー'},{label:'ロッド',value:'ロッド'},{label:'リール',value:'リール'},{label:'ルアー・餌',value:'ルアー名'}]);
+ assert.deepEqual(entry.details?.fields,[{label:'釣行日',value:'2026.10.19'},{label:'魚種',value:'ニジマス'},{label:'サイズ',value:'23.5cm'},{label:'ロッド',value:'ロッド'},{label:'リール',value:'リール'},{label:'ルアー・仕掛け',value:'ルアー名'}]);
  assert.equal(makeMapEntries([{...post,is_public:false}],[]).length,0);
 });

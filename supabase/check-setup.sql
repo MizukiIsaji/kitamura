@@ -66,6 +66,12 @@ checks(section,item,ok) as (
     select 1 from storage.buckets where id='catch-photos' and not public
     and file_size_limit=10485760 and allowed_mime_types=array['image/webp']::text[]
   )
+  union all
+  select '7. 写真の複数保存','image_pathsと上限チェック',exists(
+    select 1 from pg_attribute where attrelid=to_regclass('public.posts') and attname='image_paths' and not attisdropped and attnotnull
+  ) and exists(
+    select 1 from pg_trigger where tgrelid=to_regclass('public.posts') and tgname='posts_photos_guard' and not tgisinternal
+  )
 )
 select section as "項目",
        case when bool_and(ok) then 'OK' else '要確認' end as "結果",

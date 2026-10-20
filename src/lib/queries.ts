@@ -3,6 +3,7 @@ import {createClient} from '@/lib/supabase/server';
 import {getViewer} from './auth';
 import type {Post,Profile,PostCardData,Coach,Plan,Consultation,Comment,Facility,FacilityKind} from './domain';
 import {makeMapEntries} from './fishing-map';
+import {getPostPhotoPaths} from './post-photos';
 export function assertQuery(error:{message:string}|null){if(error){console.error('Database query failed:',error.message);throw new Error('データの取得に失敗しました。接続設定とDBの初期設定を確認してください。');}}
 export async function getProfile(id:string){const db=await createClient();const {data,error}=await db.from('profiles').select('*').eq('id',id).maybeSingle();assertQuery(error);return data as Profile|null;}
 // 施設掲載 FR-01（docs/ai-dlc/specs/05-admin/facility-screen）: onlyPublished=false は管理画面専用（RLSは管理者にだけ未掲載も返す）
@@ -31,10 +32,10 @@ export async function enrichPosts(posts:Post[]):Promise<PostCardData[]>{
    viewer?db.from('post_likes').select('post_id').eq('user_id',viewer.id).in('post_id',ids):Promise.resolve({data:[],error:null}),
    viewer?db.from('bookmarks').select('post_id').eq('user_id',viewer.id).in('post_id',ids):Promise.resolve({data:[],error:null})
  ]);[profiles,stats,likes,bookmarks].forEach(r=>assertQuery(r.error));
- const paths=posts.flatMap(p=>p.image_path?[p.image_path]:[]);
+ const paths=[...new Set(posts.flatMap(getPostPhotoPaths))];
  const images=paths.length?await db.storage.from('catch-photos').createSignedUrls(paths,3600):{data:[],error:null};
  if(images.error)console.error('Photo URLs could not be created:',images.error.message);
- return posts.map(p=>({...p,profile:(profiles.data as Profile[]).find(x=>x.id===p.user_id)||null,imageUrl:images.data?.find(x=>x.path===p.image_path)?.signedUrl||null,likeCount:stats.data?.find(x=>x.post_id===p.id)?.like_count||0,commentCount:stats.data?.find(x=>x.post_id===p.id)?.comment_count||0,liked:!!likes.data?.some(x=>x.post_id===p.id),bookmarked:!!bookmarks.data?.some(x=>x.post_id===p.id)}));
+ return posts.map(p=>({...p,profile:(profiles.data as Profile[]).find(x=>x.id===p.user_id)||null,imageUrl:images.data?.find(x=>x.path===getPostPhotoPaths(p)[0])?.signedUrl||null,imageUrls:getPostPhotoPaths(p).map(path=>images.data?.find(x=>x.path===path)?.signedUrl).filter((url):url is string=>Boolean(url)),likeCount:stats.data?.find(x=>x.post_id===p.id)?.like_count||0,commentCount:stats.data?.find(x=>x.post_id===p.id)?.comment_count||0,liked:!!likes.data?.some(x=>x.post_id===p.id),bookmarked:!!bookmarks.data?.some(x=>x.post_id===p.id)}));
 }
 export async function getFeed({category,q,page=1,userId,following=false,saved=false}:{category?:string;q?:string;page?:number;userId?:string;following?:boolean;saved?:boolean}={}){
  const db=await createClient(),viewer=await getViewer();let query=db.from('posts').select('*',{count:'exact'}).order('created_at',{ascending:false}).order('id');

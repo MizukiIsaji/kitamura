@@ -1,6 +1,7 @@
 'use server';
 import {randomUUID} from 'node:crypto';
 import {encodePhoto} from '@/lib/photo';
+import {validatePhotoFiles,getPostPhotoPaths,savePhotoBatch} from '@/lib/post-photos';
 import {redirect} from 'next/navigation';
 import {revalidatePath} from 'next/cache';
 import {createClient} from '@/lib/supabase/server';
@@ -51,26 +52,27 @@ export async function updateProfile(_:ActionState,form:FormData):Promise<ActionS
 }
 export async function createPost(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer('/posts/new'),parsed=postSchema.safeParse({...fields(form),is_public:form.get('is_public')==='on'});if(!parsed.success)return{error:parsed.error.issues[0].message};
- const photo=form.get('photo');let encoded:Buffer|null=null;
- if(photo instanceof File&&photo.size){
-  if(photo.size>10*1024*1024||!['image/jpeg','image/png','image/webp'].includes(photo.type))return{error:'写真はJPEG・PNG・WebPの10MB以内で選んでください。'};
-  try{encoded=await encodePhoto(Buffer.from(await photo.arrayBuffer()));}catch{return{error:'写真を読み込めませんでした。別の画像でお試しください。'};}
- }
+ const photos=[...form.getAll('photos'),...form.getAll('photo')].filter((item):item is File=>item instanceof File&&item.size>0);
+ try{validatePhotoFiles(photos);}catch(error){return{error:error instanceof Error?error.message:'写真を確認してください。'};}
+ const encoded:Buffer[]=[];
+ try{for(const photo of photos)encoded.push(await encodePhoto(Buffer.from(await photo.arrayBuffer())));}
+ catch{return{error:'写真を読み込めませんでした。別の画像でお試しください。'};}
  const id=randomUUID(),db=await createClient();const inserted=await db.from('posts').insert({...parsed.data,id,user_id:user.id});if(inserted.error)return failure(inserted.error);
- if(encoded){
-   const path=`${user.id}/${id}/${randomUUID()}.webp`;
-   const upload=await db.storage.from('catch-photos').upload(path,encoded,{contentType:'image/webp',upsert:false});
-   if(upload.error){await db.from('posts').delete().eq('id',id).eq('user_id',user.id);return{error:'写真を保存できませんでした。保存先の設定を確認して再度お試しください。'};}
-   const linked=await db.from('posts').update({image_path:path}).eq('id',id).eq('user_id',user.id);
-   if(linked.error){await db.storage.from('catch-photos').remove([path]);await db.from('posts').delete().eq('id',id).eq('user_id',user.id);return failure(linked.error);}
- }
- revalidatePath('/');revalidatePath('/records');redirect('/posts/'+id);
+ const paths=encoded.map(()=>`${user.id}/${id}/${randomUUID()}.webp`);
+ const saved=await savePhotoBatch(paths,{
+  upload:async path=>{const result=await db.storage.from('catch-photos').upload(path,encoded[paths.indexOf(path)],{contentType:'image/webp',upsert:false});if(result.error)throw new Error('PHOTO_UPLOAD_FAILED');},
+  link:async values=>{const result=await db.from('posts').update({image_path:values[0]||null,image_paths:values}).eq('id',id).eq('user_id',user.id).select('id');if(result.error||result.data?.length!==1)throw new Error('PHOTO_LINK_FAILED');},
+  remove:async values=>{const result=await db.storage.from('catch-photos').remove(values);if(result.error)throw new Error('PHOTO_CLEANUP_FAILED');},
+  deletePost:async()=>{const result=await db.from('posts').delete().eq('id',id).eq('user_id',user.id);if(result.error)throw new Error('POST_CLEANUP_FAILED');},
+ });
+ if(!saved.ok){if(saved.cleanupFailed)console.error('Post photo rollback needs cleanup');return{error:'写真を保存できませんでした。時間をおいて再度お試しください。'};}
+ revalidatePath('/');revalidatePath('/posts');revalidatePath('/records');redirect('/posts/'+id);
 }
 export async function deletePost(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer('/records'),id=idSchema.safeParse(form.get('id'));if(!id.success)return{error:'投稿が見つかりません。'};if(form.get('confirm')!=='on')return{error:'削除の確認にチェックを入れてください。'};
- const db=await createClient(),post=await db.from('posts').select('id,image_path').eq('id',id.data).eq('user_id',user.id).maybeSingle();if(post.error)return failure(post.error);if(!post.data)return{error:'投稿が見つからないか、削除できません。'};
+ const db=await createClient(),post=await db.from('posts').select('id,image_path,image_paths').eq('id',id.data).eq('user_id',user.id).maybeSingle();if(post.error)return failure(post.error);if(!post.data)return{error:'投稿が見つからないか、削除できません。'};
+ const paths=getPostPhotoPaths(post.data);if(paths.length){const removed=await db.storage.from('catch-photos').remove(paths);if(removed.error)return{error:'写真を削除できませんでした。時間をおいて再度お試しください。'};}
  const result=await db.from('posts').delete().eq('id',id.data).eq('user_id',user.id);if(result.error)return failure(result.error);
- if(post.data.image_path){const removed=await db.storage.from('catch-photos').remove([post.data.image_path]);if(removed.error)console.error('Orphan photo cleanup needed:',post.data.image_path);}
  revalidatePath('/');revalidatePath('/records');redirect('/records');
 }
 export async function setRelation(_:ActionState,form:FormData):Promise<ActionState>{
