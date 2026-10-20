@@ -1,6 +1,7 @@
 import {z} from 'zod';
 import {japanDate} from './domain';
 import {tackleOptions} from './post-options';
+import {consultationAreas} from './consultation-options';
 const category=z.enum(['sea','bass','trout','aji','eging']);
 const text=(min:number,max:number)=>z.string().trim().min(min,`${min}文字以上で入力してください`).max(max,`${max}文字以内で入力してください`);
 const date=z.iso.date();
@@ -9,7 +10,7 @@ export const loginSchema=z.object({email:z.email('メールアドレスを確認
 export const signupSchema=loginSchema.extend({password:z.string().min(12,'パスワードは12文字以上で入力してください').max(128),display_name:text(1,40)});
 export const postSchema=z.object({title:text(1,60),species:text(0,40),size_cm:z.preprocess(v=>v===''||v===null?null:Number(v),z.number().positive().max(999).nullable()),category,fished_on:date.refine(d=>d<=japanDate(),'釣行日は今日以前の日付を選んでください'),area:text(1,80),rod:text(0,100),reel:text(0,100),lure:z.union([z.literal(''),z.enum(tackleOptions)]).default(''),memo:text(1,3000),is_public:z.boolean()});
 export const profileSchema=z.object({handle:z.string().regex(/^[a-z0-9_]{3,30}$/,'ユーザー名は半角英小文字・数字・_で3〜30文字です'),display_name:text(1,40),bio:text(0,1000),prefecture:text(0,20)});
-export const consultationSchema=z.object({plan_id:idSchema,client_token:idSchema,preferred_date:date.refine(d=>d>=japanDate(),'希望日は今日以降を選んでください'),preferred_time:z.enum(['morning','afternoon','evening','flexible']),experience:z.enum(['first','beginner','experienced']),goal:text(1,100),message:text(1,2000)});
+export const consultationSchema=z.object({plan_id:idSchema,client_token:idSchema,preferred_date:date.refine(d=>d>=japanDate(),'希望日は今日以降を選んでください'),preferred_time:z.enum(['morning','afternoon','evening','flexible']),experience:z.enum(['first','beginner','experienced']),preferred_area:z.enum(consultationAreas,{error:'希望エリアを選択してください'}),equipment_status:z.enum(['owned','partial','none'],{error:'道具の有無を選択してください'}),goal:text(1,100),message:text(1,2000)});
 export const coachSchema=z.object({introduction:text(20,2000),category,area:text(1,100),years_experience:z.coerce.number().int().min(0).max(80)});
 export const planSchema=z.object({title:text(1,80),description:text(20,3000),duration_minutes:z.coerce.number().int().min(30).max(720),price_yen:z.coerce.number().int().min(0).max(1000000),is_active:z.boolean()});
 export const facilitySchema=z.object({kind:z.enum(['pond','spot','shop']),name:text(1,60),description:text(1,1000),prefecture:text(1,10),municipality:text(0,50),address:text(0,200),phone:text(0,20),business_hours:text(0,200),price_info:text(0,500),is_published:z.boolean()});

@@ -1,5 +1,14 @@
 'use client';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {Grid2X2,Compass,BookOpen,MessageCircle,Map} from 'lucide-react';
-export function NavLinks(){const path=usePathname();return <nav className="nav-links" aria-label="メインナビゲーション">{[['/','釣果を見つける',Grid2X2],['/explore','マップで探す',Map],['/coaches','コーチを探す',Compass],['/records','マイレコード',BookOpen],['/requests','相談・依頼履歴',MessageCircle]].map(([href,label,Icon])=>{const Href=href as string,Component=Icon as typeof Grid2X2,active=Href==='/'?path==='/':path.startsWith(Href);return <Link key={Href} href={Href} className={active?'active':''} aria-current={active?'page':undefined}><Component size={19}/>{label as string}</Link>;})}</nav>;}
+import {Grid2X2,Compass,BookOpen,MessageCircle,Map,Plus} from 'lucide-react';
+import {mainNavigation,activeNavigationHref} from '@/lib/navigation';
+const icons={map:Map,feed:Grid2X2,create:Plus,records:BookOpen,coach:Compass,requests:MessageCircle};
+export function NavLinks({variant='sidebar'}:{variant?:'sidebar'|'mobile'}){
+ const active=activeNavigationHref(usePathname());
+ return <nav className={variant==='mobile'?'mobile-nav':'nav-links'} aria-label={variant==='mobile'?'モバイルナビゲーション':'メインナビゲーション'}>{mainNavigation.map(item=>{
+  const Icon=icons[item.icon],current=active===item.href;
+  const className=[variant==='mobile'&&item.icon==='create'?'mobile-create':'',current?'active':''].filter(Boolean).join(' ');
+  return <Link key={item.href} href={item.href} className={className||undefined} aria-current={current?'page':undefined}><Icon size={19}/>{item.label}</Link>;
+ })}</nav>;
+}

@@ -72,6 +72,11 @@ checks(section,item,ok) as (
   ) and exists(
     select 1 from pg_trigger where tgrelid=to_regclass('public.posts') and tgname='posts_photos_guard' and not tgisinternal
   )
+  union all
+  select '8. 相談の追加項目',column_name,exists(
+    select 1 from information_schema.columns where table_schema='public' and table_name='coaching_requests' and information_schema.columns.column_name=r.column_name and is_nullable='NO'
+  ) and coalesce(has_column_privilege('authenticated',to_regclass('public.coaching_requests'),r.column_name,'INSERT'),false)
+  from (values ('preferred_area'),('equipment_status')) r(column_name)
 )
 select section as "項目",
        case when bool_and(ok) then 'OK' else '要確認' end as "結果",
