@@ -1,0 +1,2921 @@
+{
+  "scope": "nationwide-facilities-v1",
+  "tag": "[全国地図テスト:v1]",
+  "source": {
+    "repository": "https://github.com/ytsubo8426/japan-municipal-offices",
+    "license": "CC0 1.0",
+    "retrievedAt": "2026-10-20",
+    "archiveSha256": "e2cd1b5046a652d6c03739d8563ebd308ebbd0af493d6bbd8568b71095629eb5"
+  },
+  "rows": [
+    {
+      "id": "b6ba0122-9615-469a-8994-3d24ac2f00c2",
+      "kind": "shop",
+      "name": "[テスト] 札幌市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "北海道",
+      "municipality": "札幌市",
+      "address": "北海道札幌市清田区平岡1条1丁目2-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "32fe6e6e-4397-4162-8615-c43b4fe957ff",
+      "kind": "pond",
+      "name": "[テスト] 函館市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "北海道",
+      "municipality": "函館市",
+      "address": "北海道函館市東雲町4番13号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "2e1f21db-5654-481a-85b9-109a24da538e",
+      "kind": "spot",
+      "name": "[テスト] 札幌市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "北海道",
+      "municipality": "札幌市",
+      "address": "北海道札幌市清田区平岡1条1丁目2-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "8d5c1c7b-3874-4366-8550-a3f024704365",
+      "kind": "shop",
+      "name": "[テスト] 青森市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "青森県",
+      "municipality": "青森市",
+      "address": "青森県青森市中央1-22-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "2e6f74a8-3375-47b2-825c-c07d3e71b6dc",
+      "kind": "pond",
+      "name": "[テスト] 弘前市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "青森県",
+      "municipality": "弘前市",
+      "address": "青森県弘前市大字上白銀町1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "c2fc132e-4461-4f86-8bcc-37d8b4ea4dab",
+      "kind": "spot",
+      "name": "[テスト] 青森市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "青森県",
+      "municipality": "青森市",
+      "address": "青森県青森市中央1-22-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "a09d48b2-2770-49ae-8ee7-97a2b81cc9ae",
+      "kind": "shop",
+      "name": "[テスト] 盛岡市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岩手県",
+      "municipality": "盛岡市",
+      "address": "岩手県盛岡市内丸12-2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "21ea52e0-02e1-4ccc-8ee2-bd5941cae19b",
+      "kind": "pond",
+      "name": "[テスト] 宮古市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岩手県",
+      "municipality": "宮古市",
+      "address": "岩手県宮古市宮町一丁目1番30号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "537faf32-1428-4253-80c9-decb638206b1",
+      "kind": "spot",
+      "name": "[テスト] 盛岡市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岩手県",
+      "municipality": "盛岡市",
+      "address": "岩手県盛岡市内丸12-2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "ea8363db-48bc-4737-8e46-9591537526cf",
+      "kind": "shop",
+      "name": "[テスト] 仙台市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮城県",
+      "municipality": "仙台市",
+      "address": "宮城県仙台市泉区泉中央二丁目1番地の1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "b2976376-7871-49bb-8d90-6e34b131a100",
+      "kind": "pond",
+      "name": "[テスト] 石巻市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮城県",
+      "municipality": "石巻市",
+      "address": "宮城県石巻市穀町14番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "1016a4b4-20ae-48b3-843f-2cbe47b6ba1a",
+      "kind": "spot",
+      "name": "[テスト] 仙台市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮城県",
+      "municipality": "仙台市",
+      "address": "宮城県仙台市泉区泉中央二丁目1番地の1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "b3c60f7a-20cc-4a16-8a38-fe6a5e9e0d7d",
+      "kind": "shop",
+      "name": "[テスト] 秋田市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "秋田県",
+      "municipality": "秋田市",
+      "address": "秋田県秋田市山王一丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "1fe43824-7fbd-4464-82c9-d721657e570c",
+      "kind": "pond",
+      "name": "[テスト] 能代市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "秋田県",
+      "municipality": "能代市",
+      "address": "秋田県能代市上町1番3号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "0397cfbf-238c-40a7-8cdf-a0e306707ed8",
+      "kind": "spot",
+      "name": "[テスト] 秋田市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "秋田県",
+      "municipality": "秋田市",
+      "address": "秋田県秋田市山王一丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "03a898be-fefc-4796-8fbe-611e68429508",
+      "kind": "shop",
+      "name": "[テスト] 山形市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山形県",
+      "municipality": "山形市",
+      "address": "山形県山形市旅篭町二丁目3番25号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "703df19f-f62d-4976-8758-9da7a6acf0e6",
+      "kind": "pond",
+      "name": "[テスト] 米沢市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山形県",
+      "municipality": "米沢市",
+      "address": "山形県米沢市金池五丁目2番25号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "5575031d-a6c0-4e74-84f5-37049a6b563a",
+      "kind": "spot",
+      "name": "[テスト] 山形市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山形県",
+      "municipality": "山形市",
+      "address": "山形県山形市旅篭町二丁目3番25号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "813d98aa-f8d7-48d4-85cf-76ec3c9cd529",
+      "kind": "shop",
+      "name": "[テスト] 福島市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福島県",
+      "municipality": "福島市",
+      "address": "福島県福島市五老内町3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "32220237-9fff-4b34-8a23-778a280553a9",
+      "kind": "pond",
+      "name": "[テスト] 会津若松市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福島県",
+      "municipality": "会津若松市",
+      "address": "福島県会津若松市東栄町3-46",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "f0cd256c-09cc-4736-81e4-d88df2d49557",
+      "kind": "spot",
+      "name": "[テスト] 福島市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福島県",
+      "municipality": "福島市",
+      "address": "福島県福島市五老内町3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "1256abff-a1b3-4711-8c98-4f7719e888ea",
+      "kind": "shop",
+      "name": "[テスト] 水戸市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "茨城県",
+      "municipality": "水戸市",
+      "address": "茨城県水戸市中央一丁目4番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "61955b26-56dd-4edf-8b79-998d0c32be11",
+      "kind": "pond",
+      "name": "[テスト] 日立市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "茨城県",
+      "municipality": "日立市",
+      "address": "茨城県日立市助川町一丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "5de5ef20-47e1-4901-83d8-2a2ffdd0f02d",
+      "kind": "spot",
+      "name": "[テスト] 水戸市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "茨城県",
+      "municipality": "水戸市",
+      "address": "茨城県水戸市中央一丁目4番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "c558b6af-5c72-4230-85f9-0fb56bdb4f71",
+      "kind": "shop",
+      "name": "[テスト] 宇都宮市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "栃木県",
+      "municipality": "宇都宮市",
+      "address": "栃木県宇都宮市旭1丁目1-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "158e22bd-2972-462c-8419-615a683efc8a",
+      "kind": "pond",
+      "name": "[テスト] 足利市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "栃木県",
+      "municipality": "足利市",
+      "address": "栃木県足利市本城3丁目2145番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "d396778f-c5f7-43d2-808b-4fcb10cc7ca6",
+      "kind": "spot",
+      "name": "[テスト] 宇都宮市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "栃木県",
+      "municipality": "宇都宮市",
+      "address": "栃木県宇都宮市旭1丁目1-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "d2f343e7-dbbe-418c-883c-785a18cbb907",
+      "kind": "shop",
+      "name": "[テスト] 前橋市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "群馬県",
+      "municipality": "前橋市",
+      "address": "群馬県前橋市大手町二丁目12番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "ee89a689-b0f8-4f3f-80f2-e3bd12fb854b",
+      "kind": "pond",
+      "name": "[テスト] 高崎市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "群馬県",
+      "municipality": "高崎市",
+      "address": "群馬県高崎市高松町35番地1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "c3f6ad27-45b7-4df7-8139-d508b903254a",
+      "kind": "spot",
+      "name": "[テスト] 前橋市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "群馬県",
+      "municipality": "前橋市",
+      "address": "群馬県前橋市大手町二丁目12番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "cce78da4-eb93-4769-80d1-b0477ccd1a56",
+      "kind": "shop",
+      "name": "[テスト] さいたま市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市",
+      "address": "埼玉県さいたま市岩槻区本町3-2-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "470eb740-3c6e-4bb4-8f33-1fdb210414c6",
+      "kind": "pond",
+      "name": "[テスト] 川越市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "埼玉県",
+      "municipality": "川越市",
+      "address": "埼玉県川越市元町1-3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "9e0c4b88-04f2-4fae-823d-2d2c067adab9",
+      "kind": "spot",
+      "name": "[テスト] さいたま市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市",
+      "address": "埼玉県さいたま市岩槻区本町3-2-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "7a1f1669-d40a-4e0d-8b22-5eb51f17a5d0",
+      "kind": "shop",
+      "name": "[テスト] 千葉市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "千葉県",
+      "municipality": "千葉市",
+      "address": "千葉県千葉市美浜区真砂5-15-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "03d68954-308d-4c1a-8e33-c524e122fa6f",
+      "kind": "pond",
+      "name": "[テスト] 銚子市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "千葉県",
+      "municipality": "銚子市",
+      "address": "千葉県銚子市若宮町1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "19ffe755-a105-4ba8-8519-10c11a954618",
+      "kind": "spot",
+      "name": "[テスト] 千葉市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "千葉県",
+      "municipality": "千葉市",
+      "address": "千葉県千葉市美浜区真砂5-15-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "12840b13-fb3c-41ce-8af8-ded2ad329b7b",
+      "kind": "shop",
+      "name": "[テスト] 千代田区 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "address": "東京都千代田区九段南1-2-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "e7fd6de0-0f09-46e0-8847-49f1518449c6",
+      "kind": "pond",
+      "name": "[テスト] 中央区 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "東京都",
+      "municipality": "中央区",
+      "address": "東京都中央区築地1-1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "64902e5a-7826-4e40-89ca-0b4df5a373aa",
+      "kind": "spot",
+      "name": "[テスト] 千代田区 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "address": "東京都千代田区九段南1-2-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "7713285f-3892-4050-869e-5e591f608aa6",
+      "kind": "shop",
+      "name": "[テスト] 横浜市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "神奈川県",
+      "municipality": "横浜市",
+      "address": "神奈川県横浜市都筑区茅ケ崎中央32-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "3719e97c-e1d7-4328-8580-47c77f8d6285",
+      "kind": "pond",
+      "name": "[テスト] 川崎市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "神奈川県",
+      "municipality": "川崎市",
+      "address": "神奈川県川崎市麻生区万福寺1-5-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "194e3331-8310-40a1-878f-9f70371c26e4",
+      "kind": "spot",
+      "name": "[テスト] 横浜市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "神奈川県",
+      "municipality": "横浜市",
+      "address": "神奈川県横浜市都筑区茅ケ崎中央32-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6dab1f01-0a2b-4edc-85e5-2a11b9e7bfa2",
+      "kind": "shop",
+      "name": "[テスト] 新潟市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "新潟県",
+      "municipality": "新潟市",
+      "address": "新潟県新潟市西蒲区旗屋585番地1(西川出張所3階/庁舎建替えのため移転中)",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "eecce0a8-592f-4798-8bbf-3da44efd6d14",
+      "kind": "pond",
+      "name": "[テスト] 長岡市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "新潟県",
+      "municipality": "長岡市",
+      "address": "新潟県長岡市大手通1丁目4番地10",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "21ff1b91-5f9b-403f-86e0-a0f6e744f9a4",
+      "kind": "spot",
+      "name": "[テスト] 新潟市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "新潟県",
+      "municipality": "新潟市",
+      "address": "新潟県新潟市西蒲区旗屋585番地1(西川出張所3階/庁舎建替えのため移転中)",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "1c86041a-0ac6-4edd-86e1-84c908f544dd",
+      "kind": "shop",
+      "name": "[テスト] 富山市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "富山県",
+      "municipality": "富山市",
+      "address": "富山県富山市新桜町7番38号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "cdfbe202-ea0f-47e0-860f-74c5363119d1",
+      "kind": "pond",
+      "name": "[テスト] 高岡市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "富山県",
+      "municipality": "高岡市",
+      "address": "富山県高岡市広小路7番50号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "3e5cbbf6-7bd3-4283-8590-4ccf997c8e6a",
+      "kind": "spot",
+      "name": "[テスト] 富山市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "富山県",
+      "municipality": "富山市",
+      "address": "富山県富山市新桜町7番38号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "ae84e00e-be5a-46e8-8ee5-cb4ed26162c3",
+      "kind": "shop",
+      "name": "[テスト] 金沢市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "石川県",
+      "municipality": "金沢市",
+      "address": "石川県金沢市広坂1-1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "0ea06dd5-3f60-4f4a-872a-af32ac3557ad",
+      "kind": "pond",
+      "name": "[テスト] 珠洲市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "石川県",
+      "municipality": "珠洲市",
+      "address": "石川県珠洲市上戸町北方1字6-2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "72c5cbfb-8100-401f-8435-a96788880c95",
+      "kind": "spot",
+      "name": "[テスト] 金沢市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "石川県",
+      "municipality": "金沢市",
+      "address": "石川県金沢市広坂1-1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "52c74af7-62c3-4fa9-8732-6cff1410982e",
+      "kind": "shop",
+      "name": "[テスト] 福井市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福井県",
+      "municipality": "福井市",
+      "address": "福井県福井市大手3丁目10-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "59750af5-550c-419b-81b4-22bb3f1aca55",
+      "kind": "pond",
+      "name": "[テスト] 敦賀市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福井県",
+      "municipality": "敦賀市",
+      "address": "福井県敦賀市中央町2丁目1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "73b84ea4-f819-416e-8362-16ec2687352d",
+      "kind": "spot",
+      "name": "[テスト] 福井市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福井県",
+      "municipality": "福井市",
+      "address": "福井県福井市大手3丁目10-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "b8a46efd-2025-44c9-8e31-ce805133d518",
+      "kind": "shop",
+      "name": "[テスト] 甲府市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山梨県",
+      "municipality": "甲府市",
+      "address": "山梨県甲府市丸の内一丁目18番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "bf3779e7-3328-4c7b-89ee-f45e760faf59",
+      "kind": "pond",
+      "name": "[テスト] 富士吉田市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山梨県",
+      "municipality": "富士吉田市",
+      "address": "山梨県富士吉田市下吉田6丁目1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "eb7f2fb2-d551-4fb0-822a-943cb21070ee",
+      "kind": "spot",
+      "name": "[テスト] 甲府市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山梨県",
+      "municipality": "甲府市",
+      "address": "山梨県甲府市丸の内一丁目18番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "c8199fd4-9f8e-42b1-8acb-3d3dfa637568",
+      "kind": "shop",
+      "name": "[テスト] 松本市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長野県",
+      "municipality": "松本市",
+      "address": "長野県松本市丸の内3-7",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "76a86a05-f58e-45b1-8046-22db92089b3b",
+      "kind": "pond",
+      "name": "[テスト] 上田市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長野県",
+      "municipality": "上田市",
+      "address": "長野県上田市大手1-11-16",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "09f617d4-ba70-4867-85ab-3311c3944f56",
+      "kind": "spot",
+      "name": "[テスト] 松本市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長野県",
+      "municipality": "松本市",
+      "address": "長野県松本市丸の内3-7",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "ae491fae-9a13-4ada-8825-20512a45a1f3",
+      "kind": "shop",
+      "name": "[テスト] 岐阜市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "岐阜市",
+      "address": "岐阜県岐阜市司町40-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "fbd8880d-1250-4028-84a0-88f2a7da3554",
+      "kind": "pond",
+      "name": "[テスト] 各務原市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "各務原市",
+      "address": "岐阜県各務原市那加桜町1-69",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "694f1824-75aa-4dae-8486-2bf6dd3609de",
+      "kind": "spot",
+      "name": "[テスト] 岐阜市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "岐阜市",
+      "address": "岐阜県岐阜市司町40-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "c48cbc12-1a54-4ddb-88cd-015c4e707c1d",
+      "kind": "shop",
+      "name": "[テスト] 大垣市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "大垣市",
+      "address": "岐阜県大垣市丸の内2-29",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "d9522e5f-ee4a-4f32-851e-31b13a270232",
+      "kind": "pond",
+      "name": "[テスト] 垂井町 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "不破郡垂井町",
+      "address": "岐阜県不破郡垂井町宮代2957-11",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "9ecc161c-c842-4878-86f6-273201fc89ea",
+      "kind": "spot",
+      "name": "[テスト] 大垣市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "大垣市",
+      "address": "岐阜県大垣市丸の内2-29",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "cbe43525-5455-46f2-820a-5ced74dd48c6",
+      "kind": "shop",
+      "name": "[テスト] 関市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "関市",
+      "address": "岐阜県関市若草通3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "066bbaa8-538d-4d19-8b07-57191afd6a0e",
+      "kind": "pond",
+      "name": "[テスト] 美濃加茂市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "美濃加茂市",
+      "address": "岐阜県美濃加茂市太田町3431-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "edab433b-7d8f-408d-81b4-30627c71a4bb",
+      "kind": "spot",
+      "name": "[テスト] 関市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "関市",
+      "address": "岐阜県関市若草通3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "e0cf0873-df0e-44e3-8911-f4de264e983e",
+      "kind": "shop",
+      "name": "[テスト] 多治見市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "多治見市",
+      "address": "岐阜県多治見市日ノ出町2-15",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "31295bae-1a90-4e00-8ce8-68103864d09a",
+      "kind": "pond",
+      "name": "[テスト] 中津川市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "中津川市",
+      "address": "岐阜県中津川市かやの木町2-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "de9aabe0-27a6-4465-83ca-94a1766bc57e",
+      "kind": "spot",
+      "name": "[テスト] 多治見市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "多治見市",
+      "address": "岐阜県多治見市日ノ出町2-15",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "c0a1e588-1397-448f-8777-beefcee46799",
+      "kind": "shop",
+      "name": "[テスト] 高山市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "高山市",
+      "address": "岐阜県高山市花岡町2-18",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "48688aba-a565-4cc2-8c71-d852468b5fe4",
+      "kind": "pond",
+      "name": "[テスト] 飛騨市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "飛騨市",
+      "address": "岐阜県飛騨市古川町本町2-22",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "c35871e8-ce5a-4185-83d7-f182d623c663",
+      "kind": "spot",
+      "name": "[テスト] 高山市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岐阜県",
+      "municipality": "高山市",
+      "address": "岐阜県高山市花岡町2-18",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "9ae133f9-a6bb-4950-836d-46c29d14a983",
+      "kind": "shop",
+      "name": "[テスト] 静岡市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "静岡県",
+      "municipality": "静岡市",
+      "address": "静岡県静岡市清水区旭町6番8号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6c166908-4aba-44ed-836d-e8919ea671dd",
+      "kind": "pond",
+      "name": "[テスト] 浜松市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "静岡県",
+      "municipality": "浜松市",
+      "address": "静岡県浜松市天竜区二俣町二俣481番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "1139498c-0413-4815-8c3b-11f2c9f4b0c9",
+      "kind": "spot",
+      "name": "[テスト] 静岡市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "静岡県",
+      "municipality": "静岡市",
+      "address": "静岡県静岡市清水区旭町6番8号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6c30065e-f5fd-4cb7-8e12-64f6e6ba80fd",
+      "kind": "shop",
+      "name": "[テスト] 名古屋市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛知県",
+      "municipality": "名古屋市",
+      "address": "愛知県名古屋市天白区島田2-201",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "5ddc552b-07ac-43f4-88a5-3e5226c37e42",
+      "kind": "pond",
+      "name": "[テスト] 岡崎市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛知県",
+      "municipality": "岡崎市",
+      "address": "愛知県岡崎市十王町2-9",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "3950971c-c3c4-41d5-81d1-c9286b37a103",
+      "kind": "spot",
+      "name": "[テスト] 名古屋市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛知県",
+      "municipality": "名古屋市",
+      "address": "愛知県名古屋市天白区島田2-201",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "4c4ab611-2aa4-4157-8cdd-39254eccf3ce",
+      "kind": "shop",
+      "name": "[テスト] 津市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "三重県",
+      "municipality": "津市",
+      "address": "三重県津市西丸之内23番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "3e41bf77-b07b-4c25-8aba-7fed5e20e133",
+      "kind": "pond",
+      "name": "[テスト] 四日市市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "三重県",
+      "municipality": "四日市市",
+      "address": "三重県四日市市諏訪町1番5号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "90d8b8c0-5ec8-48a9-8038-6b5a935f6b15",
+      "kind": "spot",
+      "name": "[テスト] 津市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "三重県",
+      "municipality": "津市",
+      "address": "三重県津市西丸之内23番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "fead45be-12ee-4910-89ac-d40fcf5ff737",
+      "kind": "shop",
+      "name": "[テスト] 大津市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "滋賀県",
+      "municipality": "大津市",
+      "address": "滋賀県大津市御陵町3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "f2f98cc6-8497-4b7b-81f0-2d550df6c9f1",
+      "kind": "pond",
+      "name": "[テスト] 彦根市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "滋賀県",
+      "municipality": "彦根市",
+      "address": "滋賀県彦根市元町4-2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "f111f79a-df6a-4340-8d40-f25e8b3d7400",
+      "kind": "spot",
+      "name": "[テスト] 大津市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "滋賀県",
+      "municipality": "大津市",
+      "address": "滋賀県大津市御陵町3-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "93c571fd-abcb-4035-86fb-4b04d257a5e1",
+      "kind": "shop",
+      "name": "[テスト] 京都市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "京都府",
+      "municipality": "京都市",
+      "address": "京都府京都市西京区上桂森下町25-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "3e7c63b9-3563-4d38-83d5-0ec11fcfc395",
+      "kind": "pond",
+      "name": "[テスト] 福知山市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "京都府",
+      "municipality": "福知山市",
+      "address": "京都府福知山市字内記13-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "4d823426-5746-4afb-826c-a03b4e847cba",
+      "kind": "spot",
+      "name": "[テスト] 京都市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "京都府",
+      "municipality": "京都市",
+      "address": "京都府京都市西京区上桂森下町25-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "a8f30507-64e7-4484-895a-c0b1b3d30426",
+      "kind": "shop",
+      "name": "[テスト] 大阪市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大阪府",
+      "municipality": "大阪市",
+      "address": "大阪府大阪市中央区久太郎町1-2-27",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "53769f18-fcfd-42a5-837b-b8d46cddd60f",
+      "kind": "pond",
+      "name": "[テスト] 堺市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大阪府",
+      "municipality": "堺市",
+      "address": "大阪府堺市美原区黒山167番地1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "2a141fc3-88f6-4b0a-85ae-31471a3ab468",
+      "kind": "spot",
+      "name": "[テスト] 大阪市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大阪府",
+      "municipality": "大阪市",
+      "address": "大阪府大阪市中央区久太郎町1-2-27",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6ceb442a-1bb6-4be1-8988-f63c4cab1b41",
+      "kind": "shop",
+      "name": "[テスト] 神戸市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "兵庫県",
+      "municipality": "神戸市",
+      "address": "兵庫県神戸市西区糀台5-4-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "017babf6-a550-49fd-8fee-32253603d823",
+      "kind": "pond",
+      "name": "[テスト] 姫路市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "兵庫県",
+      "municipality": "姫路市",
+      "address": "兵庫県姫路市安田四丁目1番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "3520f620-4518-456b-8296-b59d545ca0da",
+      "kind": "spot",
+      "name": "[テスト] 神戸市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "兵庫県",
+      "municipality": "神戸市",
+      "address": "兵庫県神戸市西区糀台5-4-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "2c420c4f-0b09-4ef6-8aab-502c2f6b88ff",
+      "kind": "shop",
+      "name": "[テスト] 奈良市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "奈良県",
+      "municipality": "奈良市",
+      "address": "奈良県奈良市二条大路南一丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "083ea8e3-a50c-4a9e-85d8-ad597fdb01d5",
+      "kind": "pond",
+      "name": "[テスト] 大和高田市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "奈良県",
+      "municipality": "大和高田市",
+      "address": "奈良県大和高田市大字大中98番地4",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "296c5139-8d39-4426-85b9-96a905d5185c",
+      "kind": "spot",
+      "name": "[テスト] 奈良市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "奈良県",
+      "municipality": "奈良市",
+      "address": "奈良県奈良市二条大路南一丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "e7e76206-7a19-42ec-8ad0-a052abbabc4e",
+      "kind": "shop",
+      "name": "[テスト] 和歌山市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "和歌山県",
+      "municipality": "和歌山市",
+      "address": "和歌山県和歌山市七番丁23番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "f6f970fe-0d3e-453c-8517-82e7a4304e75",
+      "kind": "pond",
+      "name": "[テスト] 海南市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "和歌山県",
+      "municipality": "海南市",
+      "address": "和歌山県海南市南赤阪11番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "cd5ea066-aac0-4d95-8c18-7f8b6f8309b4",
+      "kind": "spot",
+      "name": "[テスト] 和歌山市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "和歌山県",
+      "municipality": "和歌山市",
+      "address": "和歌山県和歌山市七番丁23番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "19360914-e238-4dca-821a-1b969c67bf19",
+      "kind": "shop",
+      "name": "[テスト] 鳥取市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鳥取県",
+      "municipality": "鳥取市",
+      "address": "鳥取県鳥取市幸町71番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "57a289bb-7fdc-4f76-8ea7-874ccaeb1508",
+      "kind": "pond",
+      "name": "[テスト] 米子市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鳥取県",
+      "municipality": "米子市",
+      "address": "鳥取県米子市加茂町一丁目1番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "80f460c4-2ef0-4133-8a33-771bf709a7c6",
+      "kind": "spot",
+      "name": "[テスト] 鳥取市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鳥取県",
+      "municipality": "鳥取市",
+      "address": "鳥取県鳥取市幸町71番地",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6bdfcb79-9a2e-474e-8e6a-09c7cb92b7c1",
+      "kind": "shop",
+      "name": "[テスト] 益田市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "島根県",
+      "municipality": "益田市",
+      "address": "島根県益田市常盤町1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "dc280d46-82b8-4cf8-80c7-ba3de66301aa",
+      "kind": "pond",
+      "name": "[テスト] 安来市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "島根県",
+      "municipality": "安来市",
+      "address": "島根県安来市安来町878-2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "de66d560-5815-4d17-814d-d40e246d9b57",
+      "kind": "spot",
+      "name": "[テスト] 益田市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "島根県",
+      "municipality": "益田市",
+      "address": "島根県益田市常盤町1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "540beabb-00cd-4ff5-8283-a861e63f76ae",
+      "kind": "shop",
+      "name": "[テスト] 岡山市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "address": "岡山県岡山市南区浦安南町495-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "961857c2-f7d2-4480-81a6-a3f05c9ba542",
+      "kind": "pond",
+      "name": "[テスト] 玉野市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岡山県",
+      "municipality": "玉野市",
+      "address": "岡山県玉野市宇野1-27-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "f419bb6c-f328-4df9-85ec-0f7ff1806314",
+      "kind": "spot",
+      "name": "[テスト] 岡山市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "岡山県",
+      "municipality": "岡山市",
+      "address": "岡山県岡山市南区浦安南町495-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "66282018-e240-45e3-80f6-29b6621f6d21",
+      "kind": "shop",
+      "name": "[テスト] 広島市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "広島県",
+      "municipality": "広島市",
+      "address": "広島県広島市佐伯区海老園二丁目5番28号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "4b841dca-558a-4a8a-87d9-2e6cd9c0f3fe",
+      "kind": "pond",
+      "name": "[テスト] 呉市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "広島県",
+      "municipality": "呉市",
+      "address": "広島県呉市中央四丁目1番6号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "7c2adf0a-24f8-478a-89cb-23f419b8e75d",
+      "kind": "spot",
+      "name": "[テスト] 広島市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "広島県",
+      "municipality": "広島市",
+      "address": "広島県広島市佐伯区海老園二丁目5番28号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "b6076bf7-ae9c-4c2d-8a76-8e49b01397d9",
+      "kind": "shop",
+      "name": "[テスト] 下関市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山口県",
+      "municipality": "下関市",
+      "address": "山口県下関市南部町1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "983d45e7-2fe0-456d-8a40-aaf82f92bf53",
+      "kind": "pond",
+      "name": "[テスト] 宇部市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山口県",
+      "municipality": "宇部市",
+      "address": "山口県宇部市常盤町一丁目7番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "1b4266a1-d72e-4cbf-80b2-11a0066eb433",
+      "kind": "spot",
+      "name": "[テスト] 下関市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "山口県",
+      "municipality": "下関市",
+      "address": "山口県下関市南部町1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "2dcd1d9a-d7f6-47e3-8127-7cede3d24e7e",
+      "kind": "shop",
+      "name": "[テスト] 徳島市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "徳島県",
+      "municipality": "徳島市",
+      "address": "徳島県徳島市幸町2-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "4e166acf-1231-40ef-8098-28ff1614cf51",
+      "kind": "pond",
+      "name": "[テスト] 小松島市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "徳島県",
+      "municipality": "小松島市",
+      "address": "徳島県小松島市横須町1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "b59cca02-f964-4730-855a-57fefd87cafd",
+      "kind": "spot",
+      "name": "[テスト] 徳島市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "徳島県",
+      "municipality": "徳島市",
+      "address": "徳島県徳島市幸町2-5",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "68f4da38-c80a-4ba5-8b50-a020de24c047",
+      "kind": "shop",
+      "name": "[テスト] 高松市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "香川県",
+      "municipality": "高松市",
+      "address": "香川県高松市番町一丁目8番15号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "50d05700-bf5c-48ca-8c96-de33a1513765",
+      "kind": "pond",
+      "name": "[テスト] 丸亀市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "香川県",
+      "municipality": "丸亀市",
+      "address": "香川県丸亀市大手町二丁目4番21号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "6fa6b2e5-410c-443a-8455-e3274ab30fa2",
+      "kind": "spot",
+      "name": "[テスト] 高松市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "香川県",
+      "municipality": "高松市",
+      "address": "香川県高松市番町一丁目8番15号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "3d4bff3e-35d1-4b97-8212-375eb7347763",
+      "kind": "shop",
+      "name": "[テスト] 松山市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛媛県",
+      "municipality": "松山市",
+      "address": "愛媛県松山市二番町四丁目7番地2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "124c1fa8-07ae-409e-879f-dcb70ade90cd",
+      "kind": "pond",
+      "name": "[テスト] 今治市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛媛県",
+      "municipality": "今治市",
+      "address": "愛媛県今治市別宮町1丁目4番地1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "4ca33fe4-fe38-433c-89ca-efdde70e9064",
+      "kind": "spot",
+      "name": "[テスト] 松山市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "愛媛県",
+      "municipality": "松山市",
+      "address": "愛媛県松山市二番町四丁目7番地2",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "3bc1f973-a54c-4a4f-8273-d21574c2225e",
+      "kind": "shop",
+      "name": "[テスト] 高知市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "高知県",
+      "municipality": "高知市",
+      "address": "高知県高知市本町5-1-45",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "1fbadbcd-b1c6-47da-895f-2097f7b841a9",
+      "kind": "pond",
+      "name": "[テスト] 室戸市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "高知県",
+      "municipality": "室戸市",
+      "address": "高知県室戸市浮津25-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "a6333677-ff0f-4ba5-8a62-2d48633aced1",
+      "kind": "spot",
+      "name": "[テスト] 高知市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "高知県",
+      "municipality": "高知市",
+      "address": "高知県高知市本町5-1-45",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6226d996-91ed-402f-8c87-05f490dd62ed",
+      "kind": "shop",
+      "name": "[テスト] 北九州市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福岡県",
+      "municipality": "北九州市",
+      "address": "福岡県北九州市八幡西区黒崎3-15-3",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "69211c80-4f49-47df-8dc4-96f1f3ae207e",
+      "kind": "pond",
+      "name": "[テスト] 福岡市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福岡県",
+      "municipality": "福岡市",
+      "address": "福岡県福岡市早良区百道2-1-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "1d118e54-4768-4fe3-8241-846ead90de6d",
+      "kind": "spot",
+      "name": "[テスト] 北九州市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "福岡県",
+      "municipality": "北九州市",
+      "address": "福岡県北九州市八幡西区黒崎3-15-3",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "c2eacb6f-4990-46dd-8480-ae15f17afdf0",
+      "kind": "shop",
+      "name": "[テスト] 佐賀市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "佐賀県",
+      "municipality": "佐賀市",
+      "address": "佐賀県佐賀市栄町1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "cbbc52b4-2b3d-45a0-8cc9-b5ead6b8b05d",
+      "kind": "pond",
+      "name": "[テスト] 唐津市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "佐賀県",
+      "municipality": "唐津市",
+      "address": "佐賀県唐津市西城内1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "9f2faadf-8c8d-4c6b-824a-b2d742aa19f7",
+      "kind": "spot",
+      "name": "[テスト] 佐賀市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "佐賀県",
+      "municipality": "佐賀市",
+      "address": "佐賀県佐賀市栄町1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "e82a350e-ee16-46d8-852b-8346d0ea451c",
+      "kind": "shop",
+      "name": "[テスト] 長崎市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長崎県",
+      "municipality": "長崎市",
+      "address": "長崎県長崎市魚の町4-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "8bd6bde1-30bf-4e54-8fcb-9d1a4485d5ce",
+      "kind": "pond",
+      "name": "[テスト] 佐世保市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長崎県",
+      "municipality": "佐世保市",
+      "address": "長崎県佐世保市八幡町1-10",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "b0587dc5-42ca-41b2-80bb-79b0088bb500",
+      "kind": "spot",
+      "name": "[テスト] 長崎市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "長崎県",
+      "municipality": "長崎市",
+      "address": "長崎県長崎市魚の町4-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "fc111421-dbe6-4f5c-82a2-aacd91684101",
+      "kind": "shop",
+      "name": "[テスト] 熊本市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "熊本県",
+      "municipality": "熊本市",
+      "address": "熊本県熊本市北区植木町岩野238-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "2be5fb55-d36b-413f-8fb7-9425bb2813c7",
+      "kind": "pond",
+      "name": "[テスト] 八代市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "熊本県",
+      "municipality": "八代市",
+      "address": "熊本県八代市松江城町1-25",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "4821e634-5dd9-4d32-89a3-9f97f3360bbe",
+      "kind": "spot",
+      "name": "[テスト] 熊本市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "熊本県",
+      "municipality": "熊本市",
+      "address": "熊本県熊本市北区植木町岩野238-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "a1fe7154-79e4-4f87-863c-bb87e175113f",
+      "kind": "shop",
+      "name": "[テスト] 大分市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大分県",
+      "municipality": "大分市",
+      "address": "大分県大分市荷揚町2番31号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "41e287f6-85ad-4bbd-89db-33cb1a674216",
+      "kind": "pond",
+      "name": "[テスト] 別府市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大分県",
+      "municipality": "別府市",
+      "address": "大分県別府市上野口町1番15号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "05b9e27b-8210-4db6-8269-627b067f5833",
+      "kind": "spot",
+      "name": "[テスト] 大分市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "大分県",
+      "municipality": "大分市",
+      "address": "大分県大分市荷揚町2番31号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "504866ea-cd10-4eca-8eef-62356014c664",
+      "kind": "shop",
+      "name": "[テスト] 宮崎市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮崎県",
+      "municipality": "宮崎市",
+      "address": "宮崎県宮崎市橘通西1丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "322840bd-0659-41dc-8582-90ef723af225",
+      "kind": "pond",
+      "name": "[テスト] 都城市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮崎県",
+      "municipality": "都城市",
+      "address": "宮崎県都城市姫城町6街区21号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "3f589732-fbaf-47fd-8d85-c19e87fe159d",
+      "kind": "spot",
+      "name": "[テスト] 宮崎市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "宮崎県",
+      "municipality": "宮崎市",
+      "address": "宮崎県宮崎市橘通西1丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "4666182d-e243-433d-8ab9-6d24b490bb9a",
+      "kind": "shop",
+      "name": "[テスト] 鹿児島市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鹿児島県",
+      "municipality": "鹿児島市",
+      "address": "鹿児島県鹿児島市泉町14-15",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "a995505b-0235-4857-85e5-6d7d5f5a327f",
+      "kind": "pond",
+      "name": "[テスト] 鹿屋市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鹿児島県",
+      "municipality": "鹿屋市",
+      "address": "鹿児島県鹿屋市共栄町20-1",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "d4f412d9-764c-4dfb-8c31-3accac18fd2f",
+      "kind": "spot",
+      "name": "[テスト] 鹿児島市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "鹿児島県",
+      "municipality": "鹿児島市",
+      "address": "鹿児島県鹿児島市泉町14-15",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "6bdb46ea-5200-48d8-8de4-759ff4aa1399",
+      "kind": "shop",
+      "name": "[テスト] 那覇市 釣具店",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣具店です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "沖縄県",
+      "municipality": "那覇市",
+      "address": "沖縄県那覇市泉崎1丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    },
+    {
+      "id": "7d313f3a-1195-4e67-867d-c8d79fb5875f",
+      "kind": "pond",
+      "name": "[テスト] 宜野湾市 釣り堀",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣り堀です。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "沖縄県",
+      "municipality": "宜野湾市",
+      "address": "沖縄県宜野湾市野嵩1丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "テスト用：料金設定なし",
+      "is_published": true
+    },
+    {
+      "id": "78e943f3-3f04-4f9a-8454-fd3768419d28",
+      "kind": "spot",
+      "name": "[テスト] 那覇市 釣りスポット",
+      "description": "[全国地図テスト:v1] 全国の地図・住所表示を確認するための架空の釣りスポットです。番地の表示確認用に公共庁舎の住所を使用しています。実在する釣り施設や営業情報ではありません。",
+      "prefecture": "沖縄県",
+      "municipality": "那覇市",
+      "address": "沖縄県那覇市泉崎1丁目1番1号",
+      "phone": "",
+      "business_hours": "",
+      "price_info": "",
+      "is_published": true
+    }
+  ],
+  "addressSources": [
+    {
+      "id": "b6ba0122-9615-469a-8994-3d24ac2f00c2",
+      "office": "札幌市清田区役所",
+      "sourceUrl": "https://www.harp.lg.jp/opendata/dataset/2056.html (5-1本庁所在地xlsx) , https://www.pref.hokkaido.lg.jp/link/shichoson/aiueo.html (HP一覧csv) , https://www.city.sapporo.jp/org/address/ku.html (札幌区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "32fe6e6e-4397-4162-8615-c43b4fe957ff",
+      "office": "函館市役所",
+      "sourceUrl": "https://www.harp.lg.jp/opendata/dataset/2056.html (5-1本庁所在地xlsx) , https://www.pref.hokkaido.lg.jp/link/shichoson/aiueo.html (HP一覧csv) , https://www.city.sapporo.jp/org/address/ku.html (札幌区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "2e1f21db-5654-481a-85b9-109a24da538e",
+      "office": "札幌市清田区役所",
+      "sourceUrl": "https://www.harp.lg.jp/opendata/dataset/2056.html (5-1本庁所在地xlsx) , https://www.pref.hokkaido.lg.jp/link/shichoson/aiueo.html (HP一覧csv) , https://www.city.sapporo.jp/org/address/ku.html (札幌区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "8d5c1c7b-3874-4366-8550-a3f024704365",
+      "office": "青森市役所",
+      "sourceUrl": "https://www.pref.aomori.lg.jp/soshiki/soumu/shichoson/sityouson-handbook.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "2e6f74a8-3375-47b2-825c-c07d3e71b6dc",
+      "office": "弘前市役所",
+      "sourceUrl": "https://www.pref.aomori.lg.jp/soshiki/soumu/shichoson/sityouson-handbook.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "c2fc132e-4461-4f86-8bcc-37d8b4ea4dab",
+      "office": "青森市役所",
+      "sourceUrl": "https://www.pref.aomori.lg.jp/soshiki/soumu/shichoson/sityouson-handbook.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "a09d48b2-2770-49ae-8ee7-97a2b81cc9ae",
+      "office": "盛岡市役所",
+      "sourceUrl": "https://www.city.morioka.iwate.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "21ea52e0-02e1-4ccc-8ee2-bd5941cae19b",
+      "office": "宮古市役所",
+      "sourceUrl": "https://www.city.miyako.iwate.jp/gyosei/soshiki/somu/12/69.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "537faf32-1428-4253-80c9-decb638206b1",
+      "office": "盛岡市役所",
+      "sourceUrl": "https://www.city.morioka.iwate.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "ea8363db-48bc-4737-8e46-9591537526cf",
+      "office": "仙台市泉区役所",
+      "sourceUrl": "https://www.pref.miyagi.jp/soshiki/sichouson/syozaiti.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "b2976376-7871-49bb-8d90-6e34b131a100",
+      "office": "石巻市役所",
+      "sourceUrl": "https://www.pref.miyagi.jp/soshiki/sichouson/syozaiti.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "1016a4b4-20ae-48b3-843f-2cbe47b6ba1a",
+      "office": "仙台市泉区役所",
+      "sourceUrl": "https://www.pref.miyagi.jp/soshiki/sichouson/syozaiti.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "b3c60f7a-20cc-4a16-8a38-fe6a5e9e0d7d",
+      "office": "秋田市役所",
+      "sourceUrl": "https://www.city.akita.lg.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "1fe43824-7fbd-4464-82c9-d721657e570c",
+      "office": "能代市役所",
+      "sourceUrl": "https://www.city.noshiro.lg.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "0397cfbf-238c-40a7-8cdf-a0e306707ed8",
+      "office": "秋田市役所",
+      "sourceUrl": "https://www.city.akita.lg.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "03a898be-fefc-4796-8fbe-611e68429508",
+      "office": "山形市役所",
+      "sourceUrl": "https://www.pref.yamagata.jp/020024/kensei/information/gaiyo/murayama/index.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "703df19f-f62d-4976-8758-9da7a6acf0e6",
+      "office": "米沢市役所",
+      "sourceUrl": "https://www.pref.yamagata.jp/020024/kensei/information/gaiyo/murayama/index.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "5575031d-a6c0-4e74-84f5-37049a6b563a",
+      "office": "山形市役所",
+      "sourceUrl": "https://www.pref.yamagata.jp/020024/kensei/information/gaiyo/murayama/index.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "813d98aa-f8d7-48d4-85cf-76ec3c9cd529",
+      "office": "福島市役所",
+      "sourceUrl": "https://www.pref.fukushima.lg.jp/sec/01145a/yakuba.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "32220237-9fff-4b34-8a23-778a280553a9",
+      "office": "会津若松市役所",
+      "sourceUrl": "https://www.pref.fukushima.lg.jp/sec/01145a/yakuba.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "f0cd256c-09cc-4736-81e4-d88df2d49557",
+      "office": "福島市役所",
+      "sourceUrl": "https://www.pref.fukushima.lg.jp/sec/01145a/yakuba.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "1256abff-a1b3-4711-8c98-4f7719e888ea",
+      "office": "水戸市役所",
+      "sourceUrl": "https://www.pref.ibaraki.jp/towns/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "61955b26-56dd-4edf-8b79-998d0c32be11",
+      "office": "日立市役所",
+      "sourceUrl": "https://www.pref.ibaraki.jp/towns/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "5de5ef20-47e1-4901-83d8-2a2ffdd0f02d",
+      "office": "水戸市役所",
+      "sourceUrl": "https://www.pref.ibaraki.jp/towns/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "c558b6af-5c72-4230-85f9-0fb56bdb4f71",
+      "office": "宇都宮市役所",
+      "sourceUrl": "https://www.pref.tochigi.lg.jp/c05/intro/tochigi/link/lkshityouson.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "158e22bd-2972-462c-8419-615a683efc8a",
+      "office": "足利市役所",
+      "sourceUrl": "https://www.pref.tochigi.lg.jp/c05/intro/tochigi/link/lkshityouson.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "d396778f-c5f7-43d2-808b-4fcb10cc7ca6",
+      "office": "宇都宮市役所",
+      "sourceUrl": "https://www.pref.tochigi.lg.jp/c05/intro/tochigi/link/lkshityouson.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "d2f343e7-dbbe-418c-883c-785a18cbb907",
+      "office": "前橋市役所",
+      "sourceUrl": "https://www.pref.gunma.jp/page/14524.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "ee89a689-b0f8-4f3f-80f2-e3bd12fb854b",
+      "office": "高崎市役所",
+      "sourceUrl": "https://www.pref.gunma.jp/page/14524.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "c3f6ad27-45b7-4df7-8139-d508b903254a",
+      "office": "前橋市役所",
+      "sourceUrl": "https://www.pref.gunma.jp/page/14524.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "cce78da4-eb93-4769-80d1-b0477ccd1a56",
+      "office": "さいたま市岩槻区役所",
+      "sourceUrl": "https://www.pref.saitama.lg.jp/a0107/jyuuminnokatahe/sityousondate.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "470eb740-3c6e-4bb4-8f33-1fdb210414c6",
+      "office": "川越市役所",
+      "sourceUrl": "https://www.pref.saitama.lg.jp/a0107/jyuuminnokatahe/sityousondate.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "9e0c4b88-04f2-4fae-823d-2d2c067adab9",
+      "office": "さいたま市岩槻区役所",
+      "sourceUrl": "https://www.pref.saitama.lg.jp/a0107/jyuuminnokatahe/sityousondate.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "7a1f1669-d40a-4e0d-8b22-5eb51f17a5d0",
+      "office": "千葉市美浜区役所",
+      "sourceUrl": "https://www.pref.chiba.lg.jp/kouhou/ichiran.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "03d68954-308d-4c1a-8e33-c524e122fa6f",
+      "office": "銚子市役所",
+      "sourceUrl": "https://www.pref.chiba.lg.jp/kouhou/ichiran.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "19ffe755-a105-4ba8-8519-10c11a954618",
+      "office": "千葉市美浜区役所",
+      "sourceUrl": "https://www.pref.chiba.lg.jp/kouhou/ichiran.html",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "12840b13-fb3c-41ce-8af8-ded2ad329b7b",
+      "office": "千代田区役所",
+      "sourceUrl": "https://www.metro.tokyo.lg.jp/tosei/iken-sodan/sodan/ichiran",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "e7fd6de0-0f09-46e0-8847-49f1518449c6",
+      "office": "中央区役所",
+      "sourceUrl": "https://www.metro.tokyo.lg.jp/tosei/iken-sodan/sodan/ichiran",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "64902e5a-7826-4e40-89ca-0b4df5a373aa",
+      "office": "千代田区役所",
+      "sourceUrl": "https://www.metro.tokyo.lg.jp/tosei/iken-sodan/sodan/ichiran",
+      "verifiedAt": "2026-07-05"
+    },
+    {
+      "id": "7713285f-3892-4050-869e-5e591f608aa6",
+      "office": "横浜市都筑区役所",
+      "sourceUrl": "https://www.pref.kanagawa.jp/docs/ie2/cnt/f530001/p780102.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "3719e97c-e1d7-4328-8580-47c77f8d6285",
+      "office": "川崎市麻生区役所",
+      "sourceUrl": "https://www.pref.kanagawa.jp/docs/ie2/cnt/f530001/p780102.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "194e3331-8310-40a1-878f-9f70371c26e4",
+      "office": "横浜市都筑区役所",
+      "sourceUrl": "https://www.pref.kanagawa.jp/docs/ie2/cnt/f530001/p780102.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "6dab1f01-0a2b-4edc-85e5-2a11b9e7bfa2",
+      "office": "新潟市西蒲区役所",
+      "sourceUrl": "https://www.city.niigata.lg.jp/nishikan/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "eecce0a8-592f-4798-8bbf-3da44efd6d14",
+      "office": "長岡市役所",
+      "sourceUrl": "https://www.city.nagaoka.niigata.jp/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "21ff1b91-5f9b-403f-86e0-a0f6e744f9a4",
+      "office": "新潟市西蒲区役所",
+      "sourceUrl": "https://www.city.niigata.lg.jp/nishikan/",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "1c86041a-0ac6-4edd-86e1-84c908f544dd",
+      "office": "富山市役所",
+      "sourceUrl": "https://www.pref.toyama.jp/1021/kensei/kenseiunei/kensei/gaiyou/profile/city.html , https://www.pref.toyama.jp/documents/29650/youranr7.pdf",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "cdfbe202-ea0f-47e0-860f-74c5363119d1",
+      "office": "高岡市役所",
+      "sourceUrl": "https://www.pref.toyama.jp/1021/kensei/kenseiunei/kensei/gaiyou/profile/city.html , https://www.pref.toyama.jp/documents/29650/youranr7.pdf",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3e5cbbf6-7bd3-4283-8590-4ccf997c8e6a",
+      "office": "富山市役所",
+      "sourceUrl": "https://www.pref.toyama.jp/1021/kensei/kenseiunei/kensei/gaiyou/profile/city.html , https://www.pref.toyama.jp/documents/29650/youranr7.pdf",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "ae84e00e-be5a-46e8-8ee5-cb4ed26162c3",
+      "office": "金沢市役所",
+      "sourceUrl": "https://www.pref.ishikawa.lg.jp/sichousien/kennaiichiran2.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "0ea06dd5-3f60-4f4a-872a-af32ac3557ad",
+      "office": "珠洲市役所",
+      "sourceUrl": "https://www.pref.ishikawa.lg.jp/sichousien/kennaiichiran2.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "72c5cbfb-8100-401f-8435-a96788880c95",
+      "office": "金沢市役所",
+      "sourceUrl": "https://www.pref.ishikawa.lg.jp/sichousien/kennaiichiran2.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "52c74af7-62c3-4fa9-8732-6cff1410982e",
+      "office": "福井市役所",
+      "sourceUrl": "https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki.html (PDF: https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki_d/fil/001.pdf)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "59750af5-550c-419b-81b4-22bb3f1aca55",
+      "office": "敦賀市役所",
+      "sourceUrl": "https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki.html (PDF: https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki_d/fil/001.pdf)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "73b84ea4-f819-416e-8362-16ec2687352d",
+      "office": "福井市役所",
+      "sourceUrl": "https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki.html (PDF: https://www.pref.fukui.lg.jp/doc/sityousinkou/renrakusaki_d/fil/001.pdf)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "b8a46efd-2025-44c9-8e31-ce805133d518",
+      "office": "甲府市役所",
+      "sourceUrl": "https://www.pref.yamanashi.jp/shichoson/shichoson-address.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "bf3779e7-3328-4c7b-89ee-f45e760faf59",
+      "office": "富士吉田市役所",
+      "sourceUrl": "https://www.pref.yamanashi.jp/shichoson/shichoson-address.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "eb7f2fb2-d551-4fb0-822a-943cb21070ee",
+      "office": "甲府市役所",
+      "sourceUrl": "https://www.pref.yamanashi.jp/shichoson/shichoson-address.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "c8199fd4-9f8e-42b1-8acb-3d3dfa637568",
+      "office": "松本市役所",
+      "sourceUrl": "https://www.pref.nagano.lg.jp/shichoson/kensei/shichoson/gappei/gappei/mejiiko/ichiran/index.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "76a86a05-f58e-45b1-8046-22db92089b3b",
+      "office": "上田市役所",
+      "sourceUrl": "https://www.pref.nagano.lg.jp/shichoson/kensei/shichoson/gappei/gappei/mejiiko/ichiran/index.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "09f617d4-ba70-4867-85ab-3311c3944f56",
+      "office": "松本市役所",
+      "sourceUrl": "https://www.pref.nagano.lg.jp/shichoson/kensei/shichoson/gappei/gappei/mejiiko/ichiran/index.html",
+      "verifiedAt": "2026-07-06"
+    },
+    {
+      "id": "ae491fae-9a13-4ada-8825-20512a45a1f3",
+      "office": "岐阜市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "fbd8880d-1250-4028-84a0-88f2a7da3554",
+      "office": "各務原市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "694f1824-75aa-4dae-8486-2bf6dd3609de",
+      "office": "岐阜市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "c48cbc12-1a54-4ddb-88cd-015c4e707c1d",
+      "office": "大垣市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "d9522e5f-ee4a-4f32-851e-31b13a270232",
+      "office": "垂井町役場",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "9ecc161c-c842-4878-86f6-273201fc89ea",
+      "office": "大垣市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "cbe43525-5455-46f2-820a-5ced74dd48c6",
+      "office": "関市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "066bbaa8-538d-4d19-8b07-57191afd6a0e",
+      "office": "美濃加茂市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "edab433b-7d8f-408d-81b4-30627c71a4bb",
+      "office": "関市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "e0cf0873-df0e-44e3-8911-f4de264e983e",
+      "office": "多治見市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "31295bae-1a90-4e00-8ce8-68103864d09a",
+      "office": "中津川市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "de9aabe0-27a6-4465-83ca-94a1766bc57e",
+      "office": "多治見市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "c0a1e588-1397-448f-8777-beefcee46799",
+      "office": "高山市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "48688aba-a565-4cc2-8c71-d852468b5fe4",
+      "office": "飛騨市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "c35871e8-ce5a-4185-83d7-f182d623c663",
+      "office": "高山市役所",
+      "sourceUrl": "https://www.pref.gifu.lg.jp/page/6058.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "9ae133f9-a6bb-4950-836d-46c29d14a983",
+      "office": "静岡市清水区役所",
+      "sourceUrl": "https://www.pref.shizuoka.jp/kensei/shichozaisei/1044883/1012124.html,https://www.pref.shizuoka.jp/kensei/link/1007806.html,https://www.city.shizuoka.lg.jp/p018649.html,https://www.city.hamamatsu.shizuoka.jp/shisetsu-annai/shiyakusho/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6c166908-4aba-44ed-836d-e8919ea671dd",
+      "office": "浜松市天竜区役所",
+      "sourceUrl": "https://www.pref.shizuoka.jp/kensei/shichozaisei/1044883/1012124.html,https://www.pref.shizuoka.jp/kensei/link/1007806.html,https://www.city.shizuoka.lg.jp/p018649.html,https://www.city.hamamatsu.shizuoka.jp/shisetsu-annai/shiyakusho/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "1139498c-0413-4815-8c3b-11f2c9f4b0c9",
+      "office": "静岡市清水区役所",
+      "sourceUrl": "https://www.pref.shizuoka.jp/kensei/shichozaisei/1044883/1012124.html,https://www.pref.shizuoka.jp/kensei/link/1007806.html,https://www.city.shizuoka.lg.jp/p018649.html,https://www.city.hamamatsu.shizuoka.jp/shisetsu-annai/shiyakusho/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6c30065e-f5fd-4cb7-8e12-64f6e6ba80fd",
+      "office": "名古屋市天白区役所",
+      "sourceUrl": "https://www.pref.aichi.jp/soshiki/shichoson/0000000276.html,https://www.pref.aichi.jp/site/userguide/link-citytown.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "5ddc552b-07ac-43f4-88a5-3e5226c37e42",
+      "office": "岡崎市役所",
+      "sourceUrl": "https://www.pref.aichi.jp/soshiki/shichoson/0000000276.html,https://www.pref.aichi.jp/site/userguide/link-citytown.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3950971c-c3c4-41d5-81d1-c9286b37a103",
+      "office": "名古屋市天白区役所",
+      "sourceUrl": "https://www.pref.aichi.jp/soshiki/shichoson/0000000276.html,https://www.pref.aichi.jp/site/userguide/link-citytown.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4c4ab611-2aa4-4157-8cdd-39254eccf3ce",
+      "office": "津市役所",
+      "sourceUrl": "https://www.pref.mie.lg.jp/SHICHOS/HP/23057019610.htm,https://www.pref.mie.lg.jp/link/link1.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3e41bf77-b07b-4c25-8aba-7fed5e20e133",
+      "office": "四日市市役所",
+      "sourceUrl": "https://www.pref.mie.lg.jp/SHICHOS/HP/23057019610.htm,https://www.pref.mie.lg.jp/link/link1.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "90d8b8c0-5ec8-48a9-8038-6b5a935f6b15",
+      "office": "津市役所",
+      "sourceUrl": "https://www.pref.mie.lg.jp/SHICHOS/HP/23057019610.htm,https://www.pref.mie.lg.jp/link/link1.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "fead45be-12ee-4910-89ac-d40fcf5ff737",
+      "office": "大津市役所",
+      "sourceUrl": "https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/320154.html,https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/20959.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "f2f98cc6-8497-4b7b-81f0-2d550df6c9f1",
+      "office": "彦根市役所",
+      "sourceUrl": "https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/320154.html,https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/20959.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "f111f79a-df6a-4340-8d40-f25e8b3d7400",
+      "office": "大津市役所",
+      "sourceUrl": "https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/320154.html,https://www.pref.shiga.lg.jp/kensei/gaiyou/shicyou/20959.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "93c571fd-abcb-4035-86fb-4b04d257a5e1",
+      "office": "京都市西京区役所",
+      "sourceUrl": "https://www.pref.kyoto.jp/kourei-engo/13900025.html, https://www.pref.kyoto.jp/link.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3e7c63b9-3563-4d38-83d5-0ec11fcfc395",
+      "office": "福知山市役所",
+      "sourceUrl": "https://www.pref.kyoto.jp/kourei-engo/13900025.html, https://www.pref.kyoto.jp/link.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4d823426-5746-4afb-826c-a03b4e847cba",
+      "office": "京都市西京区役所",
+      "sourceUrl": "https://www.pref.kyoto.jp/kourei-engo/13900025.html, https://www.pref.kyoto.jp/link.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "a8f30507-64e7-4484-895a-c0b1b3d30426",
+      "office": "大阪市中央区役所",
+      "sourceUrl": "https://www.pref.osaka.lg.jp/o070050/koho/links/city.html,https://www.city.osaka.lg.jp/fukushi/page/0000371237.html,https://www.city.sakai.lg.jp/shisei/gaiyo/shozaichi.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "53769f18-fcfd-42a5-837b-b8d46cddd60f",
+      "office": "堺市美原区役所",
+      "sourceUrl": "https://www.pref.osaka.lg.jp/o070050/koho/links/city.html,https://www.city.osaka.lg.jp/fukushi/page/0000371237.html,https://www.city.sakai.lg.jp/shisei/gaiyo/shozaichi.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "2a141fc3-88f6-4b0a-85ae-31471a3ab468",
+      "office": "大阪市中央区役所",
+      "sourceUrl": "https://www.pref.osaka.lg.jp/o070050/koho/links/city.html,https://www.city.osaka.lg.jp/fukushi/page/0000371237.html,https://www.city.sakai.lg.jp/shisei/gaiyo/shozaichi.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6ceb442a-1bb6-4be1-8988-f63c4cab1b41",
+      "office": "神戸市西区役所",
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/link/pref.html , https://www.city.kobe.lg.jp/a84453/shise/institution/kuyakusho.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "017babf6-a550-49fd-8fee-32253603d823",
+      "office": "姫路市役所",
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/link/pref.html , https://www.city.kobe.lg.jp/a84453/shise/institution/kuyakusho.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3520f620-4518-456b-8296-b59d545ca0da",
+      "office": "神戸市西区役所",
+      "sourceUrl": "https://web.pref.hyogo.lg.jp/link/pref.html , https://www.city.kobe.lg.jp/a84453/shise/institution/kuyakusho.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "2c420c4f-0b09-4ef6-8aab-502c2f6b88ff",
+      "office": "奈良市役所",
+      "sourceUrl": "https://www.pref.nara.jp/9686.htm,https://www.pref.nara.lg.jp/n002/1232.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "083ea8e3-a50c-4a9e-85d8-ad597fdb01d5",
+      "office": "大和高田市役所",
+      "sourceUrl": "https://www.pref.nara.jp/9686.htm,https://www.pref.nara.lg.jp/n002/1232.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "296c5139-8d39-4426-85b9-96a905d5185c",
+      "office": "奈良市役所",
+      "sourceUrl": "https://www.pref.nara.jp/9686.htm,https://www.pref.nara.lg.jp/n002/1232.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "e7e76206-7a19-42ec-8ad0-a052abbabc4e",
+      "office": "和歌山市役所",
+      "sourceUrl": "https://www.pref.wakayama.lg.jp/prefg/010500/shichousonzei/yakubaichiran.html , https://www.pref.wakayama.lg.jp/link/shichoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "f6f970fe-0d3e-453c-8517-82e7a4304e75",
+      "office": "海南市役所",
+      "sourceUrl": "https://www.pref.wakayama.lg.jp/prefg/010500/shichousonzei/yakubaichiran.html , https://www.pref.wakayama.lg.jp/link/shichoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "cd5ea066-aac0-4d95-8c18-7f8b6f8309b4",
+      "office": "和歌山市役所",
+      "sourceUrl": "https://www.pref.wakayama.lg.jp/prefg/010500/shichousonzei/yakubaichiran.html , https://www.pref.wakayama.lg.jp/link/shichoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "19360914-e238-4dca-821a-1b969c67bf19",
+      "office": "鳥取市役所",
+      "sourceUrl": "https://www.pref.tottori.lg.jp/12510.htm , https://www.pref.tottori.lg.jp/9577.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "57a289bb-7fdc-4f76-8ea7-874ccaeb1508",
+      "office": "米子市役所",
+      "sourceUrl": "https://www.pref.tottori.lg.jp/12510.htm , https://www.pref.tottori.lg.jp/9577.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "80f460c4-2ef0-4133-8a33-771bf709a7c6",
+      "office": "鳥取市役所",
+      "sourceUrl": "https://www.pref.tottori.lg.jp/12510.htm , https://www.pref.tottori.lg.jp/9577.htm",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6bdfcb79-9a2e-474e-8e6a-09c7cb92b7c1",
+      "office": "益田市役所",
+      "sourceUrl": "https://www.pref.shimane.lg.jp/admin/sichoson/sichoson_info/sanko/index.data/yakubajushoR3.7.26.pdf,https://www.pref.shimane.lg.jp/link01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "dc280d46-82b8-4cf8-80c7-ba3de66301aa",
+      "office": "安来市役所",
+      "sourceUrl": "https://www.pref.shimane.lg.jp/admin/sichoson/sichoson_info/sanko/index.data/yakubajushoR3.7.26.pdf,https://www.pref.shimane.lg.jp/link01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "de66d560-5815-4d17-814d-d40e246d9b57",
+      "office": "益田市役所",
+      "sourceUrl": "https://www.pref.shimane.lg.jp/admin/sichoson/sichoson_info/sanko/index.data/yakubajushoR3.7.26.pdf,https://www.pref.shimane.lg.jp/link01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "540beabb-00cd-4ff5-8283-a861e63f76ae",
+      "office": "岡山市南区役所",
+      "sourceUrl": "https://www.pref.okayama.jp/page/965881.html,https://www.pref.okayama.jp/uploaded/attachment/396315.pdf,https://www.pref.okayama.jp/page/1000.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "961857c2-f7d2-4480-81a6-a3f05c9ba542",
+      "office": "玉野市役所",
+      "sourceUrl": "https://www.pref.okayama.jp/page/965881.html,https://www.pref.okayama.jp/uploaded/attachment/396315.pdf,https://www.pref.okayama.jp/page/1000.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "f419bb6c-f328-4df9-85ec-0f7ff1806314",
+      "office": "岡山市南区役所",
+      "sourceUrl": "https://www.pref.okayama.jp/page/965881.html,https://www.pref.okayama.jp/uploaded/attachment/396315.pdf,https://www.pref.okayama.jp/page/1000.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "66282018-e240-45e3-80f6-29b6621f6d21",
+      "office": "広島市佐伯区役所",
+      "sourceUrl": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/634047.pdf (市区町一覧) , https://www.pref.hiroshima.lg.jp/site/kankeikikanlink/1172556346224.html (市町リンク集) , https://www.city.hiroshima.lg.jp/shisei/ku_yakusho/index.html (広島市区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4b841dca-558a-4a8a-87d9-2e6cd9c0f3fe",
+      "office": "呉市役所",
+      "sourceUrl": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/634047.pdf (市区町一覧) , https://www.pref.hiroshima.lg.jp/site/kankeikikanlink/1172556346224.html (市町リンク集) , https://www.city.hiroshima.lg.jp/shisei/ku_yakusho/index.html (広島市区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "7c2adf0a-24f8-478a-89cb-23f419b8e75d",
+      "office": "広島市佐伯区役所",
+      "sourceUrl": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/634047.pdf (市区町一覧) , https://www.pref.hiroshima.lg.jp/site/kankeikikanlink/1172556346224.html (市町リンク集) , https://www.city.hiroshima.lg.jp/shisei/ku_yakusho/index.html (広島市区役所)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "b6076bf7-ae9c-4c2d-8a76-8e49b01397d9",
+      "office": "下関市役所",
+      "sourceUrl": "https://www.pref.yamaguchi.lg.jp/soshiki/31/14948.html , https://www.pref.yamaguchi.lg.jp/soshiki/21/26969.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "983d45e7-2fe0-456d-8a40-aaf82f92bf53",
+      "office": "宇部市役所",
+      "sourceUrl": "https://www.pref.yamaguchi.lg.jp/soshiki/31/14948.html , https://www.pref.yamaguchi.lg.jp/soshiki/21/26969.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "1b4266a1-d72e-4cbf-80b2-11a0066eb433",
+      "office": "下関市役所",
+      "sourceUrl": "https://www.pref.yamaguchi.lg.jp/soshiki/31/14948.html , https://www.pref.yamaguchi.lg.jp/soshiki/21/26969.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "2dcd1d9a-d7f6-47e3-8127-7cede3d24e7e",
+      "office": "徳島市役所",
+      "sourceUrl": "https://www.pref.tokushima.lg.jp/kenseijoho/kanrennochiiki/shichouson/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4e166acf-1231-40ef-8098-28ff1614cf51",
+      "office": "小松島市役所",
+      "sourceUrl": "https://www.pref.tokushima.lg.jp/kenseijoho/kanrennochiiki/shichouson/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "b59cca02-f964-4730-855a-57fefd87cafd",
+      "office": "徳島市役所",
+      "sourceUrl": "https://www.pref.tokushima.lg.jp/kenseijoho/kanrennochiiki/shichouson/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "68f4da38-c80a-4ba5-8b50-a020de24c047",
+      "office": "高松市役所",
+      "sourceUrl": "https://www.pref.kagawa.lg.jp/kocho/shokai/profile/w3cz95150312151105.html (市町公式リンク集) + 各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "50d05700-bf5c-48ca-8c96-de33a1513765",
+      "office": "丸亀市役所",
+      "sourceUrl": "https://www.pref.kagawa.lg.jp/kocho/shokai/profile/w3cz95150312151105.html (市町公式リンク集) + 各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6fa6b2e5-410c-443a-8455-e3274ab30fa2",
+      "office": "高松市役所",
+      "sourceUrl": "https://www.pref.kagawa.lg.jp/kocho/shokai/profile/w3cz95150312151105.html (市町公式リンク集) + 各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3d4bff3e-35d1-4b97-8212-375eb7347763",
+      "office": "松山市役所",
+      "sourceUrl": "https://www.pref.ehime.jp/page/14990.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "124c1fa8-07ae-409e-879f-dcb70ade90cd",
+      "office": "今治市役所",
+      "sourceUrl": "https://www.pref.ehime.jp/page/14990.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4ca33fe4-fe38-433c-89ca-efdde70e9064",
+      "office": "松山市役所",
+      "sourceUrl": "https://www.pref.ehime.jp/page/14990.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3bc1f973-a54c-4a4f-8273-d21574c2225e",
+      "office": "高知市役所",
+      "sourceUrl": "https://www.pref.kochi.lg.jp/doc/shozaichi-2/ (PDF: 高知県内市町村所在地等一覧 令和7年5月7日現在)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "1fbadbcd-b1c6-47da-895f-2097f7b841a9",
+      "office": "室戸市役所",
+      "sourceUrl": "https://www.pref.kochi.lg.jp/doc/shozaichi-2/ (PDF: 高知県内市町村所在地等一覧 令和7年5月7日現在)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "a6333677-ff0f-4ba5-8a62-2d48633aced1",
+      "office": "高知市役所",
+      "sourceUrl": "https://www.pref.kochi.lg.jp/doc/shozaichi-2/ (PDF: 高知県内市町村所在地等一覧 令和7年5月7日現在)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6226d996-91ed-402f-8c87-05f490dd62ed",
+      "office": "北九州市八幡西区役所",
+      "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/shichoson01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "69211c80-4f49-47df-8dc4-96f1f3ae207e",
+      "office": "福岡市早良区役所",
+      "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/shichoson01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "1d118e54-4768-4fe3-8241-846ead90de6d",
+      "office": "北九州市八幡西区役所",
+      "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/shichoson01.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "c2eacb6f-4990-46dd-8480-ae15f17afdf0",
+      "office": "佐賀市役所",
+      "sourceUrl": "https://www.pref.saga.lg.jp/kiji0034791/index.html,各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "cbbc52b4-2b3d-45a0-8cc9-b5ead6b8b05d",
+      "office": "唐津市役所",
+      "sourceUrl": "https://www.pref.saga.lg.jp/kiji0034791/index.html,各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "9f2faadf-8c8d-4c6b-824a-b2d742aa19f7",
+      "office": "佐賀市役所",
+      "sourceUrl": "https://www.pref.saga.lg.jp/kiji0034791/index.html,各市町公式サイト",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "e82a350e-ee16-46d8-852b-8346d0ea451c",
+      "office": "長崎市役所",
+      "sourceUrl": "https://www.pref.nagasaki.jp/pages/page-31.html , https://www.pref.nagasaki.jp/doc/page-412855.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "8bd6bde1-30bf-4e54-8fcb-9d1a4485d5ce",
+      "office": "佐世保市役所",
+      "sourceUrl": "https://www.pref.nagasaki.jp/pages/page-31.html , https://www.pref.nagasaki.jp/doc/page-412855.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "b0587dc5-42ca-41b2-80bb-79b0088bb500",
+      "office": "長崎市役所",
+      "sourceUrl": "https://www.pref.nagasaki.jp/pages/page-31.html , https://www.pref.nagasaki.jp/doc/page-412855.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "fc111421-dbe6-4f5c-82a2-aacd91684101",
+      "office": "熊本市北区役所",
+      "sourceUrl": "https://www.pref.kumamoto.jp/soshiki/1/177925.html,各市町村公式サイト,https://www.city.kumamoto.jp/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "2be5fb55-d36b-413f-8fb7-9425bb2813c7",
+      "office": "八代市役所",
+      "sourceUrl": "https://www.pref.kumamoto.jp/soshiki/1/177925.html,各市町村公式サイト,https://www.city.kumamoto.jp/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4821e634-5dd9-4d32-89a3-9f97f3360bbe",
+      "office": "熊本市北区役所",
+      "sourceUrl": "https://www.pref.kumamoto.jp/soshiki/1/177925.html,各市町村公式サイト,https://www.city.kumamoto.jp/",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "a1fe7154-79e4-4f87-863c-bb87e175113f",
+      "office": "大分市役所",
+      "sourceUrl": "https://www.pref.oita.jp/soshiki/75008/kennai-sityoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "41e287f6-85ad-4bbd-89db-33cb1a674216",
+      "office": "別府市役所",
+      "sourceUrl": "https://www.pref.oita.jp/soshiki/75008/kennai-sityoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "05b9e27b-8210-4db6-8269-627b067f5833",
+      "office": "大分市役所",
+      "sourceUrl": "https://www.pref.oita.jp/soshiki/75008/kennai-sityoson.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "504866ea-cd10-4eca-8eef-62356014c664",
+      "office": "宮崎市役所",
+      "sourceUrl": "https://www.pref.miyazaki.lg.jp/kohosenryaku/kense/shichoson/shichosonmap.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "322840bd-0659-41dc-8582-90ef723af225",
+      "office": "都城市役所",
+      "sourceUrl": "https://www.pref.miyazaki.lg.jp/kohosenryaku/kense/shichoson/shichosonmap.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "3f589732-fbaf-47fd-8d85-c19e87fe159d",
+      "office": "宮崎市役所",
+      "sourceUrl": "https://www.pref.miyazaki.lg.jp/kohosenryaku/kense/shichoson/shichosonmap.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "4666182d-e243-433d-8ab9-6d24b490bb9a",
+      "office": "十島村役場",
+      "sourceUrl": "https://www.pref.kagoshima.jp/ab08/kensei/shityoson/gyosei/sityosonitiran.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "a995505b-0235-4857-85e5-6d7d5f5a327f",
+      "office": "鹿屋市役所",
+      "sourceUrl": "https://www.pref.kagoshima.jp/ab08/kensei/shityoson/gyosei/sityosonitiran.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "d4f412d9-764c-4dfb-8c31-3accac18fd2f",
+      "office": "十島村役場",
+      "sourceUrl": "https://www.pref.kagoshima.jp/ab08/kensei/shityoson/gyosei/sityosonitiran.html",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "6bdb46ea-5200-48d8-8de4-759ff4aa1399",
+      "office": "那覇市役所",
+      "sourceUrl": "https://www.pref.okinawa.lg.jp/kensei/shinko/1016703/1016705/1027026/1016768.html (市町村別概要 令和4年3月版)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "7d313f3a-1195-4e67-867d-c8d79fb5875f",
+      "office": "宜野湾市役所",
+      "sourceUrl": "https://www.pref.okinawa.lg.jp/kensei/shinko/1016703/1016705/1027026/1016768.html (市町村別概要 令和4年3月版)",
+      "verifiedAt": "2026-07-07"
+    },
+    {
+      "id": "78e943f3-3f04-4f9a-8454-fd3768419d28",
+      "office": "那覇市役所",
+      "sourceUrl": "https://www.pref.okinawa.lg.jp/kensei/shinko/1016703/1016705/1027026/1016768.html (市町村別概要 令和4年3月版)",
+      "verifiedAt": "2026-07-07"
+    }
+  ]
+}
