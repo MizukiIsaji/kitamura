@@ -2,7 +2,7 @@
 
 import {useEffect,useId,useRef,useState,type KeyboardEvent} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,ChevronRight,Compass,Fish,MapPin,Search,Waves,Users,Anchor,LocateFixed,Store,X} from 'lucide-react';
+import {ArrowLeft,ArrowRight,ChevronRight,Fish,MapPin,Search,Waves,Users,Anchor,LocateFixed,Store,X} from 'lucide-react';
 import {categories} from '@/lib/domain';
 import {localAreas,localAreasForPrefecture,localAreaForMunicipality,municipalityById} from '@/lib/localities';
 import {mapLocalMarkers,municipalitiesWithEntries,paginateLocalMarkers} from '@/lib/local-map';
@@ -136,13 +136,11 @@ export function FishingMap({entries,initialKind='all',compact=false,totalCatches
  }
 
  return <section className={'fishing-map '+(compact?'map-compact':'')} aria-label="日本の釣りマップ">
-  <div className="map-section-heading">
-   <div><p className="kicker"><Compass size={13}/> EXPLORE THE BLUE</p><h2>次の一尾は、どのあたり？</h2><p>日本地図から、釣果と釣りの教え手を探そう。</p></div>
-   {compact&&<Link className="text-link" href={'/explore'+(initialKind==='coach'?'?type=coach':'')}>マップを大きく見る<ArrowRight size={16}/></Link>}
-  </div>
-  <div className="map-types" aria-label="マップに表示する種類">
-   <button type="button" aria-pressed={kind==='all'} onClick={()=>chooseKind('all')}>すべて<span>{entries.length}</span></button>
-   {(Object.keys(mapKinds) as MapKind[]).map(key=>{const Icon=icons[key];return <button type="button" key={key} className={'map-type-'+key} aria-pressed={kind===key} onClick={()=>chooseKind(key)}><Icon size={16}/>{mapKinds[key].label}<span>{counts(key)}</span></button>;})}
+  {compact&&<div className="map-section-actions"><Link className="text-link" href={'/explore'+(initialKind==='coach'?'?type=coach':'')}>マップを大きく見る<ArrowRight size={16}/></Link></div>}
+  {/* マップ FR-01.7・FR-02.10: 紹介見出しを省略し、種類はスマホでも一覧から選べる。 */}
+  <div className="map-types" role="group" aria-label="マップに表示する種類">
+   <button type="button" aria-pressed={kind==='all'} onClick={()=>chooseKind('all')}><span className="map-type-label">すべて</span><span className="map-type-count">{entries.length}</span></button>
+   {(Object.keys(mapKinds) as MapKind[]).map(key=>{const Icon=icons[key];return <button type="button" key={key} className={'map-type-'+key} aria-pressed={kind===key} onClick={()=>chooseKind(key)}><Icon size={16}/><span className="map-type-label">{mapKinds[key].label}</span><span className="map-type-count">{counts(key)}</span></button>;})}
   </div>
   <div className="map-layout">
    <div className="map-stage">
