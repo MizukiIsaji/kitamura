@@ -1,7 +1,6 @@
 'use client';
 
 import {useEffect,useId,useRef,useState,type KeyboardEvent} from 'react';
-import Link from 'next/link';
 import {ArrowLeft,ArrowRight,ChevronRight,Fish,MapPin,Search,Waves,Users,Anchor,LocateFixed,Store,X} from 'lucide-react';
 import {categories} from '@/lib/domain';
 import {localAreas,localAreasForPrefecture,localAreaForMunicipality,municipalityById} from '@/lib/localities';
@@ -136,11 +135,13 @@ export function FishingMap({entries,initialKind='all',compact=false,totalCatches
  }
 
  return <section className={'fishing-map '+(compact?'map-compact':'')} aria-label="日本の釣りマップ">
-  {compact&&<div className="map-section-actions"><Link className="text-link" href={'/explore'+(initialKind==='coach'?'?type=coach':'')}>マップを大きく見る<ArrowRight size={16}/></Link></div>}
-  {/* マップ FR-01.7・FR-02.10: 紹介見出しを省略し、種類はスマホでも一覧から選べる。 */}
-  <div className="map-types" role="group" aria-label="マップに表示する種類">
+  {/* マップ FR-01.7・FR-02.10・FR-02.11: 短い案内と色で種類選択の役割を示す。 */}
+  <div className="map-filter-panel">
+  <div className="map-filter-heading"><span className="map-filter-icon" aria-hidden="true"><MapPin size={18}/></span><h2 id={id+'-filters-title'}>地図に表示するものを選ぶ</h2></div>
+  <div className="map-types" role="group" aria-labelledby={id+'-filters-title'}>
    <button type="button" aria-pressed={kind==='all'} onClick={()=>chooseKind('all')}><span className="map-type-label">すべて</span><span className="map-type-count">{entries.length}</span></button>
    {(Object.keys(mapKinds) as MapKind[]).map(key=>{const Icon=icons[key];return <button type="button" key={key} className={'map-type-'+key} aria-pressed={kind===key} onClick={()=>chooseKind(key)}><Icon size={16}/><span className="map-type-label">{mapKinds[key].label}</span><span className="map-type-count">{counts(key)}</span></button>;})}
+  </div>
   </div>
   <div className="map-layout">
    <div className="map-stage">

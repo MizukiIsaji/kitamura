@@ -375,7 +375,12 @@ button.map-result-card:focus-visible{outline:2px solid #087eaa;outline-offset:-2
 
 /* 共通ナビ FR-01.5: ポイントを含む7項目をスマホ下部にも表示する。 */
 @media(max-width:760px){.mobile-nav a{min-height:44px;white-space:nowrap;justify-content:center}}
-.map-section-actions{display:flex;justify-content:flex-end;padding:12px 20px 0}
+.map-filter-panel{background:linear-gradient(110deg,#e8f5f8,#f4f9fc);border-bottom:1px solid #c9e0e8}
+.map-filter-heading{display:flex;align-items:center;gap:10px;padding:20px 29px 0;color:#164c62}
+.map-filter-heading h2{font-size:16px;font-weight:700;line-height:1.6;letter-spacing:.2px;min-width:0;overflow-wrap:anywhere}
+.map-filter-icon{display:grid;place-items:center;width:32px;height:32px;flex-shrink:0;background:#147c96;color:#fff;border-radius:9px}
+.map-filter-panel .map-types{padding-top:14px;border-bottom:0}
+@media(max-width:760px){.map-filter-heading{padding:16px 16px 0}.map-filter-heading h2{font-size:15px}.map-filter-panel .map-types{padding-top:12px}}
 .map-type-label{min-width:0;overflow-wrap:anywhere;line-height:1.5}
 .map-type-count{white-space:nowrap;flex-shrink:0}
 @media(max-width:760px){.map-types .map-type-label{text-align:left}.map-types>button:first-child>.map-type-label{grid-column:1/3}}
