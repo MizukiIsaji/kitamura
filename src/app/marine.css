@@ -373,7 +373,7 @@ button.map-result-card:focus-visible{outline:2px solid #087eaa;outline-offset:-2
 .point-card .point-card-status{font-size:12px;line-height:1.8;overflow-wrap:anywhere;color:#547785;margin:0}
 @media(max-width:760px){.point-card{gap:12px;padding:18px;margin-bottom:20px}.point-card-main{gap:10px}.point-card-icon{width:36px;height:36px}.point-balance strong{font-size:28px}.point-card-link{font-size:11px}.point-card .point-card-status{font-size:11px}}
 
-/* 共通ナビ FR-01.5: ポイントを含む7項目をスマホ下部にも表示する。 */
+/* 共通ナビ FR-01: スマホ下部の6項目に押しやすい高さを確保する。 */
 @media(max-width:760px){.mobile-nav a{min-height:44px;white-space:nowrap;justify-content:center}}
 .map-filter-panel{background:linear-gradient(110deg,#e8f5f8,#f4f9fc);border-bottom:1px solid #c9e0e8}
 .map-filter-heading{display:flex;align-items:center;gap:10px;padding:20px 29px 0;color:#164c62}
