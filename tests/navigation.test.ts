@@ -8,3 +8,7 @@ test('共通ナビ FR-01: 記録作成と釣果詳細の現在地を区別し、
  assert.equal(activeNavigationHref('/requests'),'/requests');
  assert.equal(activeNavigationHref('/posts-other'),undefined);
 });
+test('共通ナビ FR-01.5: ポイント画面を現在地として示し、似た経路と混同しない',()=>{
+ assert.equal(activeNavigationHref('/points'),'/points');
+ assert.equal(activeNavigationHref('/points-other'),undefined);
+});

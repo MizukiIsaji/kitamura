@@ -23,13 +23,14 @@ export async function preparePhotoForm(form:FormData,encode:(file:File)=>Promise
 export function getPostPhotoPaths(post:{image_path?:string|null;image_paths?:string[]|null}){
  return [...new Set(post.image_paths?.length?post.image_paths:post.image_path?[post.image_path]:[])];
 }
-type PhotoStore={upload:(path:string)=>Promise<void>;link:(paths:string[])=>Promise<void>;remove:(paths:string[])=>Promise<void>;deletePost:()=>Promise<void>};
+type PhotoStore={upload:(path:string)=>Promise<void>;link:(paths:string[])=>Promise<void>;remove:(paths:string[])=>Promise<void>;deletePost:()=>Promise<void>;finalize?:()=>Promise<void>};
 // 釣果写真 FR-02: every failed batch is rolled back, including metadata failures.
 export async function savePhotoBatch(paths:string[],store:PhotoStore){
  const uploaded:string[]=[];
  try{
   for(const path of paths){await store.upload(path);uploaded.push(path);}
   if(paths.length)await store.link(paths);
+  await store.finalize?.();
   return {ok:true,cleanupFailed:false};
  }catch{
   let cleanupFailed=false;

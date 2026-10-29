@@ -32,6 +32,6 @@ export function PostForm({today}:{today:string}){
  <label className="full">エリア<input name="area" required maxLength={80} placeholder="例：長野県 安曇野エリア"/><small>都道府県名を含めると日本マップに表示されます。釣り場を守るため、具体的なポイントや住所はお控えください。</small></label>
  <label>ロッド<input name="rod" maxLength={100}/></label><label>リール<input name="reel" maxLength={100}/></label>
  <label className="full">ルアー・仕掛け<select name="lure" defaultValue=""><option value="">選択してください（任意）</option>{tackleOptions.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
- <label className="full">釣行メモ<textarea name="memo" required maxLength={3000} rows={6} placeholder="状況、工夫、次に試したいこと…"/></label>
+ <label className="full">釣行メモ（任意）<textarea name="memo" maxLength={3000} rows={6} placeholder="状況、工夫、次に試したいこと…"/><small>空白を除いて100文字以上で50pt加算されます。</small></label>
  </div><label className="check-label"><input name="is_public" type="checkbox" defaultChecked/><span>みんなに公開する<small>チェックを外すと、自分のマイレコードからのみ閲覧できます。</small></span></label></ActionForm>;
 }

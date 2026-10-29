@@ -11,7 +11,7 @@ function fixtures(){
 test('the map exposes public catches and approved coaches, without private records or pending applications',()=>{
  const {data,entries}=fixtures();
  assert.equal(entries.filter(e=>e.kind==='catch').length,12);
- assert.equal(entries.filter(e=>e.kind==='coach').length,3);
+ assert.equal(entries.filter(e=>e.kind==='coach').length,4);
  for(const post of data.posts.filter(p=>!p.is_public))assert(!entries.some(e=>e.href==='/posts/'+post.id));
  for(const coach of data.coaches.filter(c=>c.status!=='approved'))assert(!entries.some(e=>e.href==='/anglers/'+coach.user_id));
  assert(entries.every(e=>!('memo' in e)&&!('user_id' in e)&&!('image_path' in e)));

@@ -8,7 +8,7 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  try{
  await db.exec(`create role anon; create role authenticated; create role service_role bypassrls;
  create schema auth; create schema storage;
- create table auth.users(id uuid primary key,raw_user_meta_data jsonb default '{}');
+ create table auth.users(id uuid primary key,created_at timestamptz not null default now(),raw_user_meta_data jsonb default '{}');
  create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
  grant usage on schema auth to anon,authenticated; grant execute on function auth.uid() to anon,authenticated;
  create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);
@@ -19,12 +19,15 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  grant select,insert,delete on storage.objects to anon,authenticated;`);
  const diagnostics=readFileSync('supabase/check-setup.sql','utf8');
  const before=await db.query<Record<string,string>>(diagnostics);
- assert.equal(before.rows.length,8);assert(before.rows.every(row=>row['結果']==='要確認'));
+ assert.equal(before.rows.length,11);assert(before.rows.every(row=>row['結果']==='要確認'));
  await db.exec(readFileSync('supabase/migrations/202610170001_initial.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202610200001_post_photos.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202610200002_consultation_details.sql','utf8'));
+ await db.exec(readFileSync('supabase/migrations/202610200003_user_points.sql','utf8'));
+ await db.exec(readFileSync('supabase/migrations/202610250001_point_rewards.sql','utf8'));
+ await db.exec(readFileSync('supabase/migrations/202610280001_coach_ranks.sql','utf8'));
  const after=await db.query<Record<string,string>>(diagnostics);
- assert.equal(after.rows.length,8);assert(after.rows.every(row=>row['結果']==='OK'));
+ assert.equal(after.rows.length,11);assert(after.rows.every(row=>row['結果']==='OK'));
  await db.exec(`insert into auth.users(id,raw_user_meta_data) values('${A}','{"display_name":"釣り人A"}'),('${B}','{"display_name":"コーチB"}'),('${C}','{}');`);
  const user=async(id:string|null)=>{await db.exec(`reset role; set role ${id?'authenticated':'anon'}; select set_config('request.jwt.claim.sub','${id||''}',false);`);};
  const admin=async()=>{await db.exec(`reset role; select set_config('request.jwt.claim.sub','',false);`);};

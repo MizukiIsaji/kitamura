@@ -77,6 +77,41 @@ checks(section,item,ok) as (
     select 1 from information_schema.columns where table_schema='public' and table_name='coaching_requests' and information_schema.columns.column_name=r.column_name and is_nullable='NO'
   ) and coalesce(has_column_privilege('authenticated',to_regclass('public.coaching_requests'),r.column_name,'INSERT'),false)
   from (values ('preferred_area'),('equipment_status')) r(column_name)
+  union all
+  select '9. 保有ポイント','残高と本人の閲覧制限',exists(
+    select 1 from pg_class where oid=to_regclass('public.point_accounts') and relrowsecurity
+  ) and exists(
+    select 1 from pg_attribute where attrelid=to_regclass('public.point_accounts') and attname='balance' and attnotnull and not attisdropped
+  ) and exists(
+    select 1 from pg_policies where schemaname='public' and tablename='point_accounts' and policyname='point_accounts_read'
+  ) and exists(
+    select 1 from pg_trigger where tgrelid=to_regclass('public.profiles') and tgname='profiles_create_point_account' and not tgisinternal
+  ) and coalesce(has_table_privilege('authenticated',to_regclass('public.point_accounts'),'SELECT'),false)
+  and not coalesce(has_table_privilege('authenticated',to_regclass('public.point_accounts'),'INSERT,UPDATE,DELETE'),false)
+  union all
+  select '10. ポイント付与・履歴','本人の履歴と付与・取り消し',exists(
+    select 1 from pg_class where oid=to_regclass('public.point_transactions') and relrowsecurity
+  ) and exists(
+    select 1 from pg_policies where schemaname='public' and tablename='point_transactions' and policyname='point_transactions_read'
+  ) and to_regclass('app_private.point_reward_campaign') is not null
+  and coalesce(has_table_privilege('authenticated',to_regclass('public.point_transactions'),'SELECT'),false)
+  and not coalesce(has_table_privilege('authenticated',to_regclass('public.point_transactions'),'INSERT,UPDATE,DELETE'),false)
+  and coalesce(has_function_privilege('authenticated',to_regprocedure('public.finalize_post_points(uuid)'),'EXECUTE'),false)
+  and not coalesce(has_function_privilege('anon',to_regprocedure('public.finalize_post_points(uuid)'),'EXECUTE'),false)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.posts') and tgname='posts_reverse_points' and not tgisinternal)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.point_transactions') and tgname='point_transactions_apply' and not tgisinternal)
+  union all
+  select '11. コーチランク','完了確認・自動判定・料金と取り分',exists(
+    select 1 from pg_class where oid=to_regclass('public.coaching_completions') and relrowsecurity
+  ) and exists(
+    select 1 from pg_class where oid=to_regclass('public.coaching_request_compensation') and relrowsecurity
+  ) and coalesce(has_function_privilege('anon',to_regprocedure('public.get_coach_rankings(uuid[])'),'EXECUTE'),false)
+  and coalesce(has_function_privilege('authenticated',to_regprocedure('public.confirm_coaching_completion(uuid)'),'EXECUTE'),false)
+  and not coalesce(has_function_privilege('anon',to_regprocedure('public.confirm_coaching_completion(uuid)'),'EXECUTE'),false)
+  and not coalesce(has_table_privilege('authenticated',to_regclass('public.coaching_completions'),'INSERT,UPDATE,DELETE'),false)
+  and not coalesce(has_table_privilege('authenticated',to_regclass('public.coaching_request_compensation'),'INSERT,UPDATE,DELETE'),false)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_completions') and tgname='completions_refresh_prices' and not tgisinternal)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_requests') and tgname='requests_compensation_snapshot' and not tgisinternal)
 )
 select section as "項目",
        case when bool_and(ok) then 'OK' else '要確認' end as "結果",

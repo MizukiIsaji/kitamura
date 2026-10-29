@@ -1,6 +1,17 @@
 import {japanDate, type Category, type Profile, type PostCardData, type Coach, type Plan, type Consultation, type Comment} from './domain';
+import {coachRankForLessons,priceRankedPlan,coachRankRates} from './coach-ranks';
 
 export type DemoData={viewerId:string;profiles:Profile[];posts:PostCardData[];coaches:Coach[];plans:Plan[];requests:Consultation[];comments:Comment[];following:string[]};
+// テスト画面だけの操作。実際のDBや実績には送信しない。
+export function completeDemoLesson(data:DemoData,requestId:string,today=japanDate()):DemoData{
+ const request=data.requests.find(item=>item.id===requestId);
+ if(!request||request.student_id!==data.viewerId||request.status!=='accepted'||request.preferred_date>today)throw new Error('完了を確認できる相談ではありません。');
+ if(request.completed_at)return data;
+ const coach=data.coaches.find(coach=>coach.user_id===request.coach_id);
+ if(!coach?.rankInfo)throw new Error('コーチの実績を確認できません。');
+ const completedLessons=coach.rankInfo.completedLessons+1,rank=coachRankForLessons(completedLessons);
+ return {...data,coaches:data.coaches.map(item=>item.user_id===coach.user_id?{...item,rankInfo:{rank,completedLessons}}:item),plans:data.plans.map(plan=>plan.coach_id===coach.user_id?priceRankedPlan(plan,rank):plan),requests:data.requests.map(item=>item.id===requestId?{...item,completed_at:today+'T03:00:00.000Z'}:item)};
+}
 const id=(n:number)=>`00000000-0000-4000-8000-${String(n).padStart(12,'0')}`;
 const offsetDate=(today:string,days:number)=>new Date(Date.parse(today+'T12:00:00Z')+days*86400000).toISOString().slice(0,10);
 
@@ -37,12 +48,13 @@ export function createDemoData(today=japanDate()):DemoData{
   const profile=profiles[authors[i]];
   return {id:id(101+i),user_id:profile.id,title,species,size_cm,category,area,memo,method:category==='sea'?'サビキ・ちょい投げ':'ルアー',rod:'テスト用ロッド',reel:'テスト用リール',lure:category==='sea'?'サビキ釣り':category==='eging'?'エギング・イカ釣り':category==='aji'?'ライトゲーム':'ショアルアー',fished_on:offsetDate(today,-i),image_path:null,imageUrl:null,is_public:i<12,created_at:offsetDate(today,-i)+'T03:00:00.000Z',updated_at:timestamp,profile,likeCount:i%4===0?0:3+i*2,commentCount:0,liked:i===1,bookmarked:i===2||i===6};
  });
- const coaches:Coach[]=[1,2,3,4].map((person,i)=>({user_id:profiles[person].id,status:i===3?'pending':'approved',category:(['sea','trout','bass','eging'] as const)[i],area:profiles[person].prefecture+'・架空のテストエリア',introduction:profiles[person].bio+' こちらは架空の指導者によるテスト表示です。',years_experience:[12,9,15,4][i],created_at:timestamp,updated_at:timestamp}));
- const planSamples:[number,string,number,number][]=[[1,'はじめての堤防釣り',120,6000],[1,'道具選びのオンライン相談',30,0],[2,'渓流キャストの基礎',180,9000],[3,'岸釣りのポイント探し',120,7000],[3,'非公開プランのテスト',60,3000]];
- const plans:Plan[]=planSamples.map(([person,title,duration_minutes,price_yen],i)=>({id:id(201+i),coach_id:profiles[person].id,title,description:'持ち物と安全確認から始め、基本操作を自分のペースで練習する架空のプランです。',duration_minutes,price_yen,is_active:i!==4,created_at:timestamp,updated_at:timestamp}));
+ const coaches:Coach[]=[1,2,3,4,5].map((person,i)=>({user_id:profiles[person].id,status:i===4?'pending':'approved',category:(['sea','trout','bass','eging','sea'] as const)[i],area:profiles[person].prefecture+'・架空のテストエリア',introduction:profiles[person].bio+' こちらは架空の指導者によるテスト表示です。',years_experience:[12,9,15,4,0][i],rankInfo:i<4?{rank:coachRankForLessons([100,99,29,9][i]),completedLessons:[100,99,29,9][i]}:null,created_at:timestamp,updated_at:timestamp}));
+ const planSamples:[number,string,number,number][]=[[1,'はじめての堤防釣り',120,7000],[1,'道具選びのオンライン相談',30,0],[2,'渓流キャストの基礎',180,9000],[3,'岸釣りのポイント探し',120,4000],[3,'非公開プランのテスト',60,3000],[2,'2時間の渓流レッスン',120,5000],[4,'2時間のエギング入門',120,3000]];
+ const plans:Plan[]=planSamples.map(([person,title,duration_minutes,price_yen],i)=>priceRankedPlan({id:id(201+i),coach_id:profiles[person].id,title,description:'持ち物と安全確認から始め、基本操作を自分のペースで練習する架空のプランです。',duration_minutes,price_yen,is_active:i!==4,created_at:timestamp,updated_at:timestamp},coaches.find(coach=>coach.user_id===profiles[person].id)?.rankInfo?.rank||null));
  const requests:Consultation[]=(['requested','accepted','declined','cancelled'] as const).map((status,i)=>{
-  const plan=plans[[0,2,3,0][i]];
-  return {id:id(301+i),client_token:id(401+i),student_id:profiles[0].id,coach_id:plan.coach_id,plan_id:plan.id,plan_title:plan.title,price_yen:plan.price_yen,duration_minutes:plan.duration_minutes,preferred_date:offsetDate(today,7+i),preferred_time:'morning',experience:'first',preferred_area:'神奈川県',equipment_status:'none',goal:'道具の使い方と安全な釣り方を覚えたい',message:'藤沢市の湘南エリアで希望します。必要な持ち物から教えてください。（架空のテスト相談）',status,coach_note:status==='accepted'?'ご相談ありがとうございます。持ち物と実施条件を確認しましょう。（テスト返信）':status==='declined'?'希望日は対応が難しいため、別の日程でご相談ください。（テスト返信）':'',created_at:timestamp,updated_at:timestamp};
+  const plan=plans[[0,6,3,0][i]];
+  const rank=coaches.find(coach=>coach.user_id===plan.coach_id)?.rankInfo?.rank;
+  return {id:id(301+i),client_token:id(401+i),student_id:profiles[0].id,coach_id:plan.coach_id,plan_id:plan.id,plan_title:plan.title,price_yen:plan.price_yen,duration_minutes:plan.duration_minutes,compensation:plan.duration_minutes===120&&rank?{rank,coach_payout_yen:coachRankRates[rank].coachPayoutYen}:null,preferred_date:status==='accepted'?today:offsetDate(today,7+i),preferred_time:'morning',experience:'first',preferred_area:'神奈川県',equipment_status:'none',goal:'道具の使い方と安全な釣り方を覚えたい',message:'藤沢市の湘南エリアで希望します。必要な持ち物から教えてください。（架空のテスト相談）',status,coach_note:status==='accepted'?'ご相談ありがとうございます。持ち物と実施条件を確認しましょう。（テスト返信）':status==='declined'?'希望日は対応が難しいため、別の日程でご相談ください。（テスト返信）':'',created_at:timestamp,updated_at:timestamp};
  });
  const comments:Comment[]=[{id:id(501),post_id:posts[1].id,user_id:profiles[0].id,body:'流れの見方を参考にしたいです。（テストコメント）',created_at:timestamp},{id:id(502),post_id:posts[1].id,user_id:profiles[2].id,body:'まずは岸から流れを観察してみてください。（テスト返信）',created_at:timestamp}];
  posts.forEach(post=>{post.commentCount=comments.filter(comment=>comment.post_id===post.id).length;});

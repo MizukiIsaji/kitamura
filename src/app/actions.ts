@@ -64,16 +64,18 @@ export async function createPost(_:ActionState,form:FormData):Promise<ActionStat
   link:async values=>{const result=await db.from('posts').update({image_path:values[0]||null,image_paths:values}).eq('id',id).eq('user_id',user.id).select('id');if(result.error||result.data?.length!==1)throw new Error('PHOTO_LINK_FAILED');},
   remove:async values=>{const result=await db.storage.from('catch-photos').remove(values);if(result.error)throw new Error('PHOTO_CLEANUP_FAILED');},
   deletePost:async()=>{const result=await db.from('posts').delete().eq('id',id).eq('user_id',user.id);if(result.error)throw new Error('POST_CLEANUP_FAILED');},
+  // ポイント FR-02: award once, only after every photo and its metadata have been saved.
+  finalize:async()=>{const result=await db.rpc('finalize_post_points',{p_post_id:id});if(result.error)throw new Error('POST_POINTS_FAILED');},
  });
- if(!saved.ok){if(saved.cleanupFailed)console.error('Post photo rollback needs cleanup');return{error:'写真を保存できませんでした。時間をおいて再度お試しください。'};}
- revalidatePath('/');revalidatePath('/posts');revalidatePath('/records');redirect('/posts/'+id);
+ if(!saved.ok){if(saved.cleanupFailed)console.error('Post rollback needs cleanup',id);return{error:'記録の保存を完了できませんでした。記録一覧を確認してから再度お試しください。'};}
+ revalidatePath('/');revalidatePath('/posts');revalidatePath('/records');revalidatePath('/points');revalidatePath('/settings');redirect('/posts/'+id);
 }
 export async function deletePost(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer('/records'),id=idSchema.safeParse(form.get('id'));if(!id.success)return{error:'投稿が見つかりません。'};if(form.get('confirm')!=='on')return{error:'削除の確認にチェックを入れてください。'};
  const db=await createClient(),post=await db.from('posts').select('id,image_path,image_paths').eq('id',id.data).eq('user_id',user.id).maybeSingle();if(post.error)return failure(post.error);if(!post.data)return{error:'投稿が見つからないか、削除できません。'};
  const paths=getPostPhotoPaths(post.data);if(paths.length){const removed=await db.storage.from('catch-photos').remove(paths);if(removed.error)return{error:'写真を削除できませんでした。時間をおいて再度お試しください。'};}
  const result=await db.from('posts').delete().eq('id',id.data).eq('user_id',user.id);if(result.error)return failure(result.error);
- revalidatePath('/');revalidatePath('/records');redirect('/records');
+ revalidatePath('/');revalidatePath('/records');revalidatePath('/points');revalidatePath('/settings');redirect('/records');
 }
 export async function setRelation(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer(),id=idSchema.safeParse(form.get('id'));if(!id.success)return{error:'対象が見つかりません。'};
@@ -119,4 +121,15 @@ export async function respondConsultation(_:ActionState,form:FormData):Promise<A
  const result=await db.from('coaching_requests').update({status:desired,...(r.coach_id===user.id?{coach_note:note}:{})}).eq('id',id.data).eq('status',r.status).select('id');
  if(result.error)return failure(result.error);if(!result.data?.length)return{error:'別の操作で更新されました。ページを再読み込みしてください。'};
  revalidatePath('/requests');return{success:'相談の状態を更新しました。'};
+}
+
+// 相談履歴 FR-03: 受講者の確認をDB側で検証し、実績に一度だけ加算する。
+export async function completeConsultation(_:ActionState,form:FormData):Promise<ActionState>{
+ await requireViewer('/requests');const id=idSchema.safeParse(form.get('id'));
+ if(!id.success||form.get('confirm_completion')!=='on')return{error:'指導を受け終えたことを確認してください。'};
+ const db=await createClient(),{error}=await db.rpc('confirm_coaching_completion',{p_request_id:id.data});
+ if(error)return{error:['PGRST202','42883'].includes(error.code)?'指導完了の確認は準備中です。しばらくお待ちください。':'完了を確認できませんでした。承認済みの相談と希望日を確認してください。'};
+ for(const path of ['/requests','/coaches','/coach','/'])revalidatePath(path);
+ revalidatePath('/anglers/[id]','page');revalidatePath('/consult/[id]','page');
+ return{success:'指導完了を確認しました。コーチの実績とランクに反映しました。'};
 }

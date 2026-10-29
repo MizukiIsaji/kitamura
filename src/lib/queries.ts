@@ -4,6 +4,20 @@ import {getViewer} from './auth';
 import type {Post,Profile,PostCardData,Coach,Plan,Consultation,Comment,Facility,FacilityKind} from './domain';
 import {makeMapEntries} from './fishing-map';
 import {getPostPhotoPaths} from './post-photos';
+import {priceRankedPlan,type CoachRankInfo} from './coach-ranks';
+
+function rankSetupMissing(error:{code?:string}|null){return !!error&&['PGRST202','PGRST205','42P01','42883'].includes(error.code||'');}
+// コーチ一覧 FR-02: 未適用のDBを実績0件・ブロンズとして扱わない。
+async function getCoachRanks(ids:string[]):Promise<Map<string,CoachRankInfo>|null>{
+ if(!ids.length)return new Map();
+ const db=await createClient(),ranks=new Map<string,CoachRankInfo>();
+ for(let offset=0;offset<ids.length;offset+=200){
+  const result=await db.rpc('get_coach_rankings',{p_coach_ids:ids.slice(offset,offset+200)});
+  if(rankSetupMissing(result.error))return null;assertQuery(result.error);
+  for(const row of result.data||[])ranks.set(row.coach_id,{rank:row.rank,completedLessons:Number(row.completed_lessons)});
+ }
+ return ranks;
+}
 export function assertQuery(error:{message:string}|null){if(error){console.error('Database query failed:',error.message);throw new Error('データの取得に失敗しました。接続設定とDBの初期設定を確認してください。');}}
 export async function getProfile(id:string){const db=await createClient();const {data,error}=await db.from('profiles').select('*').eq('id',id).maybeSingle();assertQuery(error);return data as Profile|null;}
 // 施設掲載 FR-01（docs/ai-dlc/specs/05-admin/facility-screen）: onlyPublished=false は管理画面専用（RLSは管理者にだけ未掲載も返す）
@@ -54,8 +68,22 @@ export async function getFeed({category,q,page=1,userId,following=false,saved=fa
 }
 export async function getPost(id:string){const db=await createClient();const {data,error}=await db.from('posts').select('*').eq('id',id).maybeSingle();assertQuery(error);return data?(await enrichPosts([data as Post]))[0]:null;}
 export async function getComments(postId:string){const db=await createClient();const {data,error}=await db.from('comments').select('*').eq('post_id',postId).order('created_at').limit(100);assertQuery(error);if(!data?.length)return[];const profiles=await db.from('profiles').select('*').in('id',[...new Set(data.map(x=>x.user_id))]);assertQuery(profiles.error);return(data as Comment[]).map(c=>({...c,profile:(profiles.data as Profile[]).find(p=>p.id===c.user_id)||null}));}
-export async function getCoaches(category?:string){const db=await createClient();let q=db.from('coach_profiles').select('*').eq('status','approved').order('created_at',{ascending:false}).limit(60);if(category)q=q.eq('category',category);const coaches=await q;assertQuery(coaches.error);if(!coaches.data?.length)return[];const ids=coaches.data.map(c=>c.user_id),[profiles,plans]=await Promise.all([db.from('profiles').select('*').in('id',ids),db.from('coaching_plans').select('*').eq('is_active',true).in('coach_id',ids)]);assertQuery(profiles.error);assertQuery(plans.error);return(coaches.data as Coach[]).map(c=>({...c,profile:(profiles.data as Profile[]).find(p=>p.id===c.user_id)||null,plans:(plans.data as Plan[]).filter(p=>p.coach_id===c.user_id)}));}
-export async function getCoach(id:string){const db=await createClient();const {data,error}=await db.from('coach_profiles').select('*').eq('user_id',id).maybeSingle();assertQuery(error);return data as Coach|null;}
-export async function getPlans(id:string){const db=await createClient();const {data,error}=await db.from('coaching_plans').select('*').eq('coach_id',id).order('created_at');assertQuery(error);return data as Plan[];}
-export async function getPlan(id:string){const db=await createClient();const {data,error}=await db.from('coaching_plans').select('*').eq('id',id).eq('is_active',true).maybeSingle();assertQuery(error);return data as Plan|null;}
-export async function getRequests(userId:string){const db=await createClient();const {data,error}=await db.from('coaching_requests').select('*').or(`student_id.eq.${userId},coach_id.eq.${userId}`).order('created_at',{ascending:false}).limit(100);assertQuery(error);return data as Consultation[];}
+export async function getCoaches(category?:string){
+ const db=await createClient();let query=db.from('coach_profiles').select('*').eq('status','approved').order('created_at',{ascending:false});if(category)query=query.eq('category',category);
+ const coaches=await query;assertQuery(coaches.error);if(!coaches.data?.length)return[];
+ const ids=coaches.data.map(c=>c.user_id),[profiles,plans,ranks]=await Promise.all([db.from('profiles').select('*').in('id',ids),db.from('coaching_plans').select('*').eq('is_active',true).in('coach_id',ids),getCoachRanks(ids)]);
+ assertQuery(profiles.error);assertQuery(plans.error);
+ return (coaches.data as Coach[]).map(coach=>{
+  const rankInfo=ranks?.get(coach.user_id)||null;
+  return {...coach,rankInfo,profile:(profiles.data as Profile[]).find(p=>p.id===coach.user_id)||null,plans:(plans.data as Plan[]).filter(p=>p.coach_id===coach.user_id).map(plan=>priceRankedPlan(plan,rankInfo?.rank||null))};
+ }).sort((a,b)=>(b.rankInfo?.completedLessons??-1)-(a.rankInfo?.completedLessons??-1)||a.user_id.localeCompare(b.user_id));
+}
+export async function getCoach(id:string){const db=await createClient();const {data,error}=await db.from('coach_profiles').select('*').eq('user_id',id).maybeSingle();assertQuery(error);if(!data)return null;const ranks=await getCoachRanks([id]);return {...data,rankInfo:ranks?.get(id)||null} as Coach;}
+export async function getPlans(id:string){const db=await createClient();const [{data,error},ranks]=await Promise.all([db.from('coaching_plans').select('*').eq('coach_id',id).order('created_at'),getCoachRanks([id])]);assertQuery(error);return (data as Plan[]).map(plan=>priceRankedPlan(plan,ranks?.get(id)?.rank||null));}
+export async function getPlan(id:string){const db=await createClient();const {data,error}=await db.from('coaching_plans').select('*').eq('id',id).eq('is_active',true).maybeSingle();assertQuery(error);if(!data)return null;const ranks=await getCoachRanks([data.coach_id]);return priceRankedPlan(data as Plan,ranks?.get(data.coach_id)?.rank||null);}
+export async function getRequests(userId:string):Promise<Consultation[]>{
+ const db=await createClient(),{data,error}=await db.from('coaching_requests').select('*').or(`student_id.eq.${userId},coach_id.eq.${userId}`).order('created_at',{ascending:false}).limit(100);assertQuery(error);if(!data?.length)return [];
+ const ids=data.map(request=>request.id),[completed,compensation]=await Promise.all([db.from('coaching_completions').select('request_id,confirmed_at').in('request_id',ids),db.from('coaching_request_compensation').select('request_id,rank,coach_payout_yen').eq('coach_id',userId).in('request_id',ids)]);
+ if(!rankSetupMissing(completed.error))assertQuery(completed.error);if(!rankSetupMissing(compensation.error))assertQuery(compensation.error);
+ return (data as Consultation[]).map(request=>({...request,completed_at:completed.data?.find(row=>row.request_id===request.id)?.confirmed_at||null,compensation:compensation.data?.find(row=>row.request_id===request.id)||null}));
+}

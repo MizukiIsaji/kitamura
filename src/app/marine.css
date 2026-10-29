@@ -352,3 +352,32 @@ button.map-result-card:focus-visible{outline:2px solid #087eaa;outline-offset:-2
 .post-photo-gallery img{width:100%;max-height:560px;object-fit:contain;border-radius:10px;background:#e9f1f4}
 .post-photo-gallery figcaption{font-size:11px;text-align:right;color:var(--muted);margin-top:4px}
 @media(max-width:760px){.post-photo-previews{grid-template-columns:repeat(3,minmax(0,1fr))}.post-photo-gallery{gap:9px}.post-photo-gallery img{max-height:420px}}
+
+/* ポイント FR-01: 自分の残高を記録一覧・プロフィール設定で確認する。 */
+.point-history,.point-rules{margin-bottom:24px}
+.point-history h2,.point-rules h2{font-size:20px;margin:0 0 10px}
+.point-history-list{list-style:none;margin:16px 0;padding:0}
+.point-history-list li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #dbe8eb}
+.point-history-list li>div{min-width:0}
+.point-history-list time{display:block;font-size:12px;color:#647c88;margin-top:5px}
+.point-history-list strong{white-space:nowrap;font-variant-numeric:tabular-nums}
+.point-credit{color:#087e74}.point-debit{color:#9d4f39}
+.point-history-pager{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:18px}
+.point-rules dl{margin:12px 0 18px}
+.point-rules dl>div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 0;border-bottom:1px solid #dbe8eb}
+.point-rules dd{margin:0;font-weight:700}
+.point-campaign p{margin:8px 0 0;font-size:13px;overflow-wrap:anywhere}
+.point-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:24px;background:linear-gradient(115deg,#f0fafc,#fff);border-color:#cbe3eb}
+.point-card-main{display:flex;align-items:center;gap:14px;min-width:0;flex:1 1 210px}
+.point-card-main>div{min-width:0}
+.point-card-icon{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:50%;background:#d7f0f4;color:#127f98}
+.point-card .point-card-title{font-size:12px;font-weight:700;color:#3c697a;margin:0 0 4px}
+.point-card .point-balance{display:flex;align-items:baseline;gap:8px;margin:0;color:#103f53}
+.point-balance strong{font-size:36px;line-height:1.2;font-variant-numeric:tabular-nums}
+.point-balance>span{font-size:13px;color:#547785}
+.point-card-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#127f98;padding:10px 0;flex-shrink:0}
+.point-card .point-card-status{font-size:12px;line-height:1.8;overflow-wrap:anywhere;color:#547785;margin:0}
+@media(max-width:760px){.point-card{gap:12px;padding:18px;margin-bottom:20px}.point-card-main{gap:10px}.point-card-icon{width:36px;height:36px}.point-balance strong{font-size:28px}.point-card-link{font-size:11px}.point-card .point-card-status{font-size:11px}}
+
+/* 共通ナビ FR-01.5: ポイントを含む7項目をスマホ下部にも表示する。 */
+@media(max-width:760px){.mobile-nav a{min-height:44px;white-space:nowrap;justify-content:center}}
