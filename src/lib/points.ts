@@ -25,6 +25,7 @@ export function registrationRewardCampaignFromQuery(result:PointBalanceQuery):Re
  if(row.amount!==5000||!validDate(row.ends_at)||(row.starts_at!==null&&!validDate(row.starts_at))||(row.starts_at!==null&&Date.parse(row.starts_at)>=Date.parse(row.ends_at)))return null;
  return {starts_at:row.starts_at,ends_at:row.ends_at,amount:5000};
 }
+export function formatPoints(balance:number):string{return new Intl.NumberFormat('ja-JP').format(balance);}
 // ポイント FR-01: 準備中・取得失敗を0ポイントとして表示しない。
 export function pointBalanceFromQuery(userId:string,result:PointBalanceQuery):PointBalance{
  if(result.error)return ['42P01','PGRST205'].includes(result.error.code||'')?{status:'setup-required'}:{status:'unavailable'};
