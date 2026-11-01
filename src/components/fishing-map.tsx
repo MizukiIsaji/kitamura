@@ -21,7 +21,8 @@ function activate(event:KeyboardEvent<SVGElement>,action:()=>void){
 
 // FR-01 / FR-02: the same map is used on the top, explore and coaches pages.
 export function FishingMap({entries,initialKind='all',compact=false,totalCatches}:Props){
- const id=useId();
+ // useId() includes ':' characters that some mobile browsers fail to resolve inside this SVG's url(#...) pattern/gradient fills.
+ const id=useId().replace(/:/g,'');
  const [kind,setKind]=useState<MapKind|'all'>(initialKind);
  const [region,setRegion]=useState<Region|'all'>('all');
  const [prefecture,setPrefecture]=useState('');

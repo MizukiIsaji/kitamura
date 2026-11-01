@@ -27,8 +27,10 @@ function IconFrame({children,size,id,metal}:{children:ReactNode;size:number;id:s
 }
 
 // 会員名のランク表示 FR-02: 指導実績は盾、ポイントはコイン・宝石で区別する。
+// useId() includes ':' characters that some mobile browsers fail to resolve inside url(#...) paint references, leaving the icon unfilled.
+function useRankIconId(){return useId().replace(/:/g,'');}
 export function CoachRankIcon({rank,size=32}:{rank:CoachRank;size?:number}) {
- const metal=metals[rank],id=useId(),finish='url(#'+id+'-metal)';
+ const metal=metals[rank],id=useRankIconId(),finish='url(#'+id+'-metal)';
  return <IconFrame size={size} id={id} metal={metal}>
   {(rank==='gold'||rank==='platinum')&&<g fill={finish} stroke={metal.edge} strokeWidth=".8">
    <path d="M8 13 1 10l2 7 5 4-6-2 3 7 6 3-5-1 7 7 3-5Z"/>
@@ -53,7 +55,7 @@ export function CoachRankIcon({rank,size=32}:{rank:CoachRank;size?:number}) {
 }
 
 export function PointRankIcon({tier,size=32}:{tier:PointRankTier;size?:number}) {
- const metal=metals[tier],id=useId(),finish='url(#'+id+'-metal)';
+ const metal=metals[tier],id=useRankIconId(),finish='url(#'+id+'-metal)';
  if(tier==='sapphire')return <IconFrame size={size} id={id} metal={metal}>
   <path d="m11 6 18 0 8 11-17 21L3 17Z" fill={finish} stroke={metal.edge} strokeWidth="1.2"/>
   <path d="m12 8 16 0 6 9-14 17L6 17Z" fill="#3c6ed4"/>

@@ -29,26 +29,26 @@ export function createDemoData(today=japanDate()):DemoData{
  ];
  const profiles:Profile[]=people.map(([display_name,handle,prefecture,bio],i)=>({id:id(i+1),display_name,handle,prefecture,bio,created_at:timestamp,updated_at:timestamp}));
  const pointRanks=Object.fromEntries(profiles.map((profile,index)=>[profile.id,pointRankFromBalance([5250,0,10000,15000,20000,5000][index])]));
- const samples:[string,string,number|null,Category,string,string][]=[
-  ['朝の堤防でアジに出会えた','アジ',23,'sea','神奈川県・架空のテスト堤防','朝の短い時間に回遊。足元の安全を確認してから釣りを始めました。'],
-  ['流れの脇にルアーを通してみた','ニジマス',31,'trout','長野県・架空のテスト渓流','流れの速さに合わせて巻き速度を調整。キャストの練習もできました。'],
-  ['岸際の変化を探して一尾','ブラックバス',42,'bass','滋賀県・架空のテスト湖','同じ場所に立ち続けず、足元の地形が変わる場所を探しました。'],
-  ['小さなアタリを感じる練習','アジ',18,'aji','静岡県・架空のテスト港','軽いジグヘッドでレンジを変えながら探しました。サイズ以上にうれしい一尾。'],
-  ['夕方のエギング記録','アオリイカ',null,'eging','静岡県・架空のテスト岸壁','サイズ未測定の表示例です。周囲との間隔を空けて練習しました。'],
-  ['初めてのシロギス','シロギス',19,'sea','千葉県・架空のテスト海岸','投げ方を教わってから少し遠くへ。次回は仕掛けの扱いを覚えたいです。'],
-  ['雨上がりの渓流メモ','ヤマメ',24,'trout','長野県・架空のテスト川','釣行時の気づきを複数行で表示するテストです。\n水位を確認し、無理のない区間だけ歩きました。'],
-  ['ルアーの色を変えて反応を比較','ブラックバス',35.5,'bass','滋賀県・架空のテスト池','小数点を含むサイズの表示例。色だけでなく、通す深さも記録しました。'],
-  ['風の弱い場所でアジング','アジ',21,'aji','神奈川県・架空のテスト港','糸ふけを取り、アタリを待つ練習。写真なしの投稿も記録できます。'],
-  ['エギの沈む時間を計ってみた','アオリイカ',27,'eging','静岡県・架空のテスト海岸','着底の感覚を覚える練習をしました。釣り場のルールも確認済み。'],
-  ['親子で楽しむ堤防の一日','サバ',28,'sea','千葉県・架空のテスト堤防','ライフジャケットと休憩を忘れずに。道具の片付けまで一緒に練習しました。'],
-  ['今日は釣れなくても発見があった','',null,'trout','長野県・架空のテスト渓流','釣果なし・魚種なしの記録例。次に試したいことを残しておきます。'],
-  ['自分だけの練習メモ（非公開）','アジ',17,'aji','東京都・架空のテストエリア','自分の記録にだけ表示される非公開データです。'],
-  ['他の人の非公開記録（表示対象外）','ブラックバス',38,'bass','滋賀県・架空のテストエリア','公開フィードや保存一覧には出ないことを確認するテスト用です。'],
+ const samples:[string,string,number|null,number|null,Category,string,string][]=[
+  ['朝の堤防でアジに出会えた','アジ',23,150,'sea','神奈川県・架空のテスト堤防','朝の短い時間に回遊。足元の安全を確認してから釣りを始めました。'],
+  ['流れの脇にルアーを通してみた','ニジマス',31,350,'trout','長野県・架空のテスト渓流','流れの速さに合わせて巻き速度を調整。キャストの練習もできました。'],
+  ['岸際の変化を探して一尾','ブラックバス',42,1500,'bass','滋賀県・架空のテスト湖','同じ場所に立ち続けず、足元の地形が変わる場所を探しました。'],
+  ['小さなアタリを感じる練習','アジ',18,80,'aji','静岡県・架空のテスト港','軽いジグヘッドでレンジを変えながら探しました。サイズ以上にうれしい一尾。'],
+  ['夕方のエギング記録','アオリイカ',null,null,'eging','静岡県・架空のテスト岸壁','サイズ・重さ未測定の表示例です。周囲との間隔を空けて練習しました。'],
+  ['初めてのシロギス','シロギス',19,60,'sea','千葉県・架空のテスト海岸','投げ方を教わってから少し遠くへ。次回は仕掛けの扱いを覚えたいです。'],
+  ['雨上がりの渓流メモ','ヤマメ',24,180,'trout','長野県・架空のテスト川','釣行時の気づきを複数行で表示するテストです。\n水位を確認し、無理のない区間だけ歩きました。'],
+  ['ルアーの色を変えて反応を比較','ブラックバス',35.5,900,'bass','滋賀県・架空のテスト池','小数点を含むサイズの表示例。色だけでなく、通す深さも記録しました。'],
+  ['風の弱い場所でアジング','アジ',21,null,'aji','神奈川県・架空のテスト港','糸ふけを取り、アタリを待つ練習。重さ未測定の表示例です。'],
+  ['エギの沈む時間を計ってみた','アオリイカ',null,250,'eging','静岡県・架空のテスト海岸','重さだけ測った表示例です。着底の感覚を覚える練習をしました。'],
+  ['親子で楽しむ堤防の一日','サバ',28,300,'sea','千葉県・架空のテスト堤防','ライフジャケットと休憩を忘れずに。道具の片付けまで一緒に練習しました。'],
+  ['今日は釣れなくても発見があった','',null,null,'trout','長野県・架空のテスト渓流','釣果なし・魚種なしの記録例。次に試したいことを残しておきます。'],
+  ['自分だけの練習メモ（非公開）','アジ',17,70,'aji','東京都・架空のテストエリア','自分の記録にだけ表示される非公開データです。'],
+  ['他の人の非公開記録（表示対象外）','ブラックバス',38,1100,'bass','滋賀県・架空のテストエリア','公開フィードや保存一覧には出ないことを確認するテスト用です。'],
  ];
  const authors=[1,2,3,4,4,0,2,3,0,4,1,2,0,3];
- const posts:PostCardData[]=samples.map(([title,species,size_cm,category,area,memo],i)=>{
+ const posts:PostCardData[]=samples.map(([title,species,size_cm,weight_g,category,area,memo],i)=>{
   const profile=profiles[authors[i]];
-  return {id:id(101+i),user_id:profile.id,title,species,size_cm,category,area,memo,method:category==='sea'?'サビキ・ちょい投げ':'ルアー',rod:'テスト用ロッド',reel:'テスト用リール',lure:category==='sea'?'サビキ釣り':category==='eging'?'エギング・イカ釣り':category==='aji'?'ライトゲーム':'ショアルアー',fished_on:offsetDate(today,-i),image_path:null,imageUrl:null,is_public:i<12,created_at:offsetDate(today,-i)+'T03:00:00.000Z',updated_at:timestamp,profile,likeCount:i%4===0?0:3+i*2,commentCount:0,liked:i===1,bookmarked:i===2||i===6};
+  return {id:id(101+i),user_id:profile.id,title,species,size_cm,weight_g,category,area,memo,method:category==='sea'?'サビキ・ちょい投げ':'ルアー',rod:'テスト用ロッド',reel:'テスト用リール',lure:category==='sea'?'サビキ釣り':category==='eging'?'エギング・イカ釣り':category==='aji'?'ライトゲーム':'ショアルアー',fished_on:offsetDate(today,-i),image_path:null,imageUrl:null,is_public:i<12,created_at:offsetDate(today,-i)+'T03:00:00.000Z',updated_at:timestamp,profile,likeCount:i%4===0?0:3+i*2,commentCount:0,liked:i===1,bookmarked:i===2||i===6};
  });
  const coaches:Coach[]=[1,2,3,4,5].map((person,i)=>({user_id:profiles[person].id,status:i===4?'pending':'approved',category:(['sea','trout','bass','eging','sea'] as const)[i],area:profiles[person].prefecture+'・架空のテストエリア',introduction:profiles[person].bio+' こちらは架空の指導者によるテスト表示です。',years_experience:[12,9,15,4,0][i],rankInfo:i<4?{rank:coachRankForLessons([100,99,29,9][i]),completedLessons:[100,99,29,9][i]}:null,created_at:timestamp,updated_at:timestamp}));
  const planSamples:[number,string,number,number][]=[[1,'はじめての堤防釣り',120,7000],[1,'道具選びのオンライン相談',30,0],[2,'渓流キャストの基礎',180,9000],[3,'岸釣りのポイント探し',120,4000],[3,'非公開プランのテスト',60,3000],[2,'2時間の渓流レッスン',120,5000],[4,'2時間のエギング入門',120,3000]];

@@ -27,6 +27,7 @@ export function PostForm({today}:{today:string}){
  <label className="full">タイトル<input name="title" maxLength={60} required placeholder="例：流れの変化で出会えた一尾"/></label>
  <label>魚種<input name="species" maxLength={40} placeholder="例：ニジマス"/></label>
  <label>サイズ（cm・自己申告）<input name="size_cm" type="number" step="0.1" min="0.1" max="999"/></label>
+ <label>重さ（g・自己申告）<input name="weight_g" type="number" step="1" min="1" max="100000"/></label>
  <label>ジャンル<select name="category">{Object.entries(categories).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
  <label>釣行日<input name="fished_on" type="date" defaultValue={today} max={today} required/></label>
  <label className="full">エリア<input name="area" required maxLength={80} placeholder="例：長野県 安曇野エリア"/><small>都道府県名を含めると日本マップに表示されます。釣り場を守るため、具体的なポイントや住所はお控えください。</small></label>

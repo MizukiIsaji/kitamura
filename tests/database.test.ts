@@ -19,7 +19,7 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  grant select,insert,delete on storage.objects to anon,authenticated;`);
  const diagnostics=readFileSync('supabase/check-setup.sql','utf8');
  const before=await db.query<Record<string,string>>(diagnostics);
- assert.equal(before.rows.length,14);assert(before.rows.every(row=>row['結果']==='要確認'));
+ assert.equal(before.rows.length,15);assert(before.rows.every(row=>row['結果']==='要確認'));
  await db.exec(readFileSync('supabase/migrations/202610170001_initial.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202610200001_post_photos.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202610200002_consultation_details.sql','utf8'));
@@ -29,8 +29,9 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  await db.exec(readFileSync('supabase/migrations/202610300001_notifications.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202610310001_points_ranking.sql','utf8'));
  await db.exec(readFileSync('supabase/migrations/202611010001_point_ranks_public.sql','utf8'));
+ await db.exec(readFileSync('supabase/migrations/202611010002_post_weight.sql','utf8'));
  const after=await db.query<Record<string,string>>(diagnostics);
- assert.equal(after.rows.length,14);assert(after.rows.every(row=>row['結果']==='OK'));
+ assert.equal(after.rows.length,15);assert(after.rows.every(row=>row['結果']==='OK'));
  await db.exec(`insert into auth.users(id,raw_user_meta_data) values('${A}','{"display_name":"釣り人A"}'),('${B}','{"display_name":"コーチB"}'),('${C}','{}');`);
  const user=async(id:string|null)=>{await db.exec(`reset role; set role ${id?'authenticated':'anon'}; select set_config('request.jwt.claim.sub','${id||''}',false);`);};
  const admin=async()=>{await db.exec(`reset role; select set_config('request.jwt.claim.sub','',false);`);};
@@ -38,8 +39,11 @@ test('PostgreSQL migration, RLS, snapshots, storage and consultation transitions
  await user(A);const profiles=await db.query<{display_name:string}>('select display_name from public.profiles order by id');assert.equal(profiles.rows[0].display_name,'釣り人A');
  const date=(await db.query<{date:string}>(`select ((now() at time zone 'Asia/Tokyo')::date)::text as date`)).rows[0].date;
  const post='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
- await db.query(`insert into public.posts(id,user_id,title,category,fished_on,area,memo,is_public) values($1,$2,'非公開の釣行','trout',$3,'テストエリア','非公開メモ',false)`,[post,A,date]);
+ await db.query(`insert into public.posts(id,user_id,title,category,fished_on,area,memo,is_public,weight_g) values($1,$2,'非公開の釣行','trout',$3,'テストエリア','非公開メモ',false,180)`,[post,A,date]);
  assert.equal((await db.query('select id from public.posts')).rows.length,1);
+ assert.equal((await db.query<{weight_g:number}>(`select weight_g from public.posts where id='${post}'`)).rows[0].weight_g,180);
+ await rejects(`insert into public.posts(user_id,title,category,fished_on,area,memo,weight_g) values('${A}','重さ0の釣行','sea','${date}','海','メモ',0)`);
+ await rejects(`insert into public.posts(user_id,title,category,fished_on,area,memo,weight_g) values('${A}','重さ超過の釣行','sea','${date}','海','メモ',100001)`);
  await user(B);assert.equal((await db.query('select id from public.posts')).rows.length,0);
  assert.equal((await db.query(`update public.posts set memo='改ざん' where id='${post}' returning id`)).rows.length,0);
  await rejects(`insert into public.posts(user_id,title,category,fished_on,area,memo) values('${A}','なりすまし','sea','${date}','海','メモ')`);

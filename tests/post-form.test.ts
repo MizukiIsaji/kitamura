@@ -12,3 +12,12 @@ test('釣果登録 FR-01: 選択肢外のルアー・仕掛けを新規保存せ
  const parsed=postSchema.parse({...valid,method:'書き換えを試みる',lure:options[0]});
  assert.equal('method' in parsed,false);
 });
+test('釣果登録 FR-05: 重さ（g・自己申告）を任意で保存し、0以下・上限超・未入力を区別する',()=>{
+ assert.equal(postSchema.parse({...valid,weight_g:''}).weight_g,null);
+ assert.equal(postSchema.parse(valid).weight_g,null);
+ assert.equal(postSchema.parse({...valid,weight_g:'180'}).weight_g,180);
+ assert.equal(postSchema.safeParse({...valid,weight_g:'0'}).success,false);
+ assert.equal(postSchema.safeParse({...valid,weight_g:'-5'}).success,false);
+ assert.equal(postSchema.safeParse({...valid,weight_g:'100001'}).success,false);
+ assert.equal(postSchema.parse({...valid,weight_g:'100000'}).weight_g,100000);
+});

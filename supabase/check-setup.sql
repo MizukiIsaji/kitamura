@@ -134,6 +134,10 @@ checks(section,item,ok) as (
   select '14. ポイントランク公開','残高を返さず階級・Lvだけを公開する',
    coalesce(has_function_privilege('anon',to_regprocedure('public.get_point_ranks(uuid[])'),'EXECUTE'),false)
    and coalesce(has_function_privilege('authenticated',to_regprocedure('public.get_point_ranks(uuid[])'),'EXECUTE'),false)
+  union all
+  select '15. 釣果の重さ','weight_g列（自己申告・任意）の追加',
+   exists(select 1 from pg_attribute where attrelid=to_regclass('public.posts') and attname='weight_g' and not attisdropped)
+   and coalesce(has_column_privilege('authenticated',to_regclass('public.posts'),'weight_g','INSERT,UPDATE'),false)
 )
 select section as "項目",
        case when bool_and(ok) then 'OK' else '要確認' end as "結果",
