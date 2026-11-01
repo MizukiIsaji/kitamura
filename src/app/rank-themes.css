@@ -40,16 +40,16 @@
 .rank-shell[data-rank-theme]>.app-shell>footer{border-top:1px solid var(--rank-border)}
 
 .topbar.topbar-icons{justify-content:flex-end}
-.topbar-icons .header-actions{gap:12px}
+.topbar-icons .header-actions{gap:10px}
 .topbar-icons .icon-button{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px}
 .topbar-icons .rank-icon-only{padding:4px;border:0;background:transparent;margin:0;min-width:40px;min-height:40px;justify-content:center}
-.topbar-icons .viewer-identity{gap:4px}
+.topbar-icons .viewer-identity{gap:10px}
 .notification-dot{position:absolute;right:6px;top:6px;width:7px;height:7px;border-radius:50%;background:#e98164;box-shadow:0 0 0 1px #fff}
 .rank-chrome-icons{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:54px}
 .rank-chrome-icons .rank-icon-only{padding:0;border:0;background:transparent}
 .topbar-icons .mobile-brand{margin-right:auto;line-height:1}
 .rank-shell[data-rank-theme] .topbar-icons .mobile-brand{color:var(--rank-light)}
-@media(max-width:480px){.topbar-icons .header-actions{gap:2px}.topbar-icons .rank-icon-only,.topbar-icons .icon-button{min-width:36px;min-height:40px}.topbar-icons .viewer-identity{gap:0}}
+@media(max-width:480px){.topbar-icons .header-actions{gap:6px}.topbar-icons .rank-icon-only,.topbar-icons .icon-button{min-width:36px;min-height:40px}.topbar-icons .viewer-identity{gap:6px}}
 
 /* Development-only samples use the same theme variables as the real shell. */
 .rank-color-guide{margin-bottom:24px}

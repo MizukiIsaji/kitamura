@@ -1,15 +1,15 @@
 'use client';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {Grid2X2,Compass,BookOpen,MessageCircle,Home,Coins} from 'lucide-react';
+import {Grid2X2,Compass,BookOpen,MessageCircle,Home,Plus,Coins} from 'lucide-react';
 import {mainNavigation,activeNavigationHref} from '@/lib/navigation';
-const icons={home:Home,feed:Grid2X2,records:BookOpen,coach:Compass,requests:MessageCircle,points:Coins};
+const icons={home:Home,feed:Grid2X2,create:Plus,records:BookOpen,coach:Compass,requests:MessageCircle,points:Coins};
 export function NavLinks({variant='sidebar'}:{variant?:'sidebar'|'mobile'}){
  const active=activeNavigationHref(usePathname());
  const items=mainNavigation;
  return <nav className={variant==='mobile'?'mobile-nav':'nav-links'} aria-label={variant==='mobile'?'モバイルナビゲーション':'メインナビゲーション'}>{items.map(item=>{
   const Icon=icons[item.icon],current=active===item.href;
-  const className=current?'active':'';
+  const className=[variant==='mobile'&&item.icon==='create'?'mobile-create':'',current?'active':''].filter(Boolean).join(' ');
   return <Link key={item.href} href={item.href} className={className||undefined} aria-current={current?'page':undefined}><Icon size={19}/>{item.label}</Link>;
  })}</nav>;
 }
