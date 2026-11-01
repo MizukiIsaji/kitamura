@@ -26,31 +26,44 @@ function IconFrame({children,size,id,metal}:{children:ReactNode;size:number;id:s
  </svg>;
 }
 
-// 会員名のランク表示 FR-02: 指導実績は盾、ポイントはコイン・宝石で区別する。
+// 会員名のランク表示 FR-02: 指導実績はランク色の王冠、ポイントはコイン・宝石で区別する。
 // useId() includes ':' characters that some mobile browsers fail to resolve inside url(#...) paint references, leaving the icon unfilled.
 function useRankIconId(){return useId().replace(/:/g,'');}
 export function CoachRankIcon({rank,size=32}:{rank:CoachRank;size?:number}) {
- const metal=metals[rank],id=useRankIconId(),finish='url(#'+id+'-metal)';
+ const metal=metals[rank],id=useRankIconId(),finish='url(#'+id+'-metal)',core='url(#'+id+'-core)';
+ const jewel={bronze:'#e98e35',silver:'#c5e5ff',gold:'#d93654',platinum:'#49e4f0'}[rank];
  return <IconFrame size={size} id={id} metal={metal}>
-  {(rank==='gold'||rank==='platinum')&&<g fill={finish} stroke={metal.edge} strokeWidth=".8">
-   <path d="M8 13 1 10l2 7 5 4-6-2 3 7 6 3-5-1 7 7 3-5Z"/>
-   <path d="m32 13 7-3-2 7-5 4 6-2-3 7-6 3 5-1-7 7-3-5Z"/>
-  </g>}
-  <path d="M20 2 34 8v11c0 8-7 15-14 19C13 34 6 27 6 19V8Z" fill={finish} stroke={metal.edge} strokeWidth="1.2"/>
-  <path d="m20 5 11 4.7V19c0 6.3-5.4 12.3-11 15.8C14.4 31.3 9 25.3 9 19V9.7Z" stroke={metal.light} strokeOpacity=".8"/>
-  <path d="m20 7.2 9 3.9V19c0 5.2-4.3 10.3-9 13.5-4.7-3.2-9-8.3-9-13.5v-7.9Z" fill={'url(#'+id+'-core)'} stroke={metal.edge}/>
-  <path d="m20 7.2 9 3.9V19c0 1.5-.4 3-1 4.4L11 16v-4.9Z" fill="white" fillOpacity=".07"/>
-  <g fill={finish} stroke={metal.light} strokeWidth=".45">
-   {rank==='bronze'&&<path d="m13 21 7-6 7 6v4l-7-6-7 6Z"/>}
-   {rank==='silver'&&<path d="m13 16 7-5 7 5v3l-7-5-7 5Zm0 8 7-5 7 5v3l-7-5-7 5Z"/>}
-   {rank==='gold'&&<path d="m13 14 7-4 7 4v3l-7-4-7 4Zm0 7 7-4 7 4v3l-7-4-7 4Zm1 6 6-3.5 6 3.5-2 2-4-2.3-4 2.3Z"/>}
-   {rank==='platinum'&&<>
-    <path d="m12.5 15 4.5 3 3-7 3 7 4.5-3-2 10h-11Z"/>
-    <path d="M15 27h10v2H15Z"/>
-    <path d="m20 19 1.8 2.5L20 24l-1.8-2.5Z" fill={metal.core} stroke="none"/>
-   </>}
+  <defs>
+   <linearGradient id={id+'-jewel'} x1="18" y1="18" x2="23" y2="26" gradientUnits="userSpaceOnUse">
+    <stop stopColor="white"/><stop offset=".3" stopColor={jewel}/><stop offset="1" stopColor={metal.core}/>
+   </linearGradient>
+  </defs>
+  {/* Five points, a beveled face and a curved band keep the crown legible at 28px. */}
+  <path d="m8 25 4-15 8 10 8-10 4 15Z" fill={core} stroke={metal.edge} strokeWidth="1.1"/>
+  <path d="m12 10 1.5 11L20 20Zm16 0-1.5 11L20 20Z" fill={metal.body}/>
+  <path d="m4 12 8 7L20 5l8 14 8-7-4 17H8Z" fill={finish} stroke={metal.edge} strokeWidth="1.2"/>
+  <path d="m4 12 8 7 8-14v22L9 26Zm16-7 8 14 8-7-5 14-11 1Z" fill={metal.light} fillOpacity=".25"/>
+  <path d="m4 12 5 14 7-2-4-5Zm32 0-5 14-7-2 4-5Z" fill={metal.edge} fillOpacity=".4"/>
+  <path d="m6.2 15.3 6.2 5.5L20 8l7.6 12.8 6.2-5.5M20 8v7" stroke={metal.light} strokeWidth=".9"/>
+  <path d="M8 27q12 3 24 0v6q-12 4-24 0Z" fill={finish} stroke={metal.edge} strokeWidth="1.1"/>
+  <path d="M9 28.5q11 2.8 22 0M9 32.3q11 3.4 22 0" stroke={metal.light} strokeWidth=".8"/>
+  <path d="M9 33.4q11 3.2 22 0" stroke={metal.edge} strokeOpacity=".6"/>
+  <g fill={finish} stroke={metal.edge} strokeWidth=".8">
+   <circle cx="4" cy="11.5" r="1.7"/><circle cx="12" cy="9.8" r="1.25"/>
+   <circle cx="20" cy="4.5" r="2"/>
+   <circle cx="28" cy="9.8" r="1.25"/><circle cx="36" cy="11.5" r="1.7"/>
   </g>
-  <path d="M8 10v9c0 7 6 13 12 17" stroke="white" strokeOpacity=".5"/>
+  <path d="m20 16.5 4 5-4 5-4-5Z" fill={core} stroke={metal.light} strokeWidth=".8"/>
+  <path d="m20 18 2.7 3.5L20 25l-2.7-3.5Z" fill={'url(#'+id+'-jewel)'} stroke={metal.edge} strokeWidth=".45"/>
+  <path d="m20 18-2.7 3.5H20Z" fill="white" fillOpacity=".65"/>
+  <path d="M20 29.6v3.1" stroke={metal.core} strokeWidth="1.5"/>
+  <g fill={rank==='gold'||rank==='platinum'?jewel:metal.light} stroke={metal.edge} strokeWidth=".45">
+   <path d="m13 29.5 1.2 1.4-1.2 1.4-1.2-1.4Zm14 0 1.2 1.4-1.2 1.4-1.2-1.4Z"/>
+  </g>
+  {rank==='platinum'&&<g fill={metal.light} stroke={metal.body} strokeWidth=".45">
+   <path d="m32 2 .8 2.7L35.5 5l-2.7.8L32 8.5l-.8-2.7L28.5 5l2.7-.3Z"/>
+   <path d="m5.5 29 .6 1.9L8 31.5l-1.9.6L5.5 34l-.6-1.9-1.9-.6 1.9-.6Z"/>
+  </g>}
  </IconFrame>;
 }
 
