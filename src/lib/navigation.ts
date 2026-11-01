@@ -1,8 +1,7 @@
-// 共通ナビ FR-01: PC・スマホ共通の7項目の順序と行き先を定義する。トップページ（地図・釣果の概要）は釣果の次に置く。
+// 共通ナビ FR-01: PC・スマホ共通の6項目の順序と行き先を定義する。トップページ（地図・釣果の概要）は釣果の次に置く。記録の作成は記録一覧の画面から行う。
 export const mainNavigation=[
  {href:'/posts',label:'釣果',icon:'feed'},
  {href:'/',label:'トップページ',icon:'home'},
- {href:'/posts/new',label:'記録',icon:'create'},
  {href:'/records',label:'記録一覧',icon:'records'},
  {href:'/coaches',label:'コーチ',icon:'coach'},
  {href:'/requests',label:'相談',icon:'requests'},

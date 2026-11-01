@@ -20,4 +20,5 @@ test('釣果登録 FR-05: 重さ（g・自己申告）を任意で保存し、0�
  assert.equal(postSchema.safeParse({...valid,weight_g:'-5'}).success,false);
  assert.equal(postSchema.safeParse({...valid,weight_g:'100001'}).success,false);
  assert.equal(postSchema.parse({...valid,weight_g:'100000'}).weight_g,100000);
+ assert.equal(postSchema.safeParse({...valid,weight_g:'150.5'}).success,false);
 });
