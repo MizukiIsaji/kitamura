@@ -3,6 +3,7 @@ import {categories,money,type Category,type Coach,type Post,type Profile,type Pl
 import {prefectureShapes,pointBounds,projectGeographic,projectNational,type Point,type Bounds} from './prefecture-shapes';
 import {facilityLocality,localAreas,localAreaForMunicipality,localitiesFromArea} from './localities';
 import {facilityAddressKey} from './address-location';
+import type {PointRank} from './points';
 export {prefectureShapes} from './prefecture-shapes';
 
 export const regions=['北海道','東北','関東','甲信越・北陸','東海','関西','中国','四国','九州・沖縄'] as const;
@@ -40,17 +41,17 @@ export type MapKind=keyof typeof mapKinds;
 // Coordinates must be explicitly supplied for public map use. Never derive
 // exact fishing locations from a member's residence or from a free-text area.
 export type MapDetails={description:string;fields:{label:string;value:string}[]};
-export type MapEntry={id:string;kind:MapKind;title:string;area:string;description:string;details?:MapDetails;category?:Category;href?:string;prefectures:string[];coordinates?:MapCoordinates;addressKey?:string;locationAccuracy?:'address'|'town';municipalityIds?:string[];localAreaIds?:string[]};
+export type MapEntry={id:string;kind:MapKind;title:string;area:string;description:string;details?:MapDetails;category?:Category;href?:string;prefectures:string[];coordinates?:MapCoordinates;addressKey?:string;locationAccuracy?:'address'|'town';municipalityIds?:string[];localAreaIds?:string[];pointRank?:PointRank};
 export type FacilityKind='pond'|'spot'|'shop';
 export type MapFacility={id:string;kind:FacilityKind;name:string;description:string;prefecture:string;municipality:string;address:string;phone:string;business_hours:string;price_info:string;is_published:boolean;coordinates?:MapCoordinates};
-type MapPost=Pick<Post,'id'|'title'|'area'|'is_public'|'category'|'species'|'fished_on'|'size_cm'>&Partial<Pick<Post,'memo'|'method'|'rod'|'reel'|'lure'>>;
-type MapCoach=Pick<Coach,'user_id'|'status'|'area'|'category'|'years_experience'>&Partial<Pick<Coach,'introduction'>>&{profile:Pick<Profile,'display_name'>|null;plans?:Pick<Plan,'id'|'title'|'description'|'price_yen'|'duration_minutes'|'is_active'>[]};
+type MapPost=Pick<Post,'id'|'title'|'area'|'is_public'|'category'|'species'|'fished_on'|'size_cm'>&Partial<Pick<Post,'memo'|'method'|'rod'|'reel'|'lure'>>&{pointRank?:PointRank|null};
+type MapCoach=Pick<Coach,'user_id'|'status'|'area'|'category'|'years_experience'>&Partial<Pick<Coach,'introduction'|'pointRank'>>&{profile:Pick<Profile,'display_name'>|null;plans?:Pick<Plan,'id'|'title'|'description'|'price_yen'|'duration_minutes'|'is_active'>[]};
 // Future approved ponds/spots use the same MapEntry contract; no real venues are fabricated.
 // 日本の釣りマップ FR-01（docs/ai-dlc/specs/02-records/explore-screen）
 export function makeMapEntries(posts:MapPost[],coaches:MapCoach[],facilities:MapFacility[]=[]):MapEntry[]{
  return [
-  ...posts.filter(p=>p.is_public).map(p=>({id:'catch-'+p.id,kind:'catch' as const,title:p.title,area:p.area,description:[p.species,p.size_cm?`${p.size_cm}cm`:'',p.fished_on.replaceAll('-','.')].filter(Boolean).join(' · '),details:{description:p.memo||'',fields:[{label:'釣行日',value:p.fished_on.replaceAll('-','.')},{label:'魚種',value:p.species},{label:'サイズ',value:p.size_cm?`${p.size_cm}cm`:''},{label:'ロッド',value:p.rod||''},{label:'リール',value:p.reel||''},{label:'ルアー・仕掛け',value:p.lure||''}]},category:p.category,href:'/posts/'+p.id,prefectures:findPrefectures(p.area).map(p=>p.name),...localitiesFromArea(p.area)})),
-  ...coaches.filter(c=>c.status==='approved').map(c=>({id:'coach-'+c.user_id,kind:'coach' as const,title:c.profile?.display_name||'釣りコーチ',area:c.area,description:`${categories[c.category]} · 釣り歴 ${c.years_experience}年（自己申告）`,details:{description:c.introduction||'',fields:[{label:'釣り歴',value:`${c.years_experience}年（自己申告）`},...(c.plans||[]).filter(plan=>plan.is_active).map(plan=>({label:plan.title,value:`${money(plan.price_yen)} / ${plan.duration_minutes}分\n${plan.description}`}))]},category:c.category,href:'/anglers/'+c.user_id,prefectures:findPrefectures(c.area).map(p=>p.name),...localitiesFromArea(c.area)})),
+  ...posts.filter(p=>p.is_public).map(p=>({id:'catch-'+p.id,kind:'catch' as const,title:p.title,area:p.area,description:[p.species,p.size_cm?`${p.size_cm}cm`:'',p.fished_on.replaceAll('-','.')].filter(Boolean).join(' · '),details:{description:p.memo||'',fields:[{label:'釣行日',value:p.fished_on.replaceAll('-','.')},{label:'魚種',value:p.species},{label:'サイズ',value:p.size_cm?`${p.size_cm}cm`:''},{label:'ロッド',value:p.rod||''},{label:'リール',value:p.reel||''},{label:'ルアー・仕掛け',value:p.lure||''}]},...(p.pointRank?{pointRank:p.pointRank}:{}),category:p.category,href:'/posts/'+p.id,prefectures:findPrefectures(p.area).map(p=>p.name),...localitiesFromArea(p.area)})),
+  ...coaches.filter(c=>c.status==='approved').map(c=>({id:'coach-'+c.user_id,kind:'coach' as const,title:c.profile?.display_name||'釣りコーチ',area:c.area,description:`${categories[c.category]} · 釣り歴 ${c.years_experience}年（自己申告）`,details:{description:c.introduction||'',fields:[{label:'釣り歴',value:`${c.years_experience}年（自己申告）`},...(c.plans||[]).filter(plan=>plan.is_active).map(plan=>({label:plan.title,value:`${money(plan.price_yen)} / ${plan.duration_minutes}分\n${plan.description}`}))]},...(c.pointRank?{pointRank:c.pointRank}:{}),category:c.category,href:'/anglers/'+c.user_id,prefectures:findPrefectures(c.area).map(p=>p.name),...localitiesFromArea(c.area)})),
   // 座標が明示された施設だけ個別位置へ配置し、それ以外は県に集約する。詳細ページが無いため href は付けない。
   // 住所・電話番号・営業時間・料金案内は詳細ページが無い代わりに description に連ねて表示する
   ...facilities.filter(f=>f.is_published).map(f=>{

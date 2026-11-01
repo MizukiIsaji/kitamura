@@ -1,4 +1,4 @@
-// 共通ナビ FR-01: 共通項目の順序と行き先を定義する。スマホはポイントを表示しない。
+// 共通ナビ FR-01: PC・スマホ共通の7項目の順序と行き先を定義する。
 export const mainNavigation=[
  {href:'/',label:'マップ',icon:'map'},
  {href:'/posts',label:'釣果',icon:'feed'},

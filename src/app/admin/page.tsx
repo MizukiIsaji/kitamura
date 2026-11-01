@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import {PageTitle} from '@/components/ui';
+import {PageTitle,Avatar} from '@/components/ui';
+import {MemberRanks} from '@/components/member-ranks';
 import {ActionForm,CompactAction} from '@/components/action-form';
 import {requireViewer} from '@/lib/auth';
 import {getAdminAccess,getAdminDashboard} from '@/lib/admin';
-import {getFacilities} from '@/lib/queries';
+import {getFacilities,getPointRanks} from '@/lib/queries';
 import {categories,facilityKinds,type Facility} from '@/lib/domain';
 import {reviewCoach,saveFacility,setFacilityPublished} from './actions';
 import {FacilityLocationFields} from '@/components/facility-location-fields';
@@ -50,13 +51,14 @@ export default async function AdminPage(){
  if(access.unavailable)throw new Error('管理者権限を確認できませんでした。時間をおいて再度お試しください。');
  if(!access.isAdmin)return <section className="empty-state"><h1>管理者専用の画面です</h1><p>このアカウントには管理者権限がありません。</p><Link className="button outline" href="/">トップへ戻る</Link></section>;
  const dashboard=await getAdminDashboard();
+ const pointRanks=await getPointRanks(dashboard.coaches.map(coach=>coach.user_id)).catch(()=>null);
  return <>
   <PageTitle kicker="ADMINISTRATION" title="管理者画面" description="会員数と公開釣果、コーチの申請を確認できます。"/>
   <p className="notice positive">管理者としてログインしています。</p>
   <div className="demo-stats admin-stats"><div><strong>{dashboard.memberCount}</strong><span>登録会員</span></div><div><strong>{dashboard.publicPostCount}</strong><span>公開釣果</span></div><div><strong>{dashboard.pendingCoachCount}</strong><span>審査待ちのコーチ</span></div></div>
   <div className="section-heading"><h2>コーチ申請の審査</h2><span>審査待ちを優先して直近100件を表示</span></div>
-  {dashboard.coaches.length===0?<section className="empty-state"><h2>コーチ申請はまだありません</h2><p>会員から申請が届くと、ここで内容を確認し、承認や掲載停止を行えます。</p></section>:dashboard.coaches.map(coach=><article className="panel" key={coach.user_id}>
-   <div className="section-heading"><div><h2>{coach.display_name}</h2><p className="muted">@{coach.handle} · {categories[coach.category]} · {coach.area}</p></div><span className="tag">{labels[coach.status]}</span></div>
+  {dashboard.coaches.length===0?<section className="empty-state"><h2>コーチ申請はまだありません</h2><p>会員から申請が届くと、ここで内容を確認し、承認や掲載停止を行えます。</p></section>:dashboard.coaches.map(coach=><article className="panel member-surface" data-rank-theme={pointRanks?.get(coach.user_id)?.tier} key={coach.user_id}>
+   <div className="section-heading"><div className="member-identity"><Avatar name={coach.display_name} userId={coach.user_id}/><div><h2>{coach.display_name}</h2><MemberRanks pointRank={pointRanks?.get(coach.user_id)}/><p className="muted">@{coach.handle} · {categories[coach.category]} · {coach.area}</p></div></div><span className="tag">{labels[coach.status]}</span></div>
    <p className="muted">釣り歴 {coach.years_experience}年（自己申告）</p><p className="coach-introduction">{coach.introduction}</p>
    <ActionForm action={reviewCoach} label="審査結果を保存"><input type="hidden" name="user_id" value={coach.user_id}/><label>審査結果<select name="status" defaultValue={coach.status}>{Object.entries(labels).map(([value,label])=><option value={value} key={value}>{label}</option>)}</select></label></ActionForm>
   </article>)}

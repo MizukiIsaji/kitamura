@@ -7,7 +7,7 @@ test('コーチランク FR-02: 完了確認の累計件数からランクを判
  for(const [count,rank] of [[0,'bronze'],[9,'bronze'],[10,'silver'],[29,'silver'],[30,'gold'],[99,'gold'],[100,'platinum'],[1000,'platinum']] as const)
   assert.equal(coachRankForLessons(count),rank);
  assert.deepEqual(Object.values(coachRankRates).map(rate=>[rate.label,rate.priceYen,rate.coachPayoutYen]),[
-  ['プラチナ',7000,5000],['ゴールド',5000,4000],['シルバー',4000,3000],['ブロンズ',3000,2000],
+  ['プロ',7000,5000],['セミプロ',5000,4000],['アマチュア',4000,3000],['ビギナー',3000,2000],
  ]);
  for(const count of [-1,0.5,NaN,Infinity,Number.MAX_SAFE_INTEGER+1])assert.throws(()=>coachRankForLessons(count));
  assert.equal(priceRankedPlan({duration_minutes:120,price_yen:9999},'gold').price_yen,5000);

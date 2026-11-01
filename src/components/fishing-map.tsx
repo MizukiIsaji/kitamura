@@ -226,7 +226,7 @@ export function FishingMap({entries,initialKind='all',compact=false,totalCatches
      {shown.length?shown.map(entry=>{
       const Icon=icons[entry.kind];
       const content=<><span className="map-result-icon"><Icon size={21}/></span><div><span className="map-result-kind">{mapKinds[entry.kind].label}{entry.category&&' / '+categories[entry.category]}</span><h4>{entry.title}</h4><p><MapPin size={11}/>{entry.area}</p><small>{entry.description}</small>{!entry.prefectures.length&&<small className="map-unplaced">都道府県が未指定のため、ピンは非表示</small>}</div>{entry.href&&<ArrowRight size={16}/>}</>;
-      return <button type="button" key={entry.id} className={'map-result-card map-result-'+entry.kind} aria-haspopup="dialog" aria-label={entry.title+'の詳細を表示'} onClick={()=>setDetailIds([entry.id])}>{content}</button>;
+      return <button type="button" key={entry.id} className={'map-result-card member-surface map-result-'+entry.kind} data-rank-theme={entry.pointRank?.tier} aria-haspopup="dialog" aria-label={entry.title+'の詳細を表示'} onClick={()=>setDetailIds([entry.id])}>{content}</button>;
      }):<div className="map-empty"><Waves size={35}/><h3>{preparing?'次の釣り場も、ここから。':'この条件の掲載はまだありません'}</h3><p>{preparing?'釣り堀・釣りスポット・釣具店は今後順次掲載予定です。登録後は同じ地図に表示します。':'地方や都道府県を変えるか、別の種類を選んで探してみましょう。'}</p><button type="button" className="text-link" onClick={()=>{chooseKind('all');reset();}}>すべての掲載を見る<ArrowRight size={14}/></button></div>}
     </div>
     {results.length>limit&&<button type="button" className="map-more" onClick={()=>setLimit(current=>current+12)}>もっと見る（残り{results.length-limit}件）<ArrowRight size={14}/></button>}

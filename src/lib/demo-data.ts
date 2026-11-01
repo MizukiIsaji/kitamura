@@ -1,7 +1,8 @@
 import {japanDate, type Category, type Profile, type PostCardData, type Coach, type Plan, type Consultation, type Comment} from './domain';
 import {coachRankForLessons,priceRankedPlan,coachRankRates} from './coach-ranks';
+import {pointRankFromBalance,type PointRank} from './points';
 
-export type DemoData={viewerId:string;profiles:Profile[];posts:PostCardData[];coaches:Coach[];plans:Plan[];requests:Consultation[];comments:Comment[];following:string[]};
+export type DemoData={viewerId:string;profiles:Profile[];pointRanks:Record<string,PointRank>;posts:PostCardData[];coaches:Coach[];plans:Plan[];requests:Consultation[];comments:Comment[];following:string[]};
 // テスト画面だけの操作。実際のDBや実績には送信しない。
 export function completeDemoLesson(data:DemoData,requestId:string,today=japanDate()):DemoData{
  const request=data.requests.find(item=>item.id===requestId);
@@ -27,6 +28,7 @@ export function createDemoData(today=japanDate()):DemoData{
   ['はじめての釣り人（テスト）','test_newcomer','千葉県','まだ投稿がない、新規会員のテスト用プロフィールです。'],
  ];
  const profiles:Profile[]=people.map(([display_name,handle,prefecture,bio],i)=>({id:id(i+1),display_name,handle,prefecture,bio,created_at:timestamp,updated_at:timestamp}));
+ const pointRanks=Object.fromEntries(profiles.map((profile,index)=>[profile.id,pointRankFromBalance([5250,0,10000,15000,20000,5000][index])]));
  const samples:[string,string,number|null,Category,string,string][]=[
   ['朝の堤防でアジに出会えた','アジ',23,'sea','神奈川県・架空のテスト堤防','朝の短い時間に回遊。足元の安全を確認してから釣りを始めました。'],
   ['流れの脇にルアーを通してみた','ニジマス',31,'trout','長野県・架空のテスト渓流','流れの速さに合わせて巻き速度を調整。キャストの練習もできました。'],
@@ -58,7 +60,9 @@ export function createDemoData(today=japanDate()):DemoData{
  });
  const comments:Comment[]=[{id:id(501),post_id:posts[1].id,user_id:profiles[0].id,body:'流れの見方を参考にしたいです。（テストコメント）',created_at:timestamp},{id:id(502),post_id:posts[1].id,user_id:profiles[2].id,body:'まずは岸から流れを観察してみてください。（テスト返信）',created_at:timestamp}];
  posts.forEach(post=>{post.commentCount=comments.filter(comment=>comment.post_id===post.id).length;});
- return {viewerId:profiles[0].id,profiles,posts,coaches,plans,requests,comments,following:[profiles[2].id]};
+ posts.forEach(post=>{post.pointRank=pointRanks[post.user_id];});
+ coaches.forEach(coach=>{coach.pointRank=pointRanks[coach.user_id];});
+ return {viewerId:profiles[0].id,profiles,pointRanks,posts,coaches,plans,requests,comments,following:[profiles[2].id]};
 }
 
 export function filterDemoPosts(data:DemoData,{view='feed',category='',q=''}:{view?:string;category?:string;q?:string}={}){

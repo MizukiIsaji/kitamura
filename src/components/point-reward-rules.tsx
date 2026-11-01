@@ -1,4 +1,5 @@
 import type {RegistrationRewardCampaign} from '@/lib/points';
+import {MAX_POST_POINTS,POST_POINT_REWARDS} from '@/lib/point-progress';
 const dateFormat=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',dateStyle:'long',timeStyle:'short'});
 export function RegistrationRewardNotice({campaign}:{campaign:RegistrationRewardCampaign|null}){
  if(!campaign)return <p className="field-help">登録特典の対象期間は現在確認できません。</p>;
@@ -10,7 +11,8 @@ export function RegistrationRewardNotice({campaign}:{campaign:RegistrationReward
 // ポイント FR-02, FR-03: explain the same fixed rules enforced by the DB.
 export function PointRewardRules({campaign}:{campaign:RegistrationRewardCampaign|null}){
  return <section className="panel point-rules"><h2>ポイントの貯め方</h2>
-  <dl><div><dt>釣行記録の投稿</dt><dd>100pt / 投稿</dd></div><div><dt>写真</dt><dd>10pt / 枚（最大5枚）</dd></div><div><dt>タックルの記載</dt><dd>10pt / 投稿</dd></div><div><dt>釣行メモ100文字以上</dt><dd>50pt / 投稿</dd></div></dl>
+  <dl><div><dt>釣行記録の投稿</dt><dd>{POST_POINT_REWARDS.post}pt / 投稿</dd></div><div><dt>写真</dt><dd>{POST_POINT_REWARDS.photo}pt / 枚（最大{POST_POINT_REWARDS.maxPhotos}枚）</dd></div><div><dt>タックルの記載</dt><dd>{POST_POINT_REWARDS.tackle}pt / 投稿</dd></div><div><dt>釣行メモ{POST_POINT_REWARDS.memoMinCharacters}文字以上</dt><dd>{POST_POINT_REWARDS.memo}pt / 投稿</dd></div></dl>
+  <p className="field-help">すべての条件を満たすと、1投稿で最大{MAX_POST_POINTS}ptを獲得できます。</p>
   <p className="field-help">タックルはロッド・リール・ルアー／仕掛けのいずれかを記載すると加算。メモは任意で、空白を除いて数えます。</p>
   <p className="field-help">公開・自分のみの両方が対象です。保存完了時に一度付与し、編集による追加付与はありません。投稿を削除すると、その投稿分を取り消します。</p>
   <RegistrationRewardNotice campaign={campaign}/>

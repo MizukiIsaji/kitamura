@@ -1,0 +1,34 @@
+.avatar{overflow:hidden;flex-shrink:0;background-image:url('/images/default-avatar.svg');background-size:cover;background-position:center}
+.avatar>img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.avatar.small{width:30px;height:30px}
+.viewer-profile .avatar{width:30px;height:30px;border:1px solid #ffffff80}
+.member-ranks{display:flex;align-items:center;gap:7px;flex-wrap:nowrap;margin:5px 0;max-width:100%;line-height:1}
+.member-ranks>.coach-rank,.member-ranks>.point-rank{margin:0;flex-shrink:0}
+.member-identity{display:flex;align-items:flex-start;gap:10px;margin-top:6px;min-width:0}
+.member-identity>div{min-width:0}
+.member-identity>span:last-child{min-width:0}
+.notification-identity{flex:1;min-width:0;text-align:left}
+.post-author>div{min-width:0;flex:1}
+.post-author strong{display:block;overflow-wrap:anywhere}
+.post-author .member-ranks{margin:6px 0}
+.coach-card>.member-ranks{justify-content:center;margin:8px 0 12px}
+.profile-info>.member-ranks{margin:9px 0 12px}
+.detail-author .member-ranks{display:flex}
+.comment .member-identity a{font-weight:700}
+.points-ranking-name .member-identity{margin:0;align-items:center}
+.points-ranking-name .member-ranks{margin-bottom:0}
+.selected-plan>.member-identity{margin:0}
+.avatar-settings{margin-bottom:24px}
+.avatar-settings>h2{margin-bottom:16px}
+.avatar-settings-preview{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+.avatar-settings-preview>.avatar,.avatar-settings-preview>img{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.avatar-settings-preview>p{font-size:12px}
+.avatar-settings form>.button{margin-top:14px}
+.avatar-settings input[type=file]{max-width:100%;font-size:12px;padding:10px;background:#fff}
+.avatar-settings .field-help{margin:10px 0}
+.avatar-remove-form{margin-top:10px}
+.topbar-icons .mobile-brand{font-size:17px;font-weight:800;letter-spacing:1px;white-space:nowrap}
+.rank-shell[data-rank-theme] .topbar-icons .mobile-brand{color:#fff}
+.rank-shell[data-rank-theme] .topbar-icons .mobile-brand>span{color:var(--rank-light)}
+@media(max-width:760px){.member-ranks{gap:5px}.member-ranks>.coach-rank{font-size:10px;padding:3px 7px}.member-ranks>.point-rank{padding:3px 6px;font-size:10px}.member-ranks .rank-icon{width:26px;height:26px}.avatar-settings-preview{align-items:flex-start;gap:13px}.avatar-settings-preview>.avatar,.avatar-settings-preview>img{width:72px;height:72px}.avatar-settings-preview>p{font-size:11px}.avatar-settings form>.button{width:100%}}
+@media(max-width:480px){.topbar-icons .mobile-brand{font-size:15px;letter-spacing:.5px}.topbar-icons .header-actions{gap:0}.topbar-icons .rank-icon-only,.topbar-icons .icon-button{min-width:32px;padding:2px}.topbar-icons .rank-icon{width:26px;height:26px}.topbar-icons .viewer-profile .avatar{width:26px;height:26px}}

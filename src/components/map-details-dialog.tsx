@@ -22,7 +22,7 @@ export function MapDetailsDialog({entries,onDismiss}:{entries:MapEntry[];onDismi
  return <dialog ref={dialogRef} className="map-detail-dialog" aria-labelledby={id+'-heading'} onCancel={event=>{event.preventDefault();dismiss();}} onClose={dismiss} onClick={event=>{if(event.target===event.currentTarget)dismiss();}}>
   <div className="map-detail-panel">
    <header className="map-detail-header"><p className="kicker">{selected?mapKinds[selected.kind].english:'SELECT A LISTING'}</p><button type="button" className="map-detail-close" aria-label="詳細を閉じる" autoFocus onClick={dismiss}><X size={20}/></button></header>
-   <div className="map-detail-body">
+   <div className="map-detail-body member-surface" data-rank-theme={selected?.pointRank?.tier}>
     {selected?<>
      {entries.length>1&&<button type="button" className="map-detail-back" onClick={()=>setSelectedId('')}><ArrowLeft size={15}/>このピンの掲載に戻る</button>}
      <span className="map-detail-kind">{mapKinds[selected.kind].label}{selected.category&&' / '+categories[selected.category]}</span>
@@ -35,7 +35,7 @@ export function MapDetailsDialog({entries,onDismiss}:{entries:MapEntry[];onDismi
     </>:<>
      <h2 id={id+'-heading'} ref={headingRef} tabIndex={-1}>このピンの掲載 <span>{entries.length}件</span></h2>
      <p className="map-detail-description">詳細を見たい掲載を選んでください。</p>
-     <div className="map-detail-choices">{entries.map(entry=><button type="button" key={entry.id} onClick={()=>setSelectedId(entry.id)}><span><small>{mapKinds[entry.kind].label}</small><strong>{entry.title}</strong><span>{entry.area}</span></span><ArrowRight size={18}/></button>)}</div>
+     <div className="map-detail-choices">{entries.map(entry=><button type="button" key={entry.id} className="member-surface" data-rank-theme={entry.pointRank?.tier} onClick={()=>setSelectedId(entry.id)}><span><small>{mapKinds[entry.kind].label}</small><strong>{entry.title}</strong><span>{entry.area}</span></span><ArrowRight size={18}/></button>)}</div>
     </>}
    </div>
    <footer className="map-detail-footer"><button type="button" onClick={dismiss}>閉じる</button></footer>

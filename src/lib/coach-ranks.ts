@@ -1,10 +1,10 @@
 export type CoachRank='platinum'|'gold'|'silver'|'bronze';
 export type CoachRankInfo={rank:CoachRank;completedLessons:number};
 export const coachRankRates:Record<CoachRank,{label:string;minLessons:number;priceYen:number;coachPayoutYen:number}>={
- platinum:{label:'プラチナ',minLessons:100,priceYen:7000,coachPayoutYen:5000},
- gold:{label:'ゴールド',minLessons:30,priceYen:5000,coachPayoutYen:4000},
- silver:{label:'シルバー',minLessons:10,priceYen:4000,coachPayoutYen:3000},
- bronze:{label:'ブロンズ',minLessons:0,priceYen:3000,coachPayoutYen:2000},
+ platinum:{label:'プロ',minLessons:100,priceYen:7000,coachPayoutYen:5000},
+ gold:{label:'セミプロ',minLessons:30,priceYen:5000,coachPayoutYen:4000},
+ silver:{label:'アマチュア',minLessons:10,priceYen:4000,coachPayoutYen:3000},
+ bronze:{label:'ビギナー',minLessons:0,priceYen:3000,coachPayoutYen:2000},
 };
 // コーチ一覧 FR-02: 受講者が完了確認した累計件数だけを対象とする。
 export function coachRankForLessons(count:number):CoachRank{

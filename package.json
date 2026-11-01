@@ -11,7 +11,9 @@
     "check:env": "node scripts/check-env.mjs",
     "check:connection": "node scripts/check-connection.mjs",
     "prepare:development": "tsx scripts/prepare-development.ts",
-    "seed:facilities": "tsx scripts/seed-nationwide-facilities.ts"
+    "seed:facilities": "tsx scripts/seed-nationwide-facilities.ts",
+    "prepare:coach-ranks": "tsx scripts/prepare-coach-rank-fixtures.ts",
+    "setup:avatars": "tsx scripts/setup-avatar-storage.ts"
   },
   "engines": {
     "node": ">=22"

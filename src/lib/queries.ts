@@ -5,16 +5,28 @@ import type {Post,Profile,PostCardData,Coach,Plan,Consultation,Comment,Facility,
 import {makeMapEntries} from './fishing-map';
 import {getPostPhotoPaths} from './post-photos';
 import {priceRankedPlan,type CoachRankInfo} from './coach-ranks';
+import {pointRankFromTierLevel,type PointRank} from './points';
 
 function rankSetupMissing(error:{code?:string}|null){return !!error&&['PGRST202','PGRST205','42P01','42883'].includes(error.code||'');}
 // コーチ一覧 FR-02: 未適用のDBを実績0件・ブロンズとして扱わない。
-async function getCoachRanks(ids:string[]):Promise<Map<string,CoachRankInfo>|null>{
+export async function getCoachRanks(ids:string[]):Promise<Map<string,CoachRankInfo>|null>{
  if(!ids.length)return new Map();
  const db=await createClient(),ranks=new Map<string,CoachRankInfo>();
  for(let offset=0;offset<ids.length;offset+=200){
   const result=await db.rpc('get_coach_rankings',{p_coach_ids:ids.slice(offset,offset+200)});
   if(rankSetupMissing(result.error))return null;assertQuery(result.error);
   for(const row of result.data||[])ranks.set(row.coach_id,{rank:row.rank,completedLessons:Number(row.completed_lessons)});
+ }
+ return ranks;
+}
+// ADR-012: 残高は返さず階級・Lvだけを公開情報として会員名の横に表示する。未適用のDBではnullを返し、ランク非表示に扱う。
+export async function getPointRanks(ids:string[]):Promise<Map<string,PointRank>|null>{
+ if(!ids.length)return new Map();
+ const db=await createClient(),ranks=new Map<string,PointRank>();
+ for(let offset=0;offset<ids.length;offset+=200){
+  const result=await db.rpc('get_point_ranks',{p_user_ids:ids.slice(offset,offset+200)});
+  if(rankSetupMissing(result.error))return null;assertQuery(result.error);
+  for(const row of result.data||[]){const rank=pointRankFromTierLevel(row);if(rank)ranks.set(row.user_id,rank);}
  }
  return ranks;
 }
@@ -31,25 +43,29 @@ export async function getFacilities({kind,onlyPublished=true}:{kind?:FacilityKin
 export async function getFishingMap(){
  const db=await createClient();
  const [posts,coaches,facilities]=await Promise.all([
-  db.from('posts').select('id,title,area,is_public,category,species,fished_on,size_cm,memo,method,rod,reel,lure',{count:'exact'}).eq('is_public',true).order('created_at',{ascending:false}).order('id').limit(200),
+  db.from('posts').select('id,user_id,title,area,is_public,category,species,fished_on,size_cm,memo,method,rod,reel,lure',{count:'exact'}).eq('is_public',true).order('created_at',{ascending:false}).order('id').limit(200),
   getCoaches(),
   getFacilities(),
  ]);
  assertQuery(posts.error);
- return {entries:makeMapEntries(posts.data||[],coaches,facilities),totalCatches:posts.count||0};
+ let pointRanks:Map<string,PointRank>|null=null;
+ try{pointRanks=await getPointRanks([...new Set((posts.data||[]).map(post=>post.user_id))]);}catch{/* Keep map listings available when only rank colors fail. */}
+ return {entries:makeMapEntries((posts.data||[]).map(post=>({...post,pointRank:pointRanks?.get(post.user_id)||null})),coaches,facilities),totalCatches:posts.count||0};
 }
 export async function enrichPosts(posts:Post[]):Promise<PostCardData[]>{
- if(!posts.length)return [];const db=await createClient(),viewer=await getViewer(),ids=posts.map(p=>p.id);
- const [profiles,stats,likes,bookmarks]=await Promise.all([
-   db.from('profiles').select('*').in('id',[...new Set(posts.map(p=>p.user_id))]),
+ if(!posts.length)return [];const db=await createClient(),viewer=await getViewer(),ids=posts.map(p=>p.id),authorIds=[...new Set(posts.map(p=>p.user_id))];
+ const [profiles,stats,likes,bookmarks,coachRanks,pointRanks]=await Promise.all([
+   db.from('profiles').select('*').in('id',authorIds),
    db.from('post_stats').select('*').in('post_id',ids),
    viewer?db.from('post_likes').select('post_id').eq('user_id',viewer.id).in('post_id',ids):Promise.resolve({data:[],error:null}),
-   viewer?db.from('bookmarks').select('post_id').eq('user_id',viewer.id).in('post_id',ids):Promise.resolve({data:[],error:null})
+   viewer?db.from('bookmarks').select('post_id').eq('user_id',viewer.id).in('post_id',ids):Promise.resolve({data:[],error:null}),
+   getCoachRanks(authorIds),
+   getPointRanks(authorIds),
  ]);[profiles,stats,likes,bookmarks].forEach(r=>assertQuery(r.error));
  const paths=[...new Set(posts.flatMap(getPostPhotoPaths))];
  const images=paths.length?await db.storage.from('catch-photos').createSignedUrls(paths,3600):{data:[],error:null};
  if(images.error)console.error('Photo URLs could not be created:',images.error.message);
- return posts.map(p=>({...p,profile:(profiles.data as Profile[]).find(x=>x.id===p.user_id)||null,imageUrl:images.data?.find(x=>x.path===getPostPhotoPaths(p)[0])?.signedUrl||null,imageUrls:getPostPhotoPaths(p).map(path=>images.data?.find(x=>x.path===path)?.signedUrl).filter((url):url is string=>Boolean(url)),likeCount:stats.data?.find(x=>x.post_id===p.id)?.like_count||0,commentCount:stats.data?.find(x=>x.post_id===p.id)?.comment_count||0,liked:!!likes.data?.some(x=>x.post_id===p.id),bookmarked:!!bookmarks.data?.some(x=>x.post_id===p.id)}));
+ return posts.map(p=>({...p,profile:(profiles.data as Profile[]).find(x=>x.id===p.user_id)||null,imageUrl:images.data?.find(x=>x.path===getPostPhotoPaths(p)[0])?.signedUrl||null,imageUrls:getPostPhotoPaths(p).map(path=>images.data?.find(x=>x.path===path)?.signedUrl).filter((url):url is string=>Boolean(url)),likeCount:stats.data?.find(x=>x.post_id===p.id)?.like_count||0,commentCount:stats.data?.find(x=>x.post_id===p.id)?.comment_count||0,liked:!!likes.data?.some(x=>x.post_id===p.id),bookmarked:!!bookmarks.data?.some(x=>x.post_id===p.id),coachRank:coachRanks?.get(p.user_id)||null,pointRank:pointRanks?.get(p.user_id)||null}));
 }
 export async function getFeed({category,q,page=1,userId,following=false,saved=false}:{category?:string;q?:string;page?:number;userId?:string;following?:boolean;saved?:boolean}={}){
  const db=await createClient(),viewer=await getViewer();let query=db.from('posts').select('*',{count:'exact'}).order('created_at',{ascending:false}).order('id');
@@ -67,18 +83,23 @@ export async function getFeed({category,q,page=1,userId,following=false,saved=fa
  assertQuery(error);return{posts:await enrichPosts(data as Post[]),count:count||0};
 }
 export async function getPost(id:string){const db=await createClient();const {data,error}=await db.from('posts').select('*').eq('id',id).maybeSingle();assertQuery(error);return data?(await enrichPosts([data as Post]))[0]:null;}
-export async function getComments(postId:string){const db=await createClient();const {data,error}=await db.from('comments').select('*').eq('post_id',postId).order('created_at').limit(100);assertQuery(error);if(!data?.length)return[];const profiles=await db.from('profiles').select('*').in('id',[...new Set(data.map(x=>x.user_id))]);assertQuery(profiles.error);return(data as Comment[]).map(c=>({...c,profile:(profiles.data as Profile[]).find(p=>p.id===c.user_id)||null}));}
+export async function getComments(postId:string){
+ const db=await createClient();const {data,error}=await db.from('comments').select('*').eq('post_id',postId).order('created_at').limit(100);assertQuery(error);if(!data?.length)return[];
+ const authorIds=[...new Set(data.map(x=>x.user_id))],[profiles,coachRanks,pointRanks]=await Promise.all([db.from('profiles').select('*').in('id',authorIds),getCoachRanks(authorIds),getPointRanks(authorIds)]);
+ assertQuery(profiles.error);
+ return(data as Comment[]).map(c=>({...c,profile:(profiles.data as Profile[]).find(p=>p.id===c.user_id)||null,coachRank:coachRanks?.get(c.user_id)||null,pointRank:pointRanks?.get(c.user_id)||null}));
+}
 export async function getCoaches(category?:string){
  const db=await createClient();let query=db.from('coach_profiles').select('*').eq('status','approved').order('created_at',{ascending:false});if(category)query=query.eq('category',category);
  const coaches=await query;assertQuery(coaches.error);if(!coaches.data?.length)return[];
- const ids=coaches.data.map(c=>c.user_id),[profiles,plans,ranks]=await Promise.all([db.from('profiles').select('*').in('id',ids),db.from('coaching_plans').select('*').eq('is_active',true).in('coach_id',ids),getCoachRanks(ids)]);
+ const ids=coaches.data.map(c=>c.user_id),[profiles,plans,ranks,pointRanks]=await Promise.all([db.from('profiles').select('*').in('id',ids),db.from('coaching_plans').select('*').eq('is_active',true).in('coach_id',ids),getCoachRanks(ids),getPointRanks(ids)]);
  assertQuery(profiles.error);assertQuery(plans.error);
  return (coaches.data as Coach[]).map(coach=>{
   const rankInfo=ranks?.get(coach.user_id)||null;
-  return {...coach,rankInfo,profile:(profiles.data as Profile[]).find(p=>p.id===coach.user_id)||null,plans:(plans.data as Plan[]).filter(p=>p.coach_id===coach.user_id).map(plan=>priceRankedPlan(plan,rankInfo?.rank||null))};
+  return {...coach,rankInfo,pointRank:pointRanks?.get(coach.user_id)||null,profile:(profiles.data as Profile[]).find(p=>p.id===coach.user_id)||null,plans:(plans.data as Plan[]).filter(p=>p.coach_id===coach.user_id).map(plan=>priceRankedPlan(plan,rankInfo?.rank||null))};
  }).sort((a,b)=>(b.rankInfo?.completedLessons??-1)-(a.rankInfo?.completedLessons??-1)||a.user_id.localeCompare(b.user_id));
 }
-export async function getCoach(id:string){const db=await createClient();const {data,error}=await db.from('coach_profiles').select('*').eq('user_id',id).maybeSingle();assertQuery(error);if(!data)return null;const ranks=await getCoachRanks([id]);return {...data,rankInfo:ranks?.get(id)||null} as Coach;}
+export async function getCoach(id:string){const db=await createClient();const {data,error}=await db.from('coach_profiles').select('*').eq('user_id',id).maybeSingle();assertQuery(error);if(!data)return null;const [ranks,pointRanks]=await Promise.all([getCoachRanks([id]),getPointRanks([id])]);return {...data,rankInfo:ranks?.get(id)||null,pointRank:pointRanks?.get(id)||null} as Coach;}
 export async function getPlans(id:string){const db=await createClient();const [{data,error},ranks]=await Promise.all([db.from('coaching_plans').select('*').eq('coach_id',id).order('created_at'),getCoachRanks([id])]);assertQuery(error);return (data as Plan[]).map(plan=>priceRankedPlan(plan,ranks?.get(id)?.rank||null));}
 export async function getPlan(id:string){const db=await createClient();const {data,error}=await db.from('coaching_plans').select('*').eq('id',id).eq('is_active',true).maybeSingle();assertQuery(error);if(!data)return null;const ranks=await getCoachRanks([data.coach_id]);return priceRankedPlan(data as Plan,ranks?.get(data.coach_id)?.rank||null);}
 export async function getRequests(userId:string):Promise<Consultation[]>{

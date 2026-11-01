@@ -1,6 +1,8 @@
 'use server';
 import {randomUUID} from 'node:crypto';
 import {encodePhoto} from '@/lib/photo';
+import {encodeAvatarFile} from '@/lib/avatar-image';
+import {saveOwnAvatar,removeOwnAvatar} from '@/lib/avatar-storage';
 import {validatePhotoFiles,getPostPhotoPaths,savePhotoBatch} from '@/lib/post-photos';
 import {redirect} from 'next/navigation';
 import {revalidatePath} from 'next/cache';
@@ -10,6 +12,7 @@ import {isConfigured,siteOrigin} from '@/lib/env';
 import {safeReturnTo,canTransition,type Consultation} from '@/lib/domain';
 import {authErrorDetails,authErrorMessage} from '@/lib/auth-errors';
 import {registerAccount} from '@/lib/registration';
+import {setPointsRankingOptIn} from '@/lib/point-queries';
 import {loginSchema,signupSchema,profileSchema,postSchema,coachSchema,planSchema,consultationSchema,idSchema,type ActionState} from '@/lib/validation';
 
 function failure(error:{code?:string;message?:string}):ActionState{
@@ -49,6 +52,29 @@ export async function resetPassword(_:ActionState,form:FormData):Promise<ActionS
 export async function updateProfile(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer('/settings'),parsed=profileSchema.safeParse(fields(form));if(!parsed.success)return{error:parsed.error.issues[0].message};const db=await createClient();
  const {error}=await db.from('profiles').update(parsed.data).eq('id',user.id);if(error)return failure(error);revalidatePath('/');revalidatePath('/settings');return{success:'プロフィールを保存しました。'};
+}
+export async function updateAvatar(_:ActionState,form:FormData):Promise<ActionState>{
+ const user=await requireViewer('/settings'),file=form.get('avatar');
+ if(!(file instanceof File)||!file.size)return {error:'プロフィール画像を選んでください。'};
+ let image:Buffer;
+ try{image=await encodeAvatarFile(file);}catch{return {error:'画像を読み込めませんでした。5MB以下のJPEG・PNG・WebPの静止画像を選んでください。'};}
+ try{await saveOwnAvatar(user.id,image);}catch{return {error:'プロフィール画像を保存できませんでした。時間をおいて再度お試しください。'};}
+ revalidatePath('/','layout');
+ return {success:'プロフィール画像を保存しました。'};
+}
+export async function deleteAvatar(_:ActionState,_form:FormData):Promise<ActionState>{
+ const user=await requireViewer('/settings');
+ try{await removeOwnAvatar(user.id);}catch{return {error:'プロフィール画像を削除できませんでした。時間をおいて再度お試しください。'};}
+ revalidatePath('/','layout');
+ return {success:'デフォルトの画像に戻しました。'};
+}
+// ポイントランキング: 本人のランキング参加設定だけを切り替える。
+export async function updatePointsRankingOptIn(_:ActionState,form:FormData):Promise<ActionState>{
+ await requireViewer('/settings');
+ try{await setPointsRankingOptIn(form.get('ranking_opt_in')==='on');}
+ catch(error){return failure(error as {code?:string;message?:string});}
+ revalidatePath('/settings');revalidatePath('/points');revalidatePath('/points/ranking');
+ return{success:'ランキングの参加設定を保存しました。'};
 }
 export async function createPost(_:ActionState,form:FormData):Promise<ActionState>{
  const user=await requireViewer('/posts/new'),parsed=postSchema.safeParse({...fields(form),is_public:form.get('is_public')==='on'});if(!parsed.success)return{error:parsed.error.issues[0].message};

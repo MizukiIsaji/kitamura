@@ -6,7 +6,7 @@ import {mainNavigation,activeNavigationHref} from '@/lib/navigation';
 const icons={map:Map,feed:Grid2X2,create:Plus,records:BookOpen,coach:Compass,requests:MessageCircle,points:Coins};
 export function NavLinks({variant='sidebar'}:{variant?:'sidebar'|'mobile'}){
  const active=activeNavigationHref(usePathname());
- const items=variant==='mobile'?mainNavigation.filter(item=>item.icon!=='points'):mainNavigation;
+ const items=mainNavigation;
  return <nav className={variant==='mobile'?'mobile-nav':'nav-links'} aria-label={variant==='mobile'?'モバイルナビゲーション':'メインナビゲーション'}>{items.map(item=>{
   const Icon=icons[item.icon],current=active===item.href;
   const className=[variant==='mobile'&&item.icon==='create'?'mobile-create':'',current?'active':''].filter(Boolean).join(' ');

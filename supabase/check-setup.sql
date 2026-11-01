@@ -112,6 +112,28 @@ checks(section,item,ok) as (
   and not coalesce(has_table_privilege('authenticated',to_regclass('public.coaching_request_compensation'),'INSERT,UPDATE,DELETE'),false)
   and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_completions') and tgname='completions_refresh_prices' and not tgisinternal)
   and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_requests') and tgname='requests_compensation_snapshot' and not tgisinternal)
+  union all
+  select '12. 相談通知','本人限定の既読管理と自動作成',exists(
+    select 1 from pg_class where oid=to_regclass('public.notifications') and relrowsecurity
+  ) and exists(
+    select 1 from pg_policies where schemaname='public' and tablename='notifications' and policyname='notifications_read'
+  ) and exists(
+    select 1 from pg_policies where schemaname='public' and tablename='notifications' and policyname='notifications_mark_read'
+  ) and coalesce(has_table_privilege('authenticated',to_regclass('public.notifications'),'SELECT'),false)
+  and not coalesce(has_table_privilege('authenticated',to_regclass('public.notifications'),'INSERT,DELETE'),false)
+  and coalesce(has_column_privilege('authenticated',to_regclass('public.notifications'),'read_at','UPDATE'),false)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_requests') and tgname='requests_notify_created' and not tgisinternal)
+  and exists(select 1 from pg_trigger where tgrelid=to_regclass('public.coaching_requests') and tgname='requests_notify_status' and not tgisinternal)
+  union all
+  select '13. ポイントランキング','参加設定と当月集計の限定公開',exists(
+    select 1 from pg_attribute where attrelid=to_regclass('public.point_accounts') and attname='ranking_opt_in' and attnotnull and not attisdropped
+  ) and coalesce(has_function_privilege('anon',to_regprocedure('public.get_points_ranking()'),'EXECUTE'),false)
+  and coalesce(has_function_privilege('authenticated',to_regprocedure('public.set_points_ranking_opt_in(boolean)'),'EXECUTE'),false)
+  and not coalesce(has_function_privilege('anon',to_regprocedure('public.set_points_ranking_opt_in(boolean)'),'EXECUTE'),false)
+  union all
+  select '14. ポイントランク公開','残高を返さず階級・Lvだけを公開する',
+   coalesce(has_function_privilege('anon',to_regprocedure('public.get_point_ranks(uuid[])'),'EXECUTE'),false)
+   and coalesce(has_function_privilege('authenticated',to_regprocedure('public.get_point_ranks(uuid[])'),'EXECUTE'),false)
 )
 select section as "項目",
        case when bool_and(ok) then 'OK' else '要確認' end as "結果",
