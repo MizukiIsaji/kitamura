@@ -8,10 +8,8 @@ export const mainNavigation=[
  {href:'/requests',label:'相談',icon:'requests'},
  {href:'/points',label:'ポイント',icon:'points'},
 ] as const;
-// 共通ナビ FR-01.4: スマホ下部メニューはトップページを先頭に表示する（PCサイドメニューとは順序が異なる）。
-export const mobileNavigation=[
- mainNavigation[1],mainNavigation[0],...mainNavigation.slice(2),
-] as const;
+// 共通ナビ FR-01.4: スマホ下部メニューにトップページは含めない（ヘッダーのアイコンから移動する）。
+export const mobileNavigation=mainNavigation.filter(item=>item.icon!=='home');
 export function activeNavigationHref(path:string){
  return mainNavigation.filter(item=>item.href==='/'?path==='/':path===item.href||path.startsWith(item.href+'/')).sort((a,b)=>b.href.length-a.href.length)[0]?.href;
 }
